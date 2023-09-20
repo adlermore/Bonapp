@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React , { useEffect } from "react";
+import Welcome from './pages/Welcome';
+import HomePage from './pages/HomePage';
+// import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import './App.scss';
+
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
+
+  useEffect(() => {
+    if(document.getElementsByClassName('welcome_page').length>0) {
+      document.body.style.overflow = 'hidden';
+    }else{
+      document.body.style.overflow = 'auto';
+    }
+  },[]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='page-wrapper'>
+      {/* <Header /> */}
+      <Routes>
+        <Route path="/" element={<Welcome />} /> 
+        <Route path="/home" element={<HomePage />} /> 
+      </Routes>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,306 @@
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?yaj6al');
+    src: url('../fonts/icomoon.eot?yaj6al#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?yaj6al') format('truetype'),
+        url('../fonts/icomoon.woff?yaj6al') format('woff'),
+        url('../fonts/icomoon.svg?yaj6al#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-props .path1:before {
+    content: "\e900";
+    color: rgb(0, 69, 124);
+}
+
+.icon-props .path2:before {
+    content: "\e901";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-props .path3:before {
+    content: "\e903";
+    margin-left: -1em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-props .path4:before {
+    content: "\e904";
+    margin-left: -1em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-props .path5:before {
+    content: "\e907";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-props .path6:before {
+    content: "\e909";
+    margin-left: -1em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-props .path7:before {
+    content: "\e90a";
+    margin-left: -1em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-props .path8:before {
+    content: "\e90b";
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-props .path9:before {
+    content: "\e90c";
+    margin-left: -1em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-heart:before {
+    content: "\e90f";
+    color: #00457c;
+}
+
+.icon-list .path1:before {
+    content: "\e910";
+    color: rgb(0, 69, 124);
+}
+
+.icon-list .path2:before {
+    content: "\e911";
+    margin-left: -1.0771484375em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-list .path3:before {
+    content: "\e912";
+    margin-left: -1.0771484375em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-list .path4:before {
+    content: "\e913";
+    margin-left: -1.0771484375em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-list .path5:before {
+    content: "\e914";
+    margin-left: -1.0771484375em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-list .path6:before {
+    content: "\e915";
+    margin-left: -1.0771484375em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-list .path7:before {
+    content: "\e916";
+    margin-left: -1.0771484375em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-list .path8:before {
+    content: "\e917";
+    margin-left: -1.0771484375em;
+    color: rgb(255, 255, 255);
+}
+
+.icon-list .path9:before {
+    content: "\e918";
+    margin-left: -1.0771484375em;
+    color: rgb(0, 69, 124);
+}
+
+.icon-back:before {
+    content: "\e923";
+}
+
+.icon-down:before {
+    content: "\e902";
+}
+
+.icon-done:before {
+    content: "\e905";
+}
+
+.icon-whatch:before {
+    content: "\e906";
+    color: #b3b3b3;
+}
+
+.icon-plus:before {
+    content: "\e908";
+}
+
+
+@mixin standardList() {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+@mixin slider() {
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+    overflow: hidden;
+}
+
+@mixin hoverGradient() {
+    transition: 0.5s !important;
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, #5CEAD1 0%, #1F9BF2 70%, #5CEAD1 100%);
+
+    &:hover {
+        opacity: 1;
+        color: #f1f1f1;
+        background-position: right center;
+    }
+}
+
+@mixin slide() {
+    display: inline-block;
+    white-space: normal;
+    font-size: 1rem;
+}
+
+@mixin centerCover() {
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+@mixin animStyle($parameters) {
+    -o-transition: $parameters;
+    -ms-transition: $parameters;
+    -moz-transition: $parameters;
+    -webkit-transition: $parameters;
+    transition: $parameters;
+}
+
+@mixin animStyles($param1, $param2) {
+    -o-transition: $param1, $param2;
+    -ms-transition: $param1, $param2;
+    -moz-transition: $param1, $param2;
+    -webkit-transition: $param1, $param2;
+    transition: $param1, $param2;
+}
+
+@mixin transStyle($parameters) {
+    transform: $parameters;
+    -moz-transform: $parameters;
+    -ms-transform: $parameters;
+    -webkit-transform: $parameters;
+    -o-transform: $parameters;
+}
+
+@mixin torigin($parameters) {
+    transform-origin: $parameters;
+    -webkit-transfrom-origin: $parameters;
+}
+
+@mixin animDelay($parameters) {
+    -o-transition-delay: $parameters;
+    -ms-transition-delay: $parameters;
+    -moz-transition-delay: $parameters;
+    -webkit-transition-delay: $parameters;
+    transition-delay: $parameters;
+}
+
+@mixin dropArrow() {
+    color: inherit;
+    border-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+@mixin overHidden() {
+    position: relative;
+    overflow: hidden;
+}
+
+@mixin psevdoAbs() {
+    display: block;
+    content: "";
+    position: absolute;
+}
+
+@mixin maskedInput() {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+@mixin colCount($col) {
+    -moz-column-count: $col;
+    -webkit-column-count: $col;
+    column-count: $col;
+}
+
+@mixin colGap($gap) {
+    -webkit-column-gap: $gap;
+    -moz-column-gap: $gap;
+    column-gap: $gap;
+}
+
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content
+    }
+
+    :-moz-placeholder {
+        @content
+    }
+
+    ::-moz-placeholder {
+        @content
+    }
+
+    :-ms-input-placeholder {
+        @content
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@mixin hoverEffect {
+    transition: 0.3s;
+    opacity: 1;
+    color: $red !important;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}

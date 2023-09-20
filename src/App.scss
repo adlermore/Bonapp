@@ -1,0 +1,84 @@
+@import "./assets/scss/variables";
+@import "./assets/scss/mixins";
+@import "./assets/scss/header";
+@import "./assets/scss/footer";
+
+.custom_container{
+  max-width: 1139px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+*{
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+.uk-navbar-nav {
+  gap: 0 !important;
+}
+
+
+body{
+  background: $white;
+  position: relative;
+  min-height: 100vh;
+}
+
+body {
+  color: $siteColor;
+}
+
+a {
+  color: $siteColor;
+  transition: 0.3s;
+  text-decoration: none;
+  &:hover {
+      text-decoration: none !important;
+      opacity: 0.7;
+  }
+}
+
+a{
+  background: transparent;
+  text-transform: none !important;
+  outline: none !important;
+  &:hover{
+    outline: none !important;
+  }
+}
+
+.each-slide>div {
+  width: 100%;
+}
+
+.each-slide>div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bonapp_slider{
+  height: 100vh !important;
+  position: relative;
+}
+
+.site_btn{
+  background: #717D96;
+  max-width: 223px;
+  width: 100%;
+  height: 50px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: $white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 24px;
+}
+.welcome_btn{
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 310px;
+  transform: translate(-50%, -50%);
+}

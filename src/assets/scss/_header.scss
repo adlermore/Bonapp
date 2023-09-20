@@ -1,0 +1,44 @@
+.page_header{
+    position: absolute;
+    z-index: 40;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    background: rgba($white, 0.4);
+    .header_inner{
+        width: 100%;
+    }
+    .header_container{
+        display: flex;
+        padding: 0 40px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo_block{
+        height: 48px;
+        width: 118px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        background: rgba(45, 54, 72, 1);
+        color: $white;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .header_menu{
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        align-items: center;
+        li{
+            margin-left: 20px;
+            height: 24px;
+            width: 118px;
+            border-radius: 5px;
+            background: rgba(45, 54, 72, 0.5);
+        }
+    }
+}
