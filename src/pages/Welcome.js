@@ -26,7 +26,6 @@ const Welcome = () => {
     const [SliderArr, setSliderArr] = useState();
 
     const slideList = useRef();
-
     const progress = useRef();
 
     useEffect(() => {
@@ -58,10 +57,10 @@ const Welcome = () => {
             velocity: -0.01
         },
     });
-    console.log('true');
-    return (
-        <div className="welcome_page">
 
+    return (
+     
+        <div className="welcome_page">
             <div className='slide_list' ref={slideList}>
                 <animated.div className="each-slide current_slider" style={{ background: `url(${bg1}) no-repeat center` }}>
                     <div className="slide_description">
@@ -162,7 +161,6 @@ const Welcome = () => {
             <animated.div className="progress_nav" ref={progress} style={{ transform }}>
                 <span className='active-circle'></span>
             </animated.div>
-
             <div className="decor_line"></div>
             <Link to="/home" className='site_btn welcome_btn'>Get Started</Link>
         </div>
