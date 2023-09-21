@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useEffect, memo } from 'react';
+import React, { useState, useRef, memo } from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/scss/MainSlider/_mainSlider.scss'
 import bg1 from '../assets/img/bg1.jpg';
@@ -22,29 +22,17 @@ import { useSpring, animated } from 'react-spring';
 
 
 const Welcome = () => {
+    const [isLoggedIn, setisLoggedIn] = useState('current1');
     const [rotate, setRotate] = useState(-54);
-    const [SliderArr, setSliderArr] = useState();
+    const [SliderCurrent, setSliderCurrent] = useState(1);
 
     const slideList = useRef();
     const progress = useRef();
 
-    useEffect(() => {
-        setSliderArr(slideList.current.children)
-    }, [])
-
     let mainSliderRotate = (num, rotateNum) => {
         if (rotateNum !== rotate) {
             setRotate(rotateNum);
-            let SliderNewArr = [].slice.call(SliderArr);
-            setTimeout(() => {
-                SliderNewArr.forEach(element => {
-                    element.classList.remove('current_slider')
-                    return element
-                });
-                requestAnimationFrame(() => {
-                    SliderArr[num - 1].classList.add('current_slider');
-                });
-            }, 500);
+            setSliderCurrent(num)
         }
     }
 
@@ -55,14 +43,18 @@ const Welcome = () => {
             tension: 600,
             precision: 0.5,
             velocity: -0.01
-        },
+        },onRest: () => {
+            setTimeout(() => {
+                setisLoggedIn('current'+SliderCurrent)
+            });
+        }
     });
 
     return (
      
         <div className="welcome_page">
             <div className='slide_list' ref={slideList}>
-                <animated.div className="each-slide current_slider" style={{ background: `url(${bg1}) no-repeat center` }}>
+                <div className={isLoggedIn === 'current1' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg1}) no-repeat center` }}>
                     <div className="slide_description">
                         With the help of innovative technologies, we maintain the maximum taste and useful nutrients of fruits,
                         berries, and vegetables in juices, nectars, fruit drinks, and compotes. Product manufacturing is in
@@ -78,8 +70,8 @@ const Welcome = () => {
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle1} alt='circle-img' />
                     </animated.div>
-                </animated.div>
-                <animated.div className="each-slide" style={{ background: `url(${bg2}) no-repeat center` }}>
+                </div>
+                <div className={isLoggedIn === 'current2' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg2}) no-repeat center` }}>
                     <div className="slide_description">
                         Text artificial flavors, in juices, nectars, fruit drinks, and compotes.
                         Product manufacturing is strict accordance with GOST, without the addition of
@@ -96,8 +88,8 @@ const Welcome = () => {
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle2} alt='circle-img' />
                     </animated.div>
-                </animated.div>
-                <animated.div className="each-slide" style={{ background: `url(${bg3}) no-repeat center` }}>
+                </div>
+                <div className={isLoggedIn === 'current3' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg3}) no-repeat center` }}>
                     <div className="slide_description">
                         ithout the addition of pr which is
                         essential for proper and healthy nutrition.
@@ -105,8 +97,8 @@ const Welcome = () => {
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle3} alt='circle-img' />
                     </animated.div>
-                </animated.div>
-                <animated.div className="each-slide" style={{ background: `url(${bg4}) no-repeat center` }}>
+                </div>
+                <div className={isLoggedIn === 'current4' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg4}) no-repeat center` }}>
                     <div className="slide_description">
                         Text artificial flavors, in juices, nectars, fruit drinks, and compotes.
                         Product manufacturing is strict accordance with GOST, without the addition of pr which is
@@ -115,7 +107,7 @@ const Welcome = () => {
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle4} alt='circle-img' />
                     </animated.div>
-                </animated.div>
+                </div>
             </div>
 
             <div className="navigation_circle">
