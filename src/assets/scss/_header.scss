@@ -6,6 +6,9 @@
     display: flex;
     align-items: center;
     background: rgba($white, 0.4);
+    &.header_relative{
+        position: relative;
+    }
     .header_inner{
         width: 100%;
     }

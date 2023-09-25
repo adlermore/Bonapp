@@ -1,7 +1,9 @@
 
-import React, { useState, useRef, memo } from 'react';
+import React, { useState, memo } from 'react';
 import { Link } from 'react-router-dom';
+import { useSpring, animated } from 'react-spring';
 import '../assets/scss/MainSlider/_mainSlider.scss'
+
 import bg1 from '../assets/img/bg1.jpg';
 import bg2 from '../assets/img/bg2.jpg';
 import bg3 from '../assets/img/bg3.jpg';
@@ -18,7 +20,6 @@ import decor5 from '../assets/img/decor/decor5.png';
 import decor6 from '../assets/img/decor/decor6.png';
 import decor7 from '../assets/img/decor/decor7.png';
 import decor8 from '../assets/img/decor/decor8.png';
-import { useSpring, animated } from 'react-spring';
 
 
 const Welcome = () => {
@@ -26,11 +27,9 @@ const Welcome = () => {
     const [rotate, setRotate] = useState(-54);
     const [SliderCurrent, setSliderCurrent] = useState(1);
 
-    const slideList = useRef();
-    const progress = useRef();
-
-    let mainSliderRotate = (num, rotateNum) => {
+    let mainSliderRotate = (evt, num, rotateNum) => {
         if (rotateNum !== rotate) {
+            console.log();
             setRotate(rotateNum);
             setSliderCurrent(num)
         }
@@ -43,17 +42,16 @@ const Welcome = () => {
             tension: 600,
             precision: 0.5,
             velocity: -0.01
-        },onRest: () => {
+        }, onRest: () => {
             setTimeout(() => {
-                setisLoggedIn('current'+SliderCurrent)
+                setisLoggedIn('current' + SliderCurrent)
             });
         }
     });
 
     return (
-     
         <div className="welcome_page">
-            <div className='slide_list' ref={slideList}>
+            <div className='slide_list'>
                 <div className={isLoggedIn === 'current1' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg1}) no-repeat center` }}>
                     <div className="slide_description">
                         With the help of innovative technologies, we maintain the maximum taste and useful nutrients of fruits,
@@ -109,17 +107,16 @@ const Welcome = () => {
                     </animated.div>
                 </div>
             </div>
-
             <div className="navigation_circle">
                 <div className='navigation_buttons'>
-                    <button className='navigate-1' onClick={() => mainSliderRotate(1, -54)}>
+                    <button className={isLoggedIn==='current1' ? 'navigate-1 active' : 'navigate-1'}  onClick={(evt) => mainSliderRotate(evt, 1, -54)}>
                         <span>C</span>
                         <span>A</span>
                         <span>F</span>
                         <span>F</span>
                         <span>E</span>
                     </button>
-                    <button className='navigate-2' onClick={() => mainSliderRotate(2, -22)}>
+                    <button className={isLoggedIn==='current2' ? 'navigate-2 active' : 'navigate-2'} onClick={(evt) => mainSliderRotate(evt, 2, -22)}>
                         <span>R</span>
                         <span>E</span>
                         <span>S</span>
@@ -131,13 +128,13 @@ const Welcome = () => {
                         <span>N</span>
                         <span>T</span>
                     </button>
-                    <button className='navigate-3' onClick={() => mainSliderRotate(3, 23)}>
+                    <button className={isLoggedIn==='current3' ? 'navigate-3 active' : 'navigate-3'} onClick={(evt) => mainSliderRotate(evt, 3, 23)}>
                         <span>F</span>
                         <span>O</span>
                         <span>O</span>
                         <span>D</span>
                     </button>
-                    <button className='navigate-4' onClick={() => mainSliderRotate(4, 55)}>
+                    <button className={isLoggedIn==='current4' ? 'navigate-4 active' : 'navigate-4'} onClick={(evt) => mainSliderRotate(evt, 4, 55)}>
                         <span>L</span>
                         <span>U</span>
                         <span>N</span>
@@ -150,7 +147,7 @@ const Welcome = () => {
                     </button>
                 </div>
             </div>
-            <animated.div className="progress_nav" ref={progress} style={{ transform }}>
+            <animated.div className="progress_nav" style={{ transform }}>
                 <span className='active-circle'></span>
             </animated.div>
             <div className="decor_line"></div>
