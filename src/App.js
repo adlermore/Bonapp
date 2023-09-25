@@ -1,25 +1,30 @@
-import React, { useEffect , useState} from "react";
+import React, { useEffect, useState } from "react";
+import {Route, Routes , useLocation} from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import HomePage from './pages/HomePage';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.scss';
 
-import { Route, Routes } from 'react-router-dom';
-
 function App() {
   const [loading, setLoading] = useState(true);
+  const [WelcomPageToggle, setWelcomPageToggle] = useState(true);
+
+  const location = useLocation();
 
   useEffect(() => {
-    if (document.getElementsByClassName('welcome_page').length > 0) {
+    const currentPath = location.pathname;
+    if (currentPath === '/') {
       document.body.style.overflow = 'hidden';
+      setWelcomPageToggle(false)
     } else {
       document.body.style.overflow = 'auto';
+      setWelcomPageToggle(true)
     }
-    setTimeout(()=>{
+    setTimeout(() => {
       setLoading(false)
-    },5000)
-  }, []);
+    }, 1500)
+  }, [location.pathname]);
 
   return (
     <div className='page-wrapper'>
@@ -35,12 +40,12 @@ function App() {
           </div>
         </div>
       }
-      {/* <Header /> */}
+      <Header positionRelative={WelcomPageToggle}/>
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/home" element={<HomePage />} />
       </Routes>
-      <Footer />
+      {WelcomPageToggle && <Footer />}
     </div>
   );
 }

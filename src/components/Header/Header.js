@@ -1,8 +1,9 @@
+import React from "react";
 
-const Header = () => {
-
+const Header = ({positionRelative}) => {
+    
     return (
-        <header className="page_header">
+        <header className={positionRelative ? 'page_header header_relative' :  'page_header '}>
             <div className="header_inner">
                 <div className="header_container">
                     <a href="#/" className="logo_block">Logo</a>
