@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {Route, Routes , useLocation} from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import HomePage from './pages/HomePage';
+import Restaurants from './pages/Restaurants';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.scss';
@@ -44,6 +45,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/restaurants" element={<Restaurants />} />
       </Routes>
       {WelcomPageToggle && <Footer />}
     </div>

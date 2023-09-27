@@ -1,6 +1,6 @@
 
 import React, { useState, memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import '../assets/scss/MainSlider/_mainSlider.scss'
 
@@ -26,14 +26,21 @@ const Welcome = () => {
     const [isLoggedIn, setisLoggedIn] = useState('current1');
     const [rotate, setRotate] = useState(-54);
     const [SliderCurrent, setSliderCurrent] = useState(1);
+    const navigate = useNavigate();
 
     let mainSliderRotate = (evt, num, rotateNum) => {
         if (rotateNum !== rotate) {
-            console.log();
             setRotate(rotateNum);
             setSliderCurrent(num)
+        }else{
+            navigate('/restaurants')
         }
     }
+
+    let CurrentPageHref = (evt)=>{
+        navigate('/restaurants')
+    }
+
 
     const { transform } = useSpring({
         transform: `translate(-50%, 0%) rotate(${rotate}deg)`,
@@ -45,7 +52,7 @@ const Welcome = () => {
         }, onRest: () => {
             setTimeout(() => {
                 setisLoggedIn('current' + SliderCurrent)
-            });
+            },100);
         }
     });
 
@@ -150,7 +157,9 @@ const Welcome = () => {
             <animated.div className="progress_nav" style={{ transform }}>
                 <span className='active-circle'></span>
             </animated.div>
-            <div className="decor_line"></div>
+            <div className="decor_line">
+                <a href='#/' onClick={CurrentPageHref} className='current_page_href'>Current Link</a>
+            </div>
             <Link to="/home" className='site_btn welcome_btn'>Get Started</Link>
         </div>
     )
