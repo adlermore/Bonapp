@@ -58,6 +58,9 @@
     opacity: 0.5;
     &.active{
       opacity: 1;
+      &:hover{
+        opacity: 0.5;
+      }
     }
   }
   span {
@@ -186,6 +189,19 @@
   transition: 0.5s;
   transform: translate(-50%, 0%);
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.current_page_href{
+  cursor: pointer;
+  font-size: 0;
+  position: absolute;
+  display: block;
+  left: 40px;
+  top: 40px;
+  bottom: 40px;
+  right: 40px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .each-slide>div {
