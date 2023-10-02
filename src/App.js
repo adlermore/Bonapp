@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import {Route, Routes , useLocation} from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import HomePage from './pages/HomePage';
-import Restaurants from './pages/Restaurants';
+import Restaurant from './pages/Restaurant';
+import Caffe from './pages/Caffe';
+import Food from './pages/Food';
+import LunchBar from './pages/LunchBar';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.scss';
@@ -45,7 +48,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/restaurant" element={<Restaurant />} />
+        <Route path="/caffe" element={<Caffe />} />
+        <Route path="/food" element={<Food />} />
+        <Route path="/lunchBar" element={<LunchBar />} />
       </Routes>
       {WelcomPageToggle && <Footer />}
     </div>

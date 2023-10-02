@@ -24,23 +24,35 @@ import decor8 from '../assets/img/decor/decor8.png';
 
 const Welcome = () => {
     const [isLoggedIn, setisLoggedIn] = useState('current1');
+    const [currentPageName, setcurrentPageName] = useState(null);
     const [rotate, setRotate] = useState(-54);
     const [SliderCurrent, setSliderCurrent] = useState(1);
+    const [isHovered, setIsHovered] = useState(false);
+
     const navigate = useNavigate();
 
-    let mainSliderRotate = (evt, num, rotateNum) => {
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
+
+    let mainSliderRotate = (pageCurrName, num, rotateNum) => {
+        setcurrentPageName(pageCurrName);
         if (rotateNum !== rotate) {
             setRotate(rotateNum);
             setSliderCurrent(num)
         }else{
-            navigate('/restaurants')
+            navigate(`/${pageCurrName}`)
         }
     }
 
-    let CurrentPageHref = (evt)=>{
-        navigate('/restaurants')
+    let CurrentPageHref = (e)=>{
+        e.preventDefault()
+        navigate(`/${currentPageName}`)
     }
-
 
     const { transform } = useSpring({
         transform: `translate(-50%, 0%) rotate(${rotate}deg)`,
@@ -55,10 +67,10 @@ const Welcome = () => {
             },100);
         }
     });
-
+    
     return (
         <div className="welcome_page">
-            <div className='slide_list'>
+            <div className={isHovered ? 'slide_list currentHovered' : 'slide_list' }>
                 <div className={isLoggedIn === 'current1' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg1}) no-repeat center` }}>
                     <div className="slide_description">
                         With the help of innovative technologies, we maintain the maximum taste and useful nutrients of fruits,
@@ -116,14 +128,14 @@ const Welcome = () => {
             </div>
             <div className="navigation_circle">
                 <div className='navigation_buttons'>
-                    <button className={isLoggedIn==='current1' ? 'navigate-1 active' : 'navigate-1'}  onClick={(evt) => mainSliderRotate(evt, 1, -54)}>
+                    <button className={isLoggedIn==='current1' ? 'navigate-1 active' : 'navigate-1'}  onClick={(evt) => mainSliderRotate('caffe', 1, -54)}>
                         <span>C</span>
                         <span>A</span>
                         <span>F</span>
                         <span>F</span>
                         <span>E</span>
                     </button>
-                    <button className={isLoggedIn==='current2' ? 'navigate-2 active' : 'navigate-2'} onClick={(evt) => mainSliderRotate(evt, 2, -22)}>
+                    <button className={isLoggedIn==='current2' ? 'navigate-2 active' : 'navigate-2'} onClick={(evt) => mainSliderRotate('restaurant', 2, -22)}>
                         <span>R</span>
                         <span>E</span>
                         <span>S</span>
@@ -135,13 +147,13 @@ const Welcome = () => {
                         <span>N</span>
                         <span>T</span>
                     </button>
-                    <button className={isLoggedIn==='current3' ? 'navigate-3 active' : 'navigate-3'} onClick={(evt) => mainSliderRotate(evt, 3, 23)}>
+                    <button className={isLoggedIn==='current3' ? 'navigate-3 active' : 'navigate-3'} onClick={(evt) => mainSliderRotate('food', 3, 23)}>
                         <span>F</span>
                         <span>O</span>
                         <span>O</span>
                         <span>D</span>
                     </button>
-                    <button className={isLoggedIn==='current4' ? 'navigate-4 active' : 'navigate-4'} onClick={(evt) => mainSliderRotate(evt, 4, 55)}>
+                    <button className={isLoggedIn==='current4' ? 'navigate-4 active' : 'navigate-4'} onClick={(evt) => mainSliderRotate('lunchBar', 4, 55)}>
                         <span>L</span>
                         <span>U</span>
                         <span>N</span>
@@ -158,7 +170,13 @@ const Welcome = () => {
                 <span className='active-circle'></span>
             </animated.div>
             <div className="decor_line">
-                <a href='#/' onClick={CurrentPageHref} className='current_page_href'>Current Link</a>
+                <a href='#/' 
+                    onClick={(e)=>CurrentPageHref(e)} 
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    className='current_page_href'>
+                    Current Link
+                </a>
             </div>
             <Link to="/home" className='site_btn welcome_btn'>Get Started</Link>
         </div>
