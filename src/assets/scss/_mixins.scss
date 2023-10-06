@@ -25,6 +25,43 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+@font-face {
+    font-family: "PoppinsRegular";
+    src: local("PoppinsRegular"),
+        url("../fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "PoppinsBold";
+    src: local("PoppinsBold"),
+        url("../fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "PoppSemiBold";
+    src: local("PoppSemiBold"),
+        url("../fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "PoppMedium";
+    src: local("PoppMedium"),
+        url("../fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "PoppinsLight";
+    src: local("PoppinsLight"),
+        url("../fonts/Poppins/Poppins-Light.ttf") format("truetype");
+    font-weight: 500;
+}
+
+
 .icon-props .path1:before {
     content: "\e900";
     color: rgb(0, 69, 124);
