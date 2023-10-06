@@ -20,6 +20,7 @@ import decor5 from '../assets/img/decor/decor5.png';
 import decor6 from '../assets/img/decor/decor6.png';
 import decor7 from '../assets/img/decor/decor7.png';
 import decor8 from '../assets/img/decor/decor8.png';
+// import restaurantImg from '../assets/img/icon/restaurantDecor.png';
 
 
 const Welcome = () => {
@@ -146,6 +147,7 @@ const Welcome = () => {
                         <span>A</span>
                         <span>N</span>
                         <span>T</span>
+                        {/* <img src={restaurantImg} alt="img" /> */}
                     </button>
                     <button className={isLoggedIn==='current3' ? 'navigate-3 active' : 'navigate-3'} onClick={(evt) => mainSliderRotate('food', 3, 23)}>
                         <span>F</span>

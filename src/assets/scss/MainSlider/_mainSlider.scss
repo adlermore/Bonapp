@@ -138,6 +138,13 @@
   left: -35px;
 }
 
+// .navigate-2 {
+//   transform: rotate(35deg);
+//   top: -90px;
+//   left: -95px;
+// }
+
+
 .navigate-3 {
   transform: rotate(27deg);
   top: -35px;
@@ -180,11 +187,11 @@
   position: absolute;
   bottom: 0;
   z-index: 51;
-  border: 1px solid rgba($white , 0.4);
+  border: 1px solid rgba($white , 0.3);
   border-radius: 50%;
-  height: 50vw;
-  width: 50vw;
-  bottom: -28.7vw;
+  height: 51vw;
+  width: 51vw;
+  bottom: -29.5vw;
   left: 50%;
   transition: 0.5s;
   transform: translate(-50%, 0%);
@@ -216,9 +223,9 @@
   bottom: 0;
   z-index: 2;
   border-radius: 50%;
-  height: 46vw;
-  width: 46vw;
-  bottom: -27vw;
+  height: 47vw;
+  width: 47vw;
+  bottom: -27.2vw;
   left: 50%;
   transition: 0.5s ease;
   transform: translate(-50%, 0%);
