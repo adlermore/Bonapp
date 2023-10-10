@@ -1,5 +1,5 @@
 
-import React , from 'react';
+import React from 'react';
 import '../assets/scss/HomePage/_homePage.scss'
 
 const Restaurant = () => {
