@@ -32,6 +32,9 @@ const Welcome = () => {
 
     const navigate = useNavigate();
 
+
+    
+
     const handleMouseEnter = () => {
         setIsHovered(true);
     };
@@ -180,7 +183,7 @@ const Welcome = () => {
                     Current Link
                 </a>
             </div>
-            <Link to="/home" className='site_btn welcome_btn'>Get Started</Link>
+            <Link to="/home" className='site_btn welcome_btn'>Get Started {window.innerHeight}</Link>
         </div>
     )
 }
