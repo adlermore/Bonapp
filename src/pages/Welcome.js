@@ -4,36 +4,35 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import '../assets/scss/MainSlider/_mainSlider.scss'
 
-import bg1 from '../assets/img/bg1.jpg';
+import bg1 from '../assets/img/bg1.png';
 import bg2 from '../assets/img/bg2.jpg';
 import bg3 from '../assets/img/bg3.jpg';
 import bg4 from '../assets/img/bg4.png';
-import circle1 from '../assets/img/circle1.png';
+import circle1 from '../assets/img/circle2.png';
 import circle2 from '../assets/img/circle3.png';
 import circle3 from '../assets/img/circle4.png';
-import circle4 from '../assets/img/circle2.png';
+import circle4 from '../assets/img/circle1.png';
 import decor1 from '../assets/img/decor/decor1.png';
 import decor2 from '../assets/img/decor/decor2.png';
 import decor3 from '../assets/img/decor/decor3.png';
 import decor4 from '../assets/img/decor/decor4.png';
-import decor5 from '../assets/img/decor/decor5.png';
-import decor6 from '../assets/img/decor/decor6.png';
-import decor7 from '../assets/img/decor/decor7.png';
-import decor8 from '../assets/img/decor/decor8.png';
-// import restaurantImg from '../assets/img/icon/restaurantDecor.png';
+// import decor5 from '../assets/img/decor/decor5.png';
+// import decor6 from '../assets/img/decor/decor6.png';
+// import decor7 from '../assets/img/decor/decor7.png';
+// import decor8 from '../assets/img/decor/decor8.png';
 
 
 const Welcome = () => {
     const [isLoggedIn, setisLoggedIn] = useState('current1');
     const [currentPageName, setcurrentPageName] = useState(null);
-    const [rotate, setRotate] = useState(-54);
+    const [rotate, setRotate] = useState(-59);
     const [SliderCurrent, setSliderCurrent] = useState(1);
     const [isHovered, setIsHovered] = useState(false);
 
     const navigate = useNavigate();
 
 
-    
+
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -48,12 +47,12 @@ const Welcome = () => {
         if (rotateNum !== rotate) {
             setRotate(rotateNum);
             setSliderCurrent(num)
-        }else{
+        } else {
             navigate(`/${pageCurrName}`)
         }
     }
 
-    let CurrentPageHref = (e)=>{
+    let CurrentPageHref = (e) => {
         e.preventDefault()
         navigate(`/${currentPageName}`)
     }
@@ -68,22 +67,23 @@ const Welcome = () => {
         }, onRest: () => {
             setTimeout(() => {
                 setisLoggedIn('current' + SliderCurrent)
-            },100);
+            }, 100);
         }
     });
-    
+
     return (
         <div className="welcome_page">
-            <div className={isHovered ? 'slide_list currentHovered' : 'slide_list' }>
+            <div className={isHovered ? 'slide_list currentHovered' : 'slide_list'}>
                 <div className={isLoggedIn === 'current1' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg1}) no-repeat center` }}>
+                    <div className='slide_titile'>About Bonapp</div>
                     <div className="slide_description">
-                        With the help of innovative technologies, we maintain the maximum taste and useful nutrients of fruits,
-                        berries, and vegetables in juices, nectars, fruit drinks, and compotes. Product manufacturing is in
-                        strict accordance with GOST, without the addition of preservatives, GMOs, artificial flavors,
-                        and colorings, which is essential for proper and healthy nutrition.
+                        Bonapp is a platform that allows users to easily book tables at their favorite restaurants online.
+                        Customers can browse restaurant listings, view availability, and make reservations in a few clicks,
+                        streamlining the dining experience. It simplifies the process of securing a table, ensuring a
+                        convenient and hassle-free dining experience for patrons.
                     </div>
                     <ul className="decor_list">
-                        <li className='rotate'><img src={decor1} alt="decorImg" /></li>
+                        <li><img src={decor1} alt="decorImg" /></li>
                         <li ><img src={decor2} alt="decorImg" /></li>
                         <li ><img src={decor3} alt="decorImg" /></li>
                         <li ><img src={decor4} alt="decorImg" /></li>
@@ -101,10 +101,10 @@ const Welcome = () => {
                         essential for proper and healthy nutrition.
                     </div>
                     <ul className="decor_list position-top">
-                        <li className='movingRv'><img src={decor5} alt="decorImg" /></li>
-                        <li ><img src={decor6} alt="decorImg" /></li>
-                        <li><img src={decor7} alt="decorImg" /></li>
-                        <li className='rotate'><img src={decor8} alt="decorImg" /></li>
+                        <li ><img src={decor1} alt="decorImg" /></li>
+                        <li ><img src={decor2} alt="decorImg" /></li>
+                        <li ><img src={decor3} alt="decorImg" /></li>
+                        <li ><img src={decor4} alt="decorImg" /></li>
                     </ul>
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle2} alt='circle-img' />
@@ -132,14 +132,7 @@ const Welcome = () => {
             </div>
             <div className="navigation_circle">
                 <div className='navigation_buttons'>
-                    <button className={isLoggedIn==='current1' ? 'navigate-1 active' : 'navigate-1'}  onClick={(evt) => mainSliderRotate('caffe', 1, -54)}>
-                        <span>C</span>
-                        <span>A</span>
-                        <span>F</span>
-                        <span>F</span>
-                        <span>E</span>
-                    </button>
-                    <button className={isLoggedIn==='current2' ? 'navigate-2 active' : 'navigate-2'} onClick={(evt) => mainSliderRotate('restaurant', 2, -22)}>
+                    <button className={isLoggedIn === 'current1' ? 'navigate-1 active' : 'navigate-1'} onClick={(evt) => mainSliderRotate('restaurant', 1, -59)}>
                         <span>R</span>
                         <span>E</span>
                         <span>S</span>
@@ -150,24 +143,24 @@ const Welcome = () => {
                         <span>A</span>
                         <span>N</span>
                         <span>T</span>
-                        {/* <img src={restaurantImg} alt="img" /> */}
                     </button>
-                    <button className={isLoggedIn==='current3' ? 'navigate-3 active' : 'navigate-3'} onClick={(evt) => mainSliderRotate('food', 3, 23)}>
+                    <button className={isLoggedIn === 'current2' ? 'navigate-2 active' : 'navigate-2'} onClick={(evt) => mainSliderRotate('caffe', 2, -24)}>
+                        <span>C</span>
+                        <span>A</span>
+                        <span>F</span>
+                        <span>F</span>
+                        <span>E</span>
+                    </button>
+                    <button className={isLoggedIn === 'current3' ? 'navigate-3 active' : 'navigate-3'} onClick={(evt) => mainSliderRotate('lunchBar', 3, 27)}>
+                        <span>B</span>
+                        <span>A</span>
+                        <span>R</span>
+                    </button>
+                    <button className={isLoggedIn === 'current4' ? 'navigate-4 active' : 'navigate-4'} onClick={(evt) => mainSliderRotate('food', 4, 60)}>
                         <span>F</span>
                         <span>O</span>
                         <span>O</span>
                         <span>D</span>
-                    </button>
-                    <button className={isLoggedIn==='current4' ? 'navigate-4 active' : 'navigate-4'} onClick={(evt) => mainSliderRotate('lunchBar', 4, 55)}>
-                        <span>L</span>
-                        <span>U</span>
-                        <span>N</span>
-                        <span>C</span>
-                        <span>H</span>
-                        <span>-</span>
-                        <span>B</span>
-                        <span>A</span>
-                        <span>R</span>
                     </button>
                 </div>
             </div>
@@ -175,15 +168,15 @@ const Welcome = () => {
                 <span className='active-circle'></span>
             </animated.div>
             <div className="decor_line">
-                <a href='#/' 
-                    onClick={(e)=>CurrentPageHref(e)} 
+                <a href='#/'
+                    onClick={(e) => CurrentPageHref(e)}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     className='current_page_href'>
                     Current Link
                 </a>
             </div>
-            <Link to="/home" className='site_btn welcome_btn'>Get Started {window.innerHeight}</Link>
+            <Link to="/home" className='site_btn welcome_btn'>Get Started</Link>
         </div>
     )
 }
