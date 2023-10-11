@@ -11,7 +11,7 @@
 }
 
 .bonapp_slider .each-slide {
-  padding-top: 150px;
+  padding-top: 188px;
   height: 100%;
   background-size: cover;
 }
@@ -24,14 +24,23 @@
   height: 100%;
   width: 100%;
 }
-
-.slide_description {
-  max-width: 800px;
-  text-align: center;
-  color: rgba($white , 0.6);
+.slide_titile{
+  font-size: 18px;
+  line-height: 24px;
+  font-family: $semiBold;
+  color: $white;
   margin: 0 auto;
-  font-size: 16px;
-  line-height: 22px;
+  text-align: center;
+}
+.slide_description {
+  max-width: 1096px;
+  text-align: center;
+  color: $white;
+  margin: 0 auto;
+  font-size: 18px;
+  font-family: $light;
+  line-height: 36px;
+  margin-top: 29px;
 }
 
 .navigation_circle {
@@ -48,7 +57,7 @@
     color: $white;
     font-weight: 700;
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 2px;
     background: transparent;
     border: none;
@@ -58,6 +67,7 @@
     opacity: 0.5;
     &.active{
       opacity: 1;
+      color: #FFA629;
       &:hover{
         opacity: 0.5;
       }
@@ -127,34 +137,27 @@
 }
 
 .navigate-1 {
-  transform: rotate(-54deg);
-  top: 150px;
-  left: -30px;
+  transform: rotate(-64deg);
+  top: 165px;
+  left: -3px;
 }
 
 .navigate-2 {
-  transform: rotate(-23deg);
-  top: -52px;
-  left: -35px;
+  transform: rotate(-24deg);
+  top: -7px;
+  left: -113px;
 }
 
-// .navigate-2 {
-//   transform: rotate(35deg);
-//   top: -90px;
-//   left: -95px;
-// }
-
-
 .navigate-3 {
-  transform: rotate(27deg);
-  top: -35px;
-  left: 100px;
+  transform: rotate(29deg);
+  top: 0px;
+  left: 20px;
 }
 
 .navigate-4 {
-  transform: rotate(52deg);
-  top: 153px;
-  left: 76px;
+  transform: rotate(62deg);
+  top: 183px;
+  left: -41px;
 }
 
 
@@ -164,9 +167,9 @@
   z-index: 2;
   border: 1px solid rgba($white , 0.6);
   border-radius: 50%;
-  height: 55vw;
-  width: 55vw;
-  bottom: -31.5vw;
+  height: 44vw;
+  width: 44vw;
+  bottom: -22vw;
   left: 50%;
   transition: 0.5s ease;
 
@@ -189,9 +192,9 @@
   z-index: 51;
   border: 1px solid rgba($white , 0.3);
   border-radius: 50%;
-  height: 51vw;
-  width: 51vw;
-  bottom: -29.5vw;
+  height: 41vw;
+  width: 41vw;
+  bottom: -20.5vw;
   left: 50%;
   transition: 0.5s;
   transform: translate(-50%, 0%);
@@ -223,9 +226,9 @@
   bottom: 0;
   z-index: 2;
   border-radius: 50%;
-  height: 47vw;
+  height: 39vw;
   width: 47vw;
-  bottom: -27.2vw;
+  bottom: -19.5vw;
   left: 50%;
   transition: 0.5s ease;
   transform: translate(-50%, 0%);
@@ -252,6 +255,7 @@
     img {
       width: 100%;
       height: auto;
+      object-fit: contain;
     }
 
     &.rotate {
@@ -297,27 +301,27 @@
   }
 
   li:first-child {
-    width: 20%;
-    top: 15%;
-    left: 2%;
+    width: 155px;
+    top: 27%;
+    left: 7%;
   }
 
   li:nth-child(2) {
-    width: 12%;
-    bottom: 6%;
-    right: 6%;
+    width: 15%;
+    bottom: 20%;
+    right: 9%;
   }
 
   li:nth-child(3) {
-    width: 10%;
-    top: 21.02%;
-    left: 75.94%;
+    width: 5%;
+    top: 24%;
+    right: 10%;
   }
 
   li:nth-child(4) {
-    width: 10%;
-    bottom: 15%;
-    left: 8%;
+    width: 11%;
+    bottom: 14%;
+    left: 9%;
   }
 
   &.position-top {
@@ -364,7 +368,7 @@
     transition: 0.3s;
     opacity: 0;
     pointer-events: none;
-
+    background-size: cover !important;
     &.current_slider {
       opacity: 1;
       transition: 0.3s ease;

@@ -1,11 +1,15 @@
+@import "./variables";
+@import "./mixins";
+
+
 .page_header{
     position: absolute;
     z-index: 40;
     width: 100%;
-    height: 90px;
+    height: 80px;
     display: flex;
     align-items: center;
-    background: rgba($white, 0.4);
+    background: $white;
     &.header_relative{
         position: relative;
     }
@@ -19,16 +23,16 @@
         justify-content: space-between;
     }
     .logo_block{
-        height: 48px;
-        width: 118px;
+        height: 42px;
+        width: 145px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 5px;
-        background: rgba(45, 54, 72, 1);
-        color: $white;
-        font-size: 16px;
-        line-height: 24px;
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
     }
     .header_menu{
         display: flex;
@@ -37,11 +41,13 @@
         list-style: none;
         align-items: center;
         li{
-            margin-left: 20px;
-            height: 24px;
-            width: 118px;
-            border-radius: 5px;
-            background: rgba(45, 54, 72, 0.5);
+            margin-left: 50px;
+            font-family: $semiBold;
+            font-size: 18px;
+            line-height: 24px;
+        }
+        a{
+            color: $black;
         }
     }
 }
