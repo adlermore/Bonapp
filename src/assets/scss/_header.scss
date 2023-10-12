@@ -48,6 +48,10 @@
         }
         a{
             color: $black;
+            &:hover{
+                color: #E33441;                
+                opacity: 1;
+            }
         }
     }
 }

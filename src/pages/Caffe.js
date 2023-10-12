@@ -1,7 +1,7 @@
 
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React   from 'react';
 import '../assets/scss/Restaurants/_restaurants.scss'
+
 
 
 const Caffe = () => {
