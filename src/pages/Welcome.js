@@ -16,11 +16,8 @@ import decor1 from '../assets/img/decor/decor1.png';
 import decor2 from '../assets/img/decor/decor2.png';
 import decor3 from '../assets/img/decor/decor3.png';
 import decor4 from '../assets/img/decor/decor4.png';
-// import decor5 from '../assets/img/decor/decor5.png';
-// import decor6 from '../assets/img/decor/decor6.png';
-// import decor7 from '../assets/img/decor/decor7.png';
-// import decor8 from '../assets/img/decor/decor8.png';
 
+import HoverAnimation from '../components/HoverAnimation/HoverAnimation';
 
 const Welcome = () => {
     const [isLoggedIn, setisLoggedIn] = useState('current1');
@@ -30,8 +27,6 @@ const Welcome = () => {
     const [isHovered, setIsHovered] = useState(false);
 
     const navigate = useNavigate();
-
-
 
 
     const handleMouseEnter = () => {
@@ -176,7 +171,9 @@ const Welcome = () => {
                     Current Link
                 </a>
             </div>
-            <Link to="/home" className='site_btn welcome_btn'>Get Started</Link>
+            {/* <Link to="/home" className='site_btn welcome_btn'>Get Started</Link> */}
+            <HoverAnimation className=' welcome_btn' />
+
         </div>
     )
 }
