@@ -7,7 +7,7 @@ const HoverAnimation = () => {
     return (
         <div className="gsap_section welcome_btn">
             <div>
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="goo">
                     <defs>
                         <filter id="filter-goo-1" >
                             <feGaussianBlur in="SourceGraphic"  stdDeviation="10" result="blur" />
