@@ -1,12 +1,12 @@
 
-import React, { useState, memo } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useCallback, memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import '../assets/scss/MainSlider/_mainSlider.scss'
 
 import bg1 from '../assets/img/bg1.png';
-import bg2 from '../assets/img/bg2.jpg';
-import bg3 from '../assets/img/bg3.jpg';
+import bg2 from '../assets/img/bg2.png';
+import bg3 from '../assets/img/bg3.png';
 import bg4 from '../assets/img/bg4.png';
 import circle1 from '../assets/img/circle2.png';
 import circle2 from '../assets/img/circle3.png';
@@ -26,8 +26,8 @@ const Welcome = () => {
     const [SliderCurrent, setSliderCurrent] = useState(1);
     const [isHovered, setIsHovered] = useState(false);
 
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
 
     const handleMouseEnter = () => {
         setIsHovered(true);
@@ -37,7 +37,7 @@ const Welcome = () => {
         setIsHovered(false);
     };
 
-    let mainSliderRotate = (pageCurrName, num, rotateNum) => {
+    const mainSliderRotate = useCallback((pageCurrName, num, rotateNum) => {
         setcurrentPageName(pageCurrName);
         if (rotateNum !== rotate) {
             setRotate(rotateNum);
@@ -45,12 +45,12 @@ const Welcome = () => {
         } else {
             navigate(`/${pageCurrName}`)
         }
-    }
+    }, [navigate, rotate])
 
-    let CurrentPageHref = (e) => {
+    const CurrentPageHref = useCallback((e) => {
         e.preventDefault()
         navigate(`/${currentPageName}`)
-    }
+    }, [currentPageName, navigate])
 
     const { transform } = useSpring({
         transform: `translate(-50%, 0%) rotate(${rotate}deg)`,
@@ -66,6 +66,7 @@ const Welcome = () => {
         }
     });
 
+    console.log('render');
     return (
         <div className="welcome_page">
             <div className={isHovered ? 'slide_list currentHovered' : 'slide_list'}>
@@ -126,8 +127,55 @@ const Welcome = () => {
                 </div>
             </div>
             <div className="navigation_circle">
-                <div className='navigation_buttons'>
-                    <button className={isLoggedIn === 'current1' ? 'navigate-1 active' : 'navigate-1'} onClick={(evt) => mainSliderRotate('restaurant', 1, -59)}>
+                <div className="nav_circle_line">
+                    <svg
+                        version="1.1" id="Layer_1" 
+                        viewBox="0 0 500 500" 
+                        enable-background="new 0 0 500 500"
+                    >
+                        <path
+                            fill="none"
+                            strokeOpacity="0.1"
+                            id="blue"
+                            strokeMiterlimit="10"
+                            d="M114.16 382.84A189.38 189.38 0 0 1 60 250c0-104.94 85.06-190 190-190 104.93 0 190 85.06 190 190 0 104.93-85.07 190-190 190-45.35 0-87-15.9-119.66-42.4"
+                        />
+                        <text>
+                            <textPath
+                                xlinkHref="#blue"
+                                startOffset="18.5%"
+                                className={isLoggedIn === 'current1' ? 'text active' : 'text'}
+                                onClick={() => mainSliderRotate('restaurant', 1, -59)}>
+                                Restaurant
+                            </textPath>
+                            <textPath
+                                xlinkHref="#blue"
+                                startOffset="30.2%"
+                                className={isLoggedIn === 'current2' ? 'text active' : 'text'}
+                                onClick={() => mainSliderRotate('caffe', 2, -24)}>
+                                Cafe
+                            </textPath>
+                            <textPath
+                                xlinkHref="#blue"
+                                startOffset="45%"
+                                className={isLoggedIn === 'current3' ? 'text active' : 'text'}
+                                onClick={() => mainSliderRotate('lunchBar', 3, 27)}>
+                                Bar
+                            </textPath>
+                            <textPath
+                                xlinkHref="#blue"
+                                startOffset="54%"
+                                className={isLoggedIn === 'current4' ? 'text active' : 'text'}
+                                onClick={() => mainSliderRotate('food', 4, 60)}>
+                                Food
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+
+
+                {/* <div className='navigation_buttons'>
+                    <button className={isLoggedIn === 'current1' ? 'navigate-1 active' : 'navigate-1'} onClick={() => mainSliderRotate('restaurant', 1, -59)}>
                         <span>R</span>
                         <span>E</span>
                         <span>S</span>
@@ -139,25 +187,25 @@ const Welcome = () => {
                         <span>N</span>
                         <span>T</span>
                     </button>
-                    <button className={isLoggedIn === 'current2' ? 'navigate-2 active' : 'navigate-2'} onClick={(evt) => mainSliderRotate('caffe', 2, -24)}>
+                    <button className={isLoggedIn === 'current2' ? 'navigate-2 active' : 'navigate-2'} onClick={() => mainSliderRotate('caffe', 2, -24)}>
                         <span>C</span>
                         <span>A</span>
                         <span>F</span>
                         <span>F</span>
                         <span>E</span>
                     </button>
-                    <button className={isLoggedIn === 'current3' ? 'navigate-3 active' : 'navigate-3'} onClick={(evt) => mainSliderRotate('lunchBar', 3, 27)}>
+                    <button className={isLoggedIn === 'current3' ? 'navigate-3 active' : 'navigate-3'} onClick={() => mainSliderRotate('lunchBar', 3, 27)}>
                         <span>B</span>
                         <span>A</span>
                         <span>R</span>
                     </button>
-                    <button className={isLoggedIn === 'current4' ? 'navigate-4 active' : 'navigate-4'} onClick={(evt) => mainSliderRotate('food', 4, 60)}>
+                    <button className={isLoggedIn === 'current4' ? 'navigate-4 active' : 'navigate-4'} onClick={() => mainSliderRotate('food', 4, 60)}>
                         <span>F</span>
                         <span>O</span>
                         <span>O</span>
                         <span>D</span>
                     </button>
-                </div>
+                </div> */}
             </div>
             <animated.div className="progress_nav" style={{ transform }}>
                 <span className='active-circle'></span>
@@ -171,9 +219,7 @@ const Welcome = () => {
                     Current Link
                 </a>
             </div>
-            {/* <Link to="/home" className='site_btn welcome_btn'>Get Started</Link> */}
             <HoverAnimation className=' welcome_btn' />
-
         </div>
     )
 }

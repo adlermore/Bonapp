@@ -33,7 +33,7 @@
         color: white;
         padding: 15px 40px;
         text-transform: uppercase;
-        transition: all 0.1s ease-out;
+        transition: all 0.3s ease-out;
 
         &:hover {
             background-color: $action-color;
@@ -54,13 +54,13 @@
                 background: none;
             }
 
-            // &:hover+.button--bubble__effect-container .circle {
-            //     background: darken($action-color, 15%);
-            // }
+            &:hover+.button--bubble__effect-container .circle {
+                background: darken( #F0961C, 5%);
+            }
 
-            // &:hover+.button--bubble__effect-container .button {
-            //     background: darken($action-color, 15%);
-            // }
+            &:hover+.button--bubble__effect-container .button {
+                background: darken( #F0961C, 5%);
+            }
 
             &:active+.button--bubble__effect-container {
                 transform: scale(0.95);
