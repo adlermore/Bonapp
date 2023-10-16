@@ -28,6 +28,25 @@ function App() {
     setTimeout(() => {
       setLoading(false)
     }, 1500)
+
+    const existingScript = document.querySelector('script[src="js/TweenMax.min.js"]');
+
+    if(!existingScript){
+      const scriptTweenMax = document.createElement('script');
+      scriptTweenMax.src = 'js/TweenMax.min.js';
+      scriptTweenMax.async = true;
+
+      const scriptHoverAnimation = document.createElement('script');
+      scriptHoverAnimation.src = 'js/HoverAnimation.js';
+      scriptHoverAnimation.async = true;
+
+      document.body.appendChild(scriptTweenMax);
+      document.body.appendChild(scriptHoverAnimation);
+      return () => {
+        document.body.removeChild(scriptTweenMax , scriptHoverAnimation );
+      };
+    }  
+
   }, [location.pathname]);
 
   return (

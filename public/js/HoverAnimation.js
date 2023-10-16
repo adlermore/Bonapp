@@ -9,16 +9,11 @@ if (isSafari) {
   document.getElementsByTagName('html')[0].classList.add('safari');
 }
 
-// Remove click on button for demo purpose
-Array.prototype.slice.call(document.querySelectorAll('.button'), 0).forEach(function(bt) {
-  bt.addEventListener('mouseover', function(e) {
-    e.preventDefault();
-  });
-});
-
 
 setTimeout(() => {
-  initBt1();
+  if(document.querySelectorAll('.gsap_section').length>0){
+    initBt1();
+  }
 }, 500);
 
 
