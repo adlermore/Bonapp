@@ -11,8 +11,8 @@ const HomePage = () => {
                     <div className="main_search">
                         <Link to="/">Welcome</Link>
                         <a href="#/">Time</a>
-                        <a href="#/">People</a>
                         <a href="#/">Name</a>
+                        asdasdasd
                         <button className="site_btn">Reserve</button>
                     </div>
                 </div>

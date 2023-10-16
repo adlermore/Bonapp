@@ -79,11 +79,21 @@ a {
   line-height: 24px;
 }
 
-.welcome_btn {
+.welcome_info {
   position: absolute;
-  z-index: 5;
+  width: 100%;
+  max-width: 1096px;
+  z-index: 55;
   left: 50%;
-  top: 380px;
-  transform: translate(-50%, -50%);
-}
+  top: 150px;
+  transform: translate(-50%, 0%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
+  .welcome_btn {
+    max-width: fit-content;
+  }
+
+}

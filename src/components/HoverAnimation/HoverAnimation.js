@@ -1,9 +1,14 @@
-
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../assets/scss/_hoverAnimation.scss'
 
 const HoverAnimation = () => {
-
-
+    const navigate = useNavigate();
+    
+    const homeNavigate=(e)=>{
+        e.preventDefault();
+        navigate(`/home`)
+    }
     return (
         <div className="gsap_section welcome_btn">
             <div>
@@ -18,16 +23,14 @@ const HoverAnimation = () => {
                 </svg>
 
                 <span className="button--bubble__container" id="component-1">
-                    <a href="#campaign" className="button button--bubble">
-                    Get Started
+                    <a href="/#" className="button button--bubble" onClick={(e)=>homeNavigate(e)}>
+                        Get Started
                     </a>
                     <span className="button--bubble__effect-container button__container">
                         <span className="circle top-left"></span>
                         <span className="circle top-left"></span>
                         <span className="circle top-left"></span>
-
                         <span className="button effect-button"></span>
-
                         <span className="circle bottom-right"></span>
                         <span className="circle bottom-right"></span>
                         <span className="circle bottom-right"></span>
