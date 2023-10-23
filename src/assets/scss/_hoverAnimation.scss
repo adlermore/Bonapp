@@ -3,8 +3,117 @@
     box-sizing: border-box;
 
     $dark-blue: #E33441;
+    $animateColor: #F0961C;
     $green: red;
     $action-color: $green;
+
+    // &.bar{
+    //     $dark-blue: #E33441;
+    //     $animateColor: #F0961C;
+    //     .button {
+    //         background-color: $dark-blue;
+    //         &--bubble {
+    //             &:hover+.button--bubble__effect-container .circle {
+    //                 background: darken( #F0961C, 5%) !important;
+    //             }
+    
+    //             &:hover+.button--bubble__effect-container .button {
+    //                 background: darken(#F0961C, 5%) !important;
+    //             }
+    //             &__container {
+    //                 .effect-button {
+    //                     background: #E33441 !important; 
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     .button--bubble__effect-container {
+    //         .circle {
+    //             background: #E33441 !important;
+    //         }
+    //     }
+    // }
+    
+    // &.restaurant{
+    //     $dark-blue: #E33441;
+    //     $animateColor: #F0961C;
+    //     .button {
+    //         background-color: $dark-blue;
+    //         &--bubble {
+    //             &:hover+.button--bubble__effect-container .circle {
+    //                 background: darken( #F0961C, 5%) !important;
+    //             }
+    
+    //             &:hover+.button--bubble__effect-container .button {
+    //                 background: darken(#F0961C, 5%) !important;
+    //             }
+    //             &__container {
+    //                 .effect-button {
+    //                     background: #E33441 !important;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     .button--bubble__effect-container {
+    //         .circle {
+    //             background: #E33441 !important;
+    //         }
+    //     }
+    // }
+
+    &.caffe{
+        $dark-blue: #FFA629 !important;
+        $animateColor: #014135;
+        .button {
+            background-color: $dark-blue;
+            &--bubble {
+                &:hover+.button--bubble__effect-container .circle {
+                    background: darken( #014135, 5%)!important;
+                }
+    
+                &:hover+.button--bubble__effect-container .button {
+                    background: darken(#014135, 5%)!important;
+                }
+                &__container {
+                    .effect-button {
+                        background: #FFA629 !important;
+                    }
+                }
+            }
+        }
+        .button--bubble__effect-container {
+            .circle {
+                background: #FFA629 !important;
+            }
+        }
+    }
+
+    // &.food{
+    //     $dark-blue: #E33441;
+    //     $animateColor: #014135;
+    //     .button {
+    //         background-color: $dark-blue;
+    //         &--bubble {
+    //             &:hover+.button--bubble__effect-container .circle {
+    //                 background: darken( #014135, 5%) !important;
+    //             }
+    
+    //             &:hover+.button--bubble__effect-container .button {
+    //                 background: darken( #014135, 5%) !important;
+    //             }
+    //             &__container {
+    //                 .effect-button {
+    //                     background: #E33441 !important;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     .button--bubble__effect-container {
+    //         .circle {
+    //             background: #E33441 !important;
+    //         }
+    //     }
+    // }
 
     * {
         box-sizing: border-box;
@@ -53,11 +162,11 @@
             }
 
             &:hover+.button--bubble__effect-container .circle {
-                background: darken( #F0961C, 5%);
+                background: darken( $animateColor, 5%);
             }
 
             &:hover+.button--bubble__effect-container .button {
-                background: darken( #F0961C, 5%);
+                background: darken($animateColor, 5%);
             }
 
             &:active+.button--bubble__effect-container {

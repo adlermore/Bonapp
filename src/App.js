@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 import Restaurant from './pages/Restaurant';
 import Caffe from './pages/Caffe';
 import Food from './pages/Food';
-import LunchBar from './pages/LunchBar';
+import Bar from './pages/Bar';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.scss';
@@ -70,7 +70,7 @@ function App() {
         <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/caffe" element={<Caffe />} />
         <Route path="/food" element={<Food />} />
-        <Route path="/lunchBar" element={<LunchBar />} />
+        <Route path="/Bar" element={<Bar />} />
       </Routes>
       {WelcomPageToggle && <Footer />}
     </div>
