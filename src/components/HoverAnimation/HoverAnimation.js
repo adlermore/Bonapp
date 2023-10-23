@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../assets/scss/_hoverAnimation.scss'
 
-const HoverAnimation = () => {
+const HoverAnimation = ({currentColor}) => {
     const navigate = useNavigate();
     
     const homeNavigate=(e)=>{
@@ -10,7 +10,7 @@ const HoverAnimation = () => {
         navigate(`/home`)
     }
     return (
-        <div className="gsap_section welcome_btn">
+        <div className={`gsap_section welcome_btn ${currentColor}`}>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" className="goo">
                     <defs>
