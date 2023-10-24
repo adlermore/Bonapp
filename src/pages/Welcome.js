@@ -167,14 +167,14 @@ const Welcome = () => {
                             </textPath>
                             <textPath
                                 xlinkHref="#blue"
-                                startOffset="44.5%"
+                                startOffset="44%"
                                 className={isLoggedIn === 'current3' ? 'text active' : 'text'}
                                 onClick={() => mainSliderRotate('food', 3, 25)}>
                                 Food
                             </textPath>
                             <textPath
                                 xlinkHref="#blue"
-                                startOffset="54%"
+                                startOffset="54.3%"
                                 className={isLoggedIn === 'current4' ? 'text active' : 'text'}
                                 onClick={() => mainSliderRotate('bar', 4, 60)}>
                                 Bar
@@ -203,7 +203,7 @@ const Welcome = () => {
                         streamlining the dining experience. It simplifies the process of securing a table, ensuring a
                         convenient and hassle-free dining experience for patrons.
                     </div>    
-                    <HoverAnimation currentColor={currentPageName} />
+                    <HoverAnimation currentColor={isLoggedIn} />
             </div>
         </div>
     )
