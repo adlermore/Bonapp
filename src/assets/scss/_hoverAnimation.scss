@@ -22,7 +22,6 @@
         border: none;
         color: #fff;
         display: inline-block;
-        font-family: 'Montserrat', sans-serif;
         font-size: 14px;
         font-weight: 100;
         text-decoration: none;
@@ -32,7 +31,7 @@
         padding: 15px 40px;
         text-transform: uppercase;
         transition: all 0.3s ease-out;
-
+        border-radius: 4px;
         &:hover {
             background-color: $action-color;
             color: #fff;
@@ -53,7 +52,7 @@
             }
 
             &:hover+.button--bubble__effect-container .circle {
-                background: darken( $animateColor, 5%);
+                background: darken($animateColor, 5%);
             }
 
             &:hover+.button--bubble__effect-container .button {
@@ -102,73 +101,54 @@
             border-radius: 15px;
             // background: $dark-blue;
             transition: background 0.1s ease-out;
+
             &.top-left {
                 top: 40%;
                 left: 27%;
             }
+
             &.bottom-right {
                 bottom: 40%;
                 right: 27%;
             }
         }
     }
+
     .goo {
         position: absolute;
         visibility: hidden;
         width: 1px;
         height: 1px;
     }
+
     html,
     body {
         width: 100%;
         height: 100%;
         text-align: center;
     }
+
     .button--bubble__container {
         top: 50%;
         margin-top: -25px;
     }
 
-    &.current4{
+    &.current4 {
         $dark-blue: #E33441;
         $animateColor: #F0961C;
+
         .button {
             background-color: $dark-blue;
+
             &--bubble {
                 &:hover+.button--bubble__effect-container .circle {
-                    background: darken( #F0961C, 5%) !important;
+                    background: darken(#F0961C, 5%) !important;
                 }
-    
+
                 &:hover+.button--bubble__effect-container .button {
                     background: darken(#F0961C, 5%) !important;
                 }
-                &__container {
-                    .effect-button {
-                        background: #E33441 !important; 
-                    }
-                }
-            }
-        }
-        .button--bubble__effect-container {
-            .circle {
-                background: #E33441 !important;
-            }
-        }
-    }
-    
-    &.current1{
-        $dark-blue: #E33441;
-        $animateColor: #F0961C;
-        .button {
-            background-color: $dark-blue;
-            &--bubble {
-                &:hover+.button--bubble__effect-container .circle {
-                    background: darken( #F0961C, 5%) !important;
-                }
-    
-                &:hover+.button--bubble__effect-container .button {
-                    background: darken(#F0961C, 5%) !important;
-                }
+
                 &__container {
                     .effect-button {
                         background: #E33441 !important;
@@ -176,6 +156,7 @@
                 }
             }
         }
+
         .button--bubble__effect-container {
             .circle {
                 background: #E33441 !important;
@@ -183,19 +164,53 @@
         }
     }
 
-    &.current2{
-        $dark-blue: #FFA629 !important;
-        $animateColor: #014135;
+    &.current1 {
+        $dark-blue: #E33441;
+        $animateColor: #F0961C;
+
         .button {
             background-color: $dark-blue;
+
             &--bubble {
                 &:hover+.button--bubble__effect-container .circle {
-                    background: darken( #014135, 5%)!important;
+                    background: darken(#F0961C, 5%) !important;
                 }
-    
+
                 &:hover+.button--bubble__effect-container .button {
-                    background: darken(#014135, 5%)!important;
+                    background: darken(#F0961C, 5%) !important;
                 }
+
+                &__container {
+                    .effect-button {
+                        background: #E33441 !important;
+                    }
+                }
+            }
+        }
+
+        .button--bubble__effect-container {
+            .circle {
+                background: #E33441 !important;
+            }
+        }
+    }
+
+    &.current2 {
+        $dark-blue: #FFA629 !important;
+        $animateColor: #014135;
+
+        .button {
+            background-color: $dark-blue;
+
+            &--bubble {
+                &:hover+.button--bubble__effect-container .circle {
+                    background: darken(#014135, 5%) !important;
+                }
+
+                &:hover+.button--bubble__effect-container .button {
+                    background: darken(#014135, 5%) !important;
+                }
+
                 &__container {
                     .effect-button {
                         background: #FFA629 !important;
@@ -203,6 +218,7 @@
                 }
             }
         }
+
         .button--bubble__effect-container {
             .circle {
                 background: #FFA629 !important;
@@ -210,19 +226,22 @@
         }
     }
 
-    &.current3{
+    &.current3 {
         $dark-blue: #E33441;
         $animateColor: #014135;
+
         .button {
             background-color: $dark-blue;
+
             &--bubble {
                 &:hover+.button--bubble__effect-container .circle {
-                    background: darken( #014135, 5%) !important;
+                    background: darken(#014135, 5%) !important;
                 }
-    
+
                 &:hover+.button--bubble__effect-container .button {
-                    background: darken( #014135, 5%) !important;
+                    background: darken(#014135, 5%) !important;
                 }
+
                 &__container {
                     .effect-button {
                         background: #E33441 !important;
@@ -230,10 +249,21 @@
                 }
             }
         }
+
         .button--bubble__effect-container {
             .circle {
                 background: #E33441 !important;
             }
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .gsap_section {
+        margin-top: 30px;
+
+        .button {
+            padding: 10px 30px;
         }
     }
 }

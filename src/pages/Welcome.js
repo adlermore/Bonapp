@@ -68,7 +68,7 @@ const Welcome = () => {
             setRotate(rotateNum);
             setSliderCurrent(num)
         } else {
-            navigate(`/${pageCurrName}`)
+            navigate(`/Restaurant/${pageCurrName}`)
         }
     }, [navigate, rotate])
 

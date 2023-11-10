@@ -3,9 +3,6 @@ import {Route, Routes , useLocation} from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import HomePage from './pages/HomePage';
 import Restaurant from './pages/Restaurant';
-import Caffe from './pages/Caffe';
-import Food from './pages/Food';
-import Bar from './pages/Bar';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.scss';
@@ -69,10 +66,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/restaurant" element={<Restaurant />} />
-        <Route path="/caffe" element={<Caffe />} />
-        <Route path="/food" element={<Food />} />
-        <Route path="/Bar" element={<Bar />} />
+        <Route path="/restaurant/:id" element={<Restaurant />} />
       </Routes>
       {WelcomPageToggle && <Footer />}
     </div>
