@@ -22,10 +22,22 @@ function App() {
       document.body.style.overflow = 'auto';
       setWelcomPageToggle(true)
     }
-    setTimeout(() => {
-      setLoading(false)
-    }, 1500)
+    
+    // setTimeout(() => {
+    //   setLoading(false)
+    // }, 1500)
 
+
+    const handleLoad = () => {
+      console.log('Страница загружена!');
+      setLoading(false)
+    };
+
+    window.addEventListener('load', handleLoad);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
 
     // const existingScript = document.querySelector('script[src="js/TweenMax.min.js"]');
     
