@@ -11,6 +11,7 @@ import Footer from './components/Footer/Footer';
 import './App.scss';
 
 function App() {
+
   const [loading, setLoading] = useState(true);
   const [WelcomPageToggle, setWelcomPageToggle] = useState(true);
 
@@ -25,9 +26,7 @@ function App() {
       document.body.style.overflow = 'auto';
       setWelcomPageToggle(true)
     }
-    setTimeout(() => {
-      setLoading(false)
-    }, 1500)
+    setLoading(false)
 
 
     // const existingScript = document.querySelector('script[src="js/TweenMax.min.js"]');
@@ -47,7 +46,6 @@ function App() {
     //     document.body.removeChild(scriptTweenMax , scriptHoverAnimation );
     //   };
     // }  
-    
 
   }, [location.pathname]);
 
