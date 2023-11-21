@@ -54,4 +54,16 @@
             }
         }
     }
+    @media (max-width: 1440px) {
+        height: 65px;
+        .header_menu li {
+            font-size: 16px;
+            line-height: 22px;
+        }
+        .logo_block {
+            height: 40px;
+            width: 120px;
+        }
+    }
 }
+
