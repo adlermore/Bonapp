@@ -1,4 +1,10 @@
 
+import React from 'react';
+import { Link } from 'react-router-dom';
+import footerLogo from '../../assets/img/footerLogo.png';
+import payment1 from '../../assets/img/payment1.png';
+import payment2 from '../../assets/img/payment2.png';
+import payment3 from '../../assets/img/payment3.png';
 
 const Footer = () => {
     return (
@@ -6,42 +12,39 @@ const Footer = () => {
             <div className="custom_container">
                 <div className="footer_inner">
                     <div className="footer_logo">
-                        <a href="/#">Logo</a>
+                        <Link to="/"><img src={footerLogo} alt="footerLogo" /></Link>
                     </div>
                     <ul className="footer_menu">
                         <li>
-                            <a href="/#" className="menu_link">Categories</a>
+                            <a href="/#" className="menu_title">Categories</a>
                             <a href="/#" className="menu_link">Restaurant</a>
                             <a href="/#" className="menu_link">Caffe</a>
                             <a href="/#" className="menu_link">Food</a>
                             <a href="/#" className="menu_link">Bar</a>
                         </li>
                         <li>
-                            <a href="/#" className="menu_link">Information</a>
+                            <a href="/#" className="menu_title">Information</a>
                             <a href="/#" className="menu_link">Best sellers</a>
                             <a href="/#" className="menu_link">How to become a partner</a>
                             <a href="/#" className="menu_link">Privacy policy</a>
                             <a href="/#" className="menu_link">Our terms</a>
                         </li>
                         <li>
-                            <a href="/#" className="menu_link">Contacts</a>
-                            <a href="/#" className="menu_link">Social Media</a>
                             <div className="social_list">
-                                <a href="/#"><span></span></a>
-                                <a href="/#"><span></span></a>
-                                <a href="/#"><span></span></a>
-                                <a href="/#"><span></span></a>
-                                <a href="/#"><span></span></a>
-                                <a href="/#"><span></span></a>
+                                <a href="/#" className="icon-facebook"> </a>
+                                <a href="/#" className="icon-instagram"> </a>
+                                <a href="/#" className="icon-linkedin"> </a>
+                                <a href="/#" className="icon-telegram"> </a>
+                                <a href="/#" className="icon-tiktok"> </a>
+                                <a href="/#" className="icon-whatsapp"> </a>
                             </div>
                         </li>
                     </ul>
                     <div className="payment_block">
-                        <span>Visa\Master\Idram</span>
                         <label>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                            <span><img src={payment1} alt="paymentImg" /></span>
+                            <span><img src={payment3} alt="paymentImg" /></span>
+                            <span><img src={payment2} alt="paymentImg" /></span>
                         </label>
                     </div>
                 </div>
