@@ -24,13 +24,15 @@
   height: 100%;
   width: 100%;
 }
-.slide_titile{
+
+.slide_titile {
   font-size: 32px;
   line-height: 45px;
   font-family: $semiBold;
   color: $white;
   text-align: center;
 }
+
 .slide_description {
   text-align: center;
   color: $white;
@@ -50,18 +52,22 @@
   bottom: -31vw;
   left: 50%;
   transform: translate(-50%, 0%);
-  .nav_circle_line{
+
+  .nav_circle_line {
     width: 100%;
     height: 100%;
-    svg{
+
+    svg {
       width: 100%;
       height: 100%;
     }
-    path{
+
+    path {
       width: 100%;
       height: 100%;
     }
-    .text{
+
+    .text {
       fill: $white;
       font-weight: 700;
       position: relative;
@@ -72,13 +78,16 @@
       transition: 0.3s;
       cursor: pointer;
       display: flex;
-      &:hover{
+
+      &:hover {
         fill: #FFA629;
       }
-      &.active{
+
+      &.active {
         opacity: 1;
         fill: #FFA629;
-        &:hover{
+
+        &:hover {
           opacity: 0.5;
         }
       }
@@ -109,7 +118,7 @@
     border-radius: 50%;
     display: block;
   }
-  
+
 }
 
 .decor_line {
@@ -127,7 +136,7 @@
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
-.current_page_href{
+.current_page_href {
   cursor: pointer;
   font-size: 0;
   position: absolute;
@@ -144,9 +153,10 @@
   width: auto !important;
 }
 
-.currentHovered .circle_images{
+.currentHovered .circle_images {
   opacity: 0.7;
 }
+
 .circle_images {
   position: absolute;
   bottom: 0;
@@ -172,122 +182,150 @@
   height: 100%;
   left: 0;
   top: 0;
+
   li {
     position: absolute;
     transition: 0.3s;
     pointer-events: none;
+
     img {
       width: 100%;
       height: auto;
       object-fit: contain;
     }
   }
-  &.restaurant_list{
+
+  &.restaurant_list {
     li:first-child {
       bottom: 2rem;
       left: 4rem;
     }
+
     li:nth-child(2) {
       bottom: 11rem;
       left: 21rem;
     }
+
     li:nth-child(3) {
       top: 24rem;
       left: 26rem;
     }
+
     li:nth-child(4) {
       top: 16rem;
       left: 7rem;
     }
+
     li:nth-child(5) {
       bottom: 1rem;
       right: 5rem;
     }
+
     li:nth-child(6) {
       bottom: 17rem;
       right: 15rem;
     }
+
     li:nth-child(7) {
       top: 16rem;
       right: 3rem;
     }
   }
-  &.cafe_list{
+
+  &.cafe_list {
     li:first-child {
       bottom: 3rem;
       left: 5rem;
     }
+
     li:nth-child(2) {
       bottom: 8rem;
       left: 8rem;
     }
+
     li:nth-child(3) {
       bottom: 16rem;
       left: 24rem;
     }
+
     li:nth-child(4) {
       bottom: 17rem;
       left: 1rem;
     }
+
     li:nth-child(5) {
       bottom: 26rem;
       left: 25rem;
     }
+
     li:nth-child(6) {
       top: 14rem;
       left: 3rem;
     }
+
     li:nth-child(7) {
       right: 6rem;
       bottom: 5rem;
     }
+
     li:nth-child(8) {
       bottom: 10rem;
       right: 8rem;
     }
+
     li:nth-child(9) {
       right: 15rem;
       bottom: 13rem;
     }
+
     li:nth-child(10) {
       right: 13rem;
       top: 28rem;
     }
+
     li:nth-child(11) {
       top: 14rem;
       right: 3rem;
     }
   }
-  &.food_list{
+
+  &.food_list {
     li:first-child {
       bottom: 6rem;
       left: 10rem;
     }
+
     li:nth-child(2) {
       bottom: 18rem;
       left: 3rem;
     }
+
     li:nth-child(3) {
       bottom: 23rem;
       left: 27rem;
     }
+
     li:nth-child(4) {
       bottom: 28rem;
       left: 6rem;
     }
+
     li:nth-child(5) {
       bottom: 6rem;
       right: 8rem;
     }
+
     li:nth-child(6) {
       bottom: 22rem;
       right: 27rem;
       transform: rotate(266deg);
     }
+
     li:nth-child(7) {
       right: 13rem;
       bottom: 27rem;
     }
+
     li:nth-child(8) {
       top: 14rem;
       right: 4rem;
@@ -295,27 +333,33 @@
       scale: 0.8;
     }
   }
-  &.bar_list{
+
+  &.bar_list {
     li:first-child {
       bottom: 5rem;
       left: 10rem;
     }
+
     li:nth-child(2) {
       bottom: 20rem;
       left: 22rem;
     }
+
     li:nth-child(3) {
       top: 16rem;
       left: 7rem;
     }
+
     li:nth-child(4) {
       bottom: 4rem;
       right: 8rem;
     }
+
     li:nth-child(5) {
       bottom: 22rem;
       right: 24rem;
     }
+
     li:nth-child(6) {
       bottom: 34rem;
       right: 8rem;
@@ -342,6 +386,7 @@
     opacity: 0;
     pointer-events: none;
     background-size: cover !important;
+
     &.current_slider {
       opacity: 1;
       transition: 0.3s ease;
@@ -508,10 +553,394 @@ $loader-color: #FDD835;
   }
 }
 
+@media (max-width: 1600px) {
+  .slide_titile {
+    font-size: 28px;
+    line-height: 35px;
+  }
 
-// @media (max-width: 1600px) {
-    
-// } 
+  .slide_description {
+    font-size: 16px;
+    line-height: 32px;
+    margin-top: 25px;
+  }
+
+  .gsap_section {
+    margin-top: 30px;
+  }
+
+  .decor_list {
+    li img {
+      width: 90%;
+    }
+
+    &.restaurant_list li {
+      &:first-child {
+        bottom: 1rem;
+        left: 2rem;
+      }
+
+      &:nth-child(2) {
+        left: 15rem;
+      }
+
+      &:nth-child(3) {
+        top: 26rem;
+        left: 18rem;
+      }
+
+      &:nth-child(4) {
+        top: 14rem;
+        left: 3rem;
+      }
+
+      &:nth-child(5) {
+        bottom: 1rem;
+        right: 3rem;
+      }
+
+      &:nth-child(6) {
+        bottom: 16rem;
+        right: 12rem;
+      }
+
+      &:nth-child(7) {
+        top: 16rem;
+        right: 1rem;
+      }
+    }
+
+    &.cafe_list {
+      li:first-child {
+        bottom: 2rem;
+        left: 4rem;
+      }
+
+      li:nth-child(2) {
+        bottom: 7rem;
+        left: 6rem;
+      }
+
+      li:nth-child(3) {
+        bottom: 15rem;
+        left: 18rem;
+      }
+
+      li:nth-child(4) {
+        bottom: 15rem;
+        left: 1rem;
+      }
+
+      li:nth-child(5) {
+        bottom: 23rem;
+        left: 23rem;
+      }
+
+      li:nth-child(6) {
+        top: 10rem;
+        left: 1rem;
+      }
+
+      li:nth-child(7) {
+        right: 4rem;
+        bottom: 2rem;
+      }
+
+      li:nth-child(8) {
+        bottom: 5rem;
+        right: 2rem;
+      }
+
+      li:nth-child(9) {
+        right: 9rem;
+        bottom: 4rem;
+      }
+
+      li:nth-child(10) {
+        right: 10rem;
+        top: 26rem;
+      }
+
+      li:nth-child(11) {
+        top: 12rem;
+        right: 0rem;
+      }
+    }
+
+    &.food_list {
+      li:first-child {
+        bottom: 3rem;
+        left: 5rem;
+      }
+
+      li:nth-child(2) {
+        bottom: 16rem;
+        left: 2rem;
+      }
+
+      li:nth-child(3) {
+        bottom: 20rem;
+        left: 21rem;
+      }
+
+      li:nth-child(4) {
+        bottom: 26rem;
+        left: 0rem;
+      }
+
+      li:nth-child(5) {
+        bottom: 3rem;
+        right: 4rem;
+      }
+
+      li:nth-child(6) {
+        bottom: 19rem;
+        right: 18rem;
+      }
+
+      li:nth-child(7) {
+        right: 6rem;
+        bottom: 24rem;
+      }
+
+      li:nth-child(8) {
+        top: 10rem;
+        right: 1rem;
+      }
+    }
+
+    &.bar_list {
+      li:first-child {
+        bottom: 3rem;
+        left: 4rem;
+      }
+
+      li:nth-child(2) {
+        bottom: 17rem;
+        left: 15rem;
+      }
+
+      li:nth-child(3) {
+        top: 13rem;
+        left: 3rem;
+      }
+
+      li:nth-child(4) {
+        bottom: 1rem;
+        right: 5rem;
+      }
+
+      li:nth-child(5) {
+        bottom: 16rem;
+        right: 18rem;
+      }
+
+      li:nth-child(6) {
+        bottom: 33rem;
+        right: 1rem;
+      }
+    }
+  }
+}
 
 
 
+@media (max-width: 1440px) {
+  .slide_titile {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .slide_description {
+    font-size: 14px;
+    line-height: 26px;
+    margin-top: 15px;
+  }
+
+  .decor_list {
+    li img {
+      width: 80%;
+    }
+
+
+
+    &.restaurant_list li {
+      &:first-child {
+        bottom: 1rem;
+        left: 1rem;
+      }
+
+      &:nth-child(2) {
+        left: 12rem;
+        bottom: 7rem;
+      }
+
+      &:nth-child(3) {
+        top: 17rem;
+        left: 12rem;
+      }
+
+      &:nth-child(4) {
+        top: 9rem;
+        left: 1rem;
+      }
+
+      &:nth-child(5) {
+        bottom: 1rem;
+        right: 1rem;
+      }
+
+      &:nth-child(6) {
+        bottom: 12rem;
+        right: 10rem;
+      }
+
+      &:nth-child(7) {
+        top: 10rem;
+        right: 1rem;
+      }
+    }
+
+    &.cafe_list {
+      li:first-child {
+        bottom: 2rem;
+        left: 4rem;
+      }
+
+      li:nth-child(2) {
+        bottom: 6rem;
+        left: 5rem;
+      }
+
+      li:nth-child(3) {
+        bottom: 12rem;
+        left: 16rem;
+      }
+
+      li:nth-child(4) {
+        bottom: 11rem;
+        left: 1rem;
+      }
+
+      li:nth-child(5) {
+        bottom: 15rem;
+        left: 20rem;
+      }
+
+      li:nth-child(6) {
+        top: 6rem;
+        left: 1rem;
+      }
+
+      li:nth-child(7) {
+        right: 3rem;
+        bottom: 2rem;
+      }
+
+      li:nth-child(8) {
+        bottom: 4rem;
+        right: -1rem;
+      }
+
+      li:nth-child(9) {
+        right: 4rem;
+        bottom: 1rem;
+      }
+
+      li:nth-child(10) {
+        right: 1rem;
+        top: 21rem;
+      }
+
+      li:nth-child(11) {
+        top: 6rem;
+        right: 0rem;
+      }
+    }
+
+    &.food_list {
+      li:first-child {
+        bottom: 2rem;
+        left: 4rem;
+      }
+
+      li:nth-child(2) {
+        bottom: 14rem;
+        left: 2rem;
+      }
+
+      li:nth-child(3) {
+        bottom: 16rem;
+        left: 16rem;
+      }
+
+      li:nth-child(4) {
+        left: 0rem;
+        bottom: auto;
+        top: 5rem;
+      }
+
+      li:nth-child(5) {
+        bottom: 1rem;
+        right: 2rem;
+      }
+
+      li:nth-child(6) {
+        bottom: 16rem;
+        right: 15rem;
+      }
+
+      li:nth-child(7) {
+        right: 4rem;
+        bottom: 21rem;
+      }
+
+      li:nth-child(8) {
+        top: 6rem;
+        right: 1rem;
+      }
+    }
+
+    &.bar_list {
+      li:first-child {
+        bottom: 2rem;
+        left: 2rem;
+      }
+
+      li:nth-child(2) {
+        bottom: 13rem;
+        left: 13rem;
+      }
+
+      li:nth-child(3) {
+        top: 9rem;
+        left: 2rem;
+      }
+
+      li:nth-child(4) {
+        bottom: 1rem;
+        right: 1rem;
+      }
+
+      li:nth-child(5) {
+        bottom: 12rem;
+        right: 12rem;
+      }
+
+      li:nth-child(6) {
+        bottom: auto;
+        right: 1rem;
+        top: 6rem;
+      }
+    }
+  }
+}
+
+      li:nth-child(6) {
+        bottom: auto;
+        right: 1rem;
+        top: 6rem;
+      }
+    }
+  }
+}

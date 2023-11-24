@@ -95,7 +95,6 @@ a {
   .welcome_btn {
     max-width: fit-content;
   }
-  
 }
 
 .welcome_page {
@@ -105,4 +104,18 @@ a {
   -moz-user-select: none;      /* Firefox */
   -ms-user-select: none;       /* Internet Explorer/Edge */
   user-select: none; 
+}
+
+@media (max-width: 1600px) {
+  .welcome_info {
+    top: 130px;
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .welcome_info {
+    top: 110px;
+    max-width: 890px;
+  }
 }
