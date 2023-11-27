@@ -41,50 +41,50 @@
             transform: scale(0.95);
         }
 
-        &--bubble {
-            position: relative;
-            z-index: 2;
-            color: white;
-            background: none;
+        // &--bubble {
+        //     position: relative;
+        //     z-index: 2;
+        //     color: white;
+        //     background: none;
 
-            &:hover {
-                background: none;
-            }
+        //     &:hover {
+        //         background: none;
+        //     }
 
-            &:hover+.button--bubble__effect-container .circle {
-                background: darken($animateColor, 5%);
-            }
+        //     &:hover+.button--bubble__effect-container .circle {
+        //         background: darken($animateColor, 5%);
+        //     }
 
-            &:hover+.button--bubble__effect-container .button {
-                background: darken($animateColor, 5%);
-            }
+        //     &:hover+.button--bubble__effect-container .button {
+        //         background: darken($animateColor, 5%);
+        //     }
 
-            &:active+.button--bubble__effect-container {
-                transform: scale(0.95);
-            }
+        //     &:active+.button--bubble__effect-container {
+        //         transform: scale(0.95);
+        //     }
 
-            &__container {
-                position: relative;
-                display: inline-block;
+        //     &__container {
+        //         position: relative;
+        //         display: inline-block;
 
-                .effect-button {
-                    position: absolute;
-                    width: 50%;
-                    height: 25%;
-                    top: 50%;
-                    left: 25%;
-                    z-index: 1;
-                    transform: translateY(-50%);
-                    background: $dark-blue;
-                    transition: background 0.1s ease-out;
-                }
-            }
-        }
+        //         .effect-button {
+        //             position: absolute;
+        //             width: 50%;
+        //             height: 25%;
+        //             top: 50%;
+        //             left: 25%;
+        //             z-index: 1;
+        //             transform: translateY(-50%);
+        //             background: $dark-blue;
+        //             transition: background 0.1s ease-out;
+        //         }
+        //     }
+        // }
     }
 
     .button--bubble__effect-container {
         position: absolute;
-        display: block;
+        display: none;
         width: 200%;
         height: 400%;
         top: -150%;
