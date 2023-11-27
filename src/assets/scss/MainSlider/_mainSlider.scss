@@ -134,6 +134,127 @@
   transition: 0.5s;
   transform: translate(-50%, 0%);
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 93%;
+    height: 93%;
+    opacity: 1;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border: 2px solid rgba($white , 0.6);
+    border-radius: 50%;
+    transition: 0.5s;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 93%;
+    height: 93%;
+    opacity: 1;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border: 2px solid rgba($white , 0.6);
+    border-radius: 50%;
+    transition: 0.5s;
+    transition-delay: 0.3s;
+  }
+
+  .inner_line {
+    width: 93%;
+    height: 93%;
+    opacity: 1;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border: 2px solid rgba($white , 0.6);
+    border-radius: 50%;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+
+    &:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border: 2px solid rgba($white , 0.6);
+      border-radius: 50%;
+      transition: 0.5s;
+      transition-delay: 0.3s;
+    }
+    
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border: 2px solid rgba($white , 0.6);
+      border-radius: 50%;
+      transition: 0.5s;
+      transition-delay: 0.2s;
+    }
+  }
+
+  &.hovered {
+    border: 1px solid rgba($white , 0);
+
+    &::after {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    &::before {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    .inner_line {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      animation-delay: 1s;
+
+      &:after {
+        width: 110%;
+        height: 110%;
+        opacity: 0;
+      }
+
+      &:before {
+        width: 110%;
+        height: 110%;
+        opacity: 0;
+      }
+    }
+  }
+
 }
 
 .current_page_href {
@@ -149,7 +270,7 @@
   overflow: hidden;
 }
 
-.each-slide>div {
+.each-slide > div {
   width: auto !important;
 }
 
