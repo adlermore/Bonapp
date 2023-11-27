@@ -184,15 +184,15 @@ const Welcome = () => {
             <animated.div className="progress_nav" style={{ transform }}>
                 <span className='active-circle'></span>
             </animated.div>
-            <div className="decor_line">
+            <div className={isHovered ?  `decor_line hovered` :  `decor_line`}>
                 <a href='#/'
                     onClick={(e) => CurrentPageHref(e)}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     className='current_page_href'>
-
                 </a>
-            </div>
+                <span className='inner_line'></span>
+            </div>   
             <div className="welcome_info">
                 <div className='slide_titile'>About Bonapp</div>
                 <div className="slide_description">
