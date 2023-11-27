@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
 import '../assets/scss/MainSlider/_mainSlider.scss'
 import HoverAnimation from '../components/HoverAnimation/HoverAnimation';
-
 import bg1 from '../assets/img/bg1.png';
 import bg2 from '../assets/img/bg2.png';
 import bg3 from '../assets/img/bg3.png';
@@ -40,14 +39,14 @@ import cafe6 from '../assets/img/decor/cafe6.png';
 import cafe7 from '../assets/img/decor/cafe7.png';
 import cafe8 from '../assets/img/decor/cafe8.png';
 
-const restDecors = [rest1 , rest2 , rest3 , rest4 , rest5 , rest6, rest7];
-const cafeDecors = [cafe1 , cafe2 , cafe1 , cafe3 , cafe4 , cafe5, cafe1, cafe6 , cafe7 , cafe1 , cafe8];
-const foodDecors = [food1 , food2 , food3 , food4 , food5 , food2, food6, food3];
-const barDecors = [bar1 , bar2 , bar3 , bar4 , bar5 , bar2];
+const restDecors = [rest1, rest2, rest3, rest4, rest5, rest6, rest7];
+const cafeDecors = [cafe1, cafe2, cafe1, cafe3, cafe4, cafe5, cafe1, cafe6, cafe7, cafe1, cafe8];
+const foodDecors = [food1, food2, food3, food4, food5, food2, food6, food3];
+const barDecors = [bar1, bar2, bar3, bar4, bar5, bar2];
 
 const Welcome = () => {
     const [isLoggedIn, setisLoggedIn] = useState('current1');
-    const [currentPageName, setcurrentPageName] = useState(null);
+    const [currentPageName, setcurrentPageName] = useState('restaurant');
     const [rotate, setRotate] = useState(-60);
     const [SliderCurrent, setSliderCurrent] = useState(1);
     const [isHovered, setIsHovered] = useState(false);
@@ -74,7 +73,7 @@ const Welcome = () => {
 
     const CurrentPageHref = useCallback((e) => {
         e.preventDefault()
-        navigate(`/${currentPageName}`)
+        navigate(`/Restaurant/${currentPageName}`)
     }, [currentPageName, navigate])
 
     const { transform } = useSpring({
@@ -90,14 +89,13 @@ const Welcome = () => {
             }, 100);
         }
     });
-
-    console.log('render');
+    
     return (
         <div className="welcome_page">
             <div className={isHovered ? 'slide_list currentHovered' : 'slide_list'}>
                 <div className={isLoggedIn === 'current1' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg1}) no-repeat center` }}>
                     <ul className="decor_list restaurant_list">
-                        {restDecors.map((decor , index)=>{
+                        {restDecors.map((decor, index) => {
                             return <li key={index} className='decor_li'><img src={decor} alt='decor-elem' /></li>
                         })}
                     </ul>
@@ -107,7 +105,7 @@ const Welcome = () => {
                 </div>
                 <div className={isLoggedIn === 'current2' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg2}) no-repeat center` }}>
                     <ul className="decor_list cafe_list">
-                        {cafeDecors.map((decor , index)=>{
+                        {cafeDecors.map((decor, index) => {
                             return <li key={index} className='decor_li'><img src={decor} alt='decor-elem' /></li>
                         })}
                     </ul>
@@ -117,7 +115,7 @@ const Welcome = () => {
                 </div>
                 <div className={isLoggedIn === 'current3' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg3}) no-repeat center` }}>
                     <ul className="decor_list food_list">
-                        {foodDecors.map((decor , index)=>{
+                        {foodDecors.map((decor, index) => {
                             return <li key={index} className='decor_li'><img src={decor} alt='decor-elem' /></li>
                         })}
                     </ul>
@@ -127,7 +125,7 @@ const Welcome = () => {
                 </div>
                 <div className={isLoggedIn === 'current4' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg4}) no-repeat center` }}>
                     <ul className="decor_list bar_list">
-                        {barDecors.map((decor , index)=>{
+                        {barDecors.map((decor, index) => {
                             return <li key={index} className='decor_li'><img src={decor} alt='decor-elem' /></li>
                         })}
                     </ul>
@@ -139,8 +137,8 @@ const Welcome = () => {
             <div className="navigation_circle">
                 <div className="nav_circle_line">
                     <svg
-                        version="1.1" id="Layer_1" 
-                        viewBox="0 0 500 500" 
+                        version="1.1" id="Layer_1"
+                        viewBox="0 0 500 500"
                         enableBackground="new 0 0 500 500"
                     >
                         <path
@@ -192,18 +190,18 @@ const Welcome = () => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     className='current_page_href'>
-                    Current Link
+
                 </a>
             </div>
             <div className="welcome_info">
-                    <div className='slide_titile'>About Bonapp</div>
-                    <div className="slide_description">
-                        Bonapp is a platform that allows users to easily book tables at their favorite restaurants online.
-                        Customers can browse restaurant listings, view availability, and make reservations in a few clicks,
-                        streamlining the dining experience. It simplifies the process of securing a table, ensuring a
-                        convenient and hassle-free dining experience for patrons.
-                    </div>    
-                    <HoverAnimation currentColor={isLoggedIn} />
+                <div className='slide_titile'>About Bonapp</div>
+                <div className="slide_description">
+                    Bonapp is a platform that allows users to easily book tables at their favorite restaurants online.
+                    Customers can browse restaurant listings, view availability, and make reservations in a few clicks,
+                    streamlining the dining experience. It simplifies the process of securing a table, ensuring a
+                    convenient and hassle-free dining experience for patrons.
+                </div>
+                <HoverAnimation currentColor={isLoggedIn} />
             </div>
         </div>
     )
