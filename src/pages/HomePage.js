@@ -1,8 +1,13 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/scss/HomePage/_homePage.scss'
+import TimeKeeper from 'react-timekeeper';
+import '../assets/scss/HomePage/_homePage.scss';
+
 const HomePage = () => {
+    
+    const [time, setTime] = useState('12:34pm')
+    const [showTime, setShowTime] = useState(true)
 
     return (
         <div className="home_page">
@@ -12,7 +17,20 @@ const HomePage = () => {
                         <Link to="/">Welcome</Link>
                         <a href="#/">Time</a>
                         <a href="#/">Name</a>
-                        asdasdasd
+                        <div>
+                            {showTime &&
+                                <TimeKeeper
+                                    time={time}
+                                    onChange={(newTime) => setTime(newTime.formatted12)}
+                                    onDoneClick={() => setShowTime(false)}
+                                    switchToMinuteOnHourSelect
+                                />
+                            }
+                            <span>Time is {time}</span>
+                            {!showTime &&
+                                <button onClick={() => setShowTime(true)}>Show</button>
+                            }
+                        </div>
                         <button className="site_btn">Reserve</button>
                     </div>
                 </div>

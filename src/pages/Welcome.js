@@ -45,6 +45,7 @@ const foodDecors = [food1, food2, food3, food4, food5, food2, food6, food3];
 const barDecors = [bar1, bar2, bar3, bar4, bar5, bar2];
 
 const Welcome = () => {
+    
     const [isLoggedIn, setisLoggedIn] = useState('current1');
     const [currentPageName, setcurrentPageName] = useState('restaurant');
     const [rotate, setRotate] = useState(-60);
@@ -91,8 +92,8 @@ const Welcome = () => {
     });
     
     return (
-        <div className="welcome_page">
-            <div className={isHovered ? 'slide_list currentHovered' : 'slide_list'}>
+        <div className={isHovered ?  `welcome_page hovered` : 'welcome_page'}>
+            <div className='slide_list'>
                 <div className={isLoggedIn === 'current1' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg1}) no-repeat center` }}>
                     <ul className="decor_list restaurant_list">
                         {restDecors.map((decor, index) => {
@@ -101,6 +102,9 @@ const Welcome = () => {
                     </ul>
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle1} alt='circle-img' />
+                        <span className="inner_line">
+                            <span></span>
+                        </span>
                     </animated.div>
                 </div>
                 <div className={isLoggedIn === 'current2' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg2}) no-repeat center` }}>
@@ -111,6 +115,9 @@ const Welcome = () => {
                     </ul>
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle2} alt='circle-img' />
+                        <span className="inner_line">
+                            <span></span>
+                        </span>
                     </animated.div>
                 </div>
                 <div className={isLoggedIn === 'current3' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg3}) no-repeat center` }}>
@@ -121,6 +128,9 @@ const Welcome = () => {
                     </ul>
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle3} alt='circle-img' />
+                        <span className="inner_line">
+                            <span></span>
+                        </span>
                     </animated.div>
                 </div>
                 <div className={isLoggedIn === 'current4' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg4}) no-repeat center` }}>
@@ -131,6 +141,9 @@ const Welcome = () => {
                     </ul>
                     <animated.div className="circle_images" style={{ transform }}>
                         <img src={circle4} alt='circle-img' />
+                        <span className="inner_line">
+                            <span></span>
+                        </span>
                     </animated.div>
                 </div>
             </div>
@@ -184,14 +197,13 @@ const Welcome = () => {
             <animated.div className="progress_nav" style={{ transform }}>
                 <span className='active-circle'></span>
             </animated.div>
-            <div className={isHovered ?  `decor_line hovered` :  `decor_line`}>
+            <div className='decor_line'>
                 <a href='#/'
                     onClick={(e) => CurrentPageHref(e)}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                     className='current_page_href'>
                 </a>
-                <span className='inner_line'></span>
             </div>   
             <div className="welcome_info">
                 <div className='slide_titile'>About Bonapp</div>

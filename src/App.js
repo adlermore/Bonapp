@@ -10,7 +10,7 @@ import './App.scss';
 function App() {
   const [loading, setLoading] = useState(true);
   const [WelcomPageToggle, setWelcomPageToggle] = useState(true);
-
+  
   const location = useLocation();
 
   useEffect(() => {
@@ -22,14 +22,9 @@ function App() {
       document.body.style.overflow = 'auto';
       setWelcomPageToggle(true)
     }
-    
-    // setTimeout(() => {
-    //   setLoading(false)
-    // }, 1500)
-
 
     const handleLoad = () => {
-      console.log('Страница загружена!');
+      console.log('True!');
       setLoading(false)
     };
 
@@ -38,26 +33,7 @@ function App() {
     return () => {
       window.removeEventListener('load', handleLoad);
     };
-
-    // const existingScript = document.querySelector('script[src="js/TweenMax.min.js"]');
     
-    // if(!existingScript){
-    //   const scriptTweenMax = document.createElement('script');
-    //   scriptTweenMax.src = 'js/TweenMax.min.js';
-    //   scriptTweenMax.async = true;
-
-    //   const scriptHoverAnimation = document.createElement('script');
-    //   scriptHoverAnimation.src = 'js/HoverAnimation.js';
-    //   scriptHoverAnimation.async = true;
-
-    //   document.body.appendChild(scriptTweenMax);
-    //   document.body.appendChild(scriptHoverAnimation);
-    //   return () => {
-    //     document.body.removeChild(scriptTweenMax , scriptHoverAnimation );
-    //   };
-    // }  
-    
-
   }, [location.pathname]);
 
   return (
