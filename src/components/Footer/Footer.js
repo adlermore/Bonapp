@@ -41,11 +41,11 @@ const Footer = () => {
                         </li>
                     </ul>
                     <div className="payment_block">
-                        <label>
+                        <div>
                             <span><img src={payment1} alt="paymentImg" /></span>
                             <span><img src={payment3} alt="paymentImg" /></span>
                             <span><img src={payment2} alt="paymentImg" /></span>
-                        </label>
+                        </div>
                     </div>
                 </div>
                 <div className="footer_copytoght">@Copyright 2023</div>
