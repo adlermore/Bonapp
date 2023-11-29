@@ -54,14 +54,17 @@
             cursor: no-drop;
             opacity: 0.7;
         }
-        
+        &.selected{
+            background: $siteGreen;
+            color: $white;
+        }
         &.reserve_btn {
             background: $siteRed;
             color: $white;
         }
     }
 
-    .timePicker_block {
+    .picker_block {
         position: absolute;
         top: 48px;
         z-index: 9;
@@ -71,7 +74,7 @@
         visibility: hidden;
         transition: opacity 0.3s, visibility 0.3s;
     }
-    .openedPicker  .timePicker_block {
+    .openedPicker  .picker_block {
         opacity: 1;
         visibility: visible;
     }

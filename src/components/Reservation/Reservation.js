@@ -5,7 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
-
+import dayjs from 'dayjs';
 
 const Reservation = ({ background, innerName, innerDescription }) => {
 
@@ -16,25 +16,100 @@ const Reservation = ({ background, innerName, innerDescription }) => {
         reserveName: 'Name'
     });
 
-    const [openTimePicker, setOpenTimePicker] = useState(false);
-    const [openDatePicker, setOpenDatePicker] = useState(false);
+    const [optionDatePicker, setOptionDatePicker] = useState({
+        isOpened : false,
+        disabled : false
+    });
 
+    const [optionTimePicker, setOptionTimePicker] = useState({
+        isOpened : false,
+        disabled : true
+    });
 
-    const toggleTimePicker = () => {
-        setOpenDatePicker(false);
-        setOpenTimePicker(!openTimePicker);
+    const [optionGuestsPicker, setOptionGuestsPicker] = useState({
+        isOpened : false,
+        disabled : true
+    });
+
+    const [optionNamePicker, setOptionNamePicker] = useState({
+        isOpened : false,
+        disabled : true
+    });
+
+    const [optionReservePicker, setOptionReservePicker] = useState({
+        isOpened : false,
+        disabled : true
+    });
+
+    const closeAllPickers = () => {
+        closeDatePicker();
+        closeTimePicker();
+        closeGuestsPicker();
+        closeNamePicker();
+        closeReservePicker();
+    }
+
+    const closeDatePicker = () => {
+        setOptionDatePicker({...optionDatePicker , isOpened : false });
+    }
+
+    const closeTimePicker = () => {
+        setOptionTimePicker({...optionTimePicker , isOpened : false});
+    }
+
+    const closeGuestsPicker = () => {
+        setOptionGuestsPicker({...optionGuestsPicker , isOpened : false});
+    }
+
+    const closeNamePicker = () => {
+        setOptionNamePicker({...optionNamePicker , isOpened : false});
+    }
+
+    const closeReservePicker = () => {
+        setOptionReservePicker({...optionReservePicker , isOpened : false});
     }
 
     const toggleDatePicker = () => {
-        setOpenTimePicker(false);
-        setOpenDatePicker(!openDatePicker);
+        closeAllPickers()
+        setOptionDatePicker({...optionDatePicker , isOpened : !optionDatePicker.isOpened});
+    }
+
+    const toggleTimePicker = () => {
+        closeAllPickers();
+        setOptionTimePicker({...optionTimePicker , isOpened : !optionTimePicker.isOpened});
     }
     
-    const handleTimeChangeTimePicker = (newTime) => {
-        // setReservationData({...reservationData , reserveTime: newTime });
-        // handleCloseTimePicker();
-        console.log(newTime);
-        setOpenTimePicker(!openTimePicker);
+    const toggleGuestsPicker = () => {
+        closeAllPickers();
+        setOptionGuestsPicker({...optionGuestsPicker , isOpened : !optionGuestsPicker.isOpened});
+    }
+
+    const toggleNamePicker = () => {
+        closeAllPickers();
+        setOptionNamePicker({...optionNamePicker , isOpened : !optionNamePicker.isOpened});
+    }
+
+    const toggleReservePicker = () => {
+        closeAllPickers();
+        setOptionReservePicker({...optionReservePicker , isOpened : !optionReservePicker.isOpened});
+    }
+    
+    const changeDatePicker = (newTime) => {
+        let updatedDate = newTime.$D +'-'+newTime.$M+'-'+newTime.$y;
+        setReservationData({...reservationData , reserveDate: updatedDate });
+        setOptionTimePicker({...optionTimePicker , disabled : false});
+        if(optionTimePicker.disabled){
+            setOptionTimePicker({ isOpened : true , disabled : false});
+        }
+    };
+
+    const changeTimePicker = (newTime) => {
+        let updatedDate = newTime.$H +':'+newTime.$m;
+        setReservationData({...reservationData , reserveTime: updatedDate });
+        setOptionGuestsPicker({...optionGuestsPicker , disabled : false});
+        if(optionGuestsPicker.disabled){
+            setOptionGuestsPicker({ isOpened : true , disabled : false});
+        }
     };
 
     return (
@@ -48,75 +123,89 @@ const Reservation = ({ background, innerName, innerDescription }) => {
                 }
                 <div className="reservation_container">
                     <div className="reservation_list">
-                        <div className={!openDatePicker ? `btn_block datepicker_btn` : `btn_block openedPicker datepicker_btn` }>
+                        <div className={!optionDatePicker.isOpened ? `btn_block datepicker_btn` : `btn_block openedPicker datepicker_btn` }>
                             <button 
                                 onClick={()=>toggleDatePicker()} 
-                                className='switcher_btn'
+                                className={optionTimePicker.disabled ? `switcher_btn`: `switcher_btn selected`}
                             >
                                 {reservationData.reserveDate}
                             </button >
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <StaticDatePicker 
-                                    // value={new Date()}
+                                    format="DD-MM-YYYY"
+                                    defaultValue={dayjs(new Date())}
                                     disablePast = {true}
                                     toolbar = {false}
                                     displayWeekNumber ={false}
-                                    onAccept={handleTimeChangeTimePicker}
-                                    // onClose={(event, reason) => {
-                                    //     if(reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
-                                    //         handleCloseTimePicker();
-                                    //     }
-                                    // }}
-                                    className="timePicker_block"
+                                    onAccept={changeDatePicker}
+                                    onClose={(event, reason) => {
+                                        if(reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
+                                            closeDatePicker(event);
+                                        }
+                                    }}
+                                    className="picker_block"
                                     orientation="portrait"
                                 />
                             </LocalizationProvider>
                         </div>
-                        <div className={!openTimePicker ? `btn_block timepicker_btn`: `btn_block openedPicker timepicker_btn`}>
+                        <div className={!optionTimePicker.isOpened ? `btn_block timepicker_btn`: `btn_block openedPicker timepicker_btn`}>
                             <button  
-                                className='switcher_btn' 
-                                onClick={()=>toggleTimePicker}
-                                disabled={true}
+                                className={optionGuestsPicker.disabled ? `switcher_btn`: `switcher_btn selected`}
+                                onClick={()=>toggleTimePicker()}
+                                disabled={optionTimePicker.disabled}
                             >
                                 {reservationData.reserveTime}
                             </button >
                             <LocalizationProvider dateAdapter={AdapterDayjs}>
                                 <StaticTimePicker
-                                    // value={new Date()}
-                                    onAccept={handleTimeChangeTimePicker}
-                                    // onClose={(event, reason) => {
-                                    //     if(reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
-                                    //         handleCloseTimePicker();
-                                    //     }
-                                    // }}
-                                    className="timePicker_block"
+                                    format="DD-MM-YYYY"
+                                    defaultValue={dayjs(new Date())}
+                                    onAccept={changeTimePicker}
+                                    onClose={(event, reason) => {
+                                        if(reason !== 'backdropClick' && reason !== 'escapeKeyDown') {
+                                            closeTimePicker(event);
+                                        }
+                                    }}
+                                    className="picker_block"
                                     orientation="portrait"
                                 />
                             </LocalizationProvider>
                         </div>
-                        <div className='btn_block guestsCount_btn'>
+                        <div className={!optionGuestsPicker.isOpened ? `btn_block guestsCount_btn` : `btn_block openedPicker guestsCount_btn` }>
                             <button 
                                 className='switcher_btn'
-                                disabled={true}
+                                disabled={optionGuestsPicker.disabled}
+                                onClick={()=>toggleGuestsPicker()}
                             >
                                 {reservationData.reserveGuest}
                             </button>
+                            <div className='picker_block'>
+                                Guests Count
+                            </div>
                         </div>
-                        <div className='btn_block submit_btn'>
+                        <div className={!optionNamePicker.isOpened ? `btn_block currResName_btn` : `btn_block openedPicker currResName_btn` }>
                             <button 
                                 className='switcher_btn'
                                 disabled={true}
+                                onClick={()=>toggleNamePicker()}
                             >
                                 {reservationData.reserveName}
                             </button>
+                            <div className='picker_block'>
+                                Restaurant NAme
+                            </div>
                         </div>
-                        <div className='btn_block submit_btn '>
+                        <div className={!optionNamePicker.isOpened ? `btn_block submit_btn` : `btn_block openedPicker submit_btn` }>
                             <button 
                                 className='switcher_btn reserve_btn'
                                 disabled={true}
+                                onClick={()=>toggleReservePicker()}
                             >
                                 Reserve
                             </button>
+                            <div className='picker_block'>
+                               Reserve Inner Block
+                            </div>
                         </div>
                     </div>
                 </div>
