@@ -30,11 +30,7 @@
     }
 
     .switcher_btn {
-        display: flex;
         user-select: none;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
         border-radius: 4px;
         border: 1px solid $siteGreen;
         background: rgba($white, 0.80);
@@ -46,20 +42,35 @@
         width: 160px;
         height: 44px;
         transition: 0.3s;
-        margin-left: 1px;
-        &:hover{
+        margin-left: 3px;
+        overflow: hidden;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0 20px;
+
+        &:hover {
             opacity: 0.7;
         }
-        &:disabled{
+
+        &:disabled {
             cursor: no-drop;
             opacity: 0.7;
         }
-        &.selected{
+
+        &.selected {
             background: $siteGreen;
             color: $white;
+
+            &:hover {
+                opacity: 1;
+                background: #024237;
+            }
         }
+
         &.reserve_btn {
             background: $siteRed;
+            border: none;
             color: $white;
         }
     }
@@ -68,15 +79,353 @@
         position: absolute;
         top: 48px;
         z-index: 9;
-        left: 0;
+        left: 3px;
         border-radius: 4px;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s, visibility 0.3s;
-    }
-    .openedPicker  .picker_block {
-        opacity: 1;
-        visibility: visible;
+        background: #e6f0ee;
+
     }
 
+    .openedPicker .picker_block {
+        opacity: 1;
+        visibility: visible;
+        z-index: 20;
+    }
+
+    .datepicker_btn {
+        .MuiPickersToolbar-root {
+            display: none;
+        }
+
+        .MuiDayCalendar-header {
+            margin: 0;
+            -webkit-justify-content: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            span {
+                font-size: 13px;
+                color: #1F1F1F;
+                font-family: $semiBold;
+            }
+        }
+
+        .MuiPickersCalendarHeader-root {
+            padding-left: 13px;
+            padding-right: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .MuiPickersCalendarHeader-label {
+            font-size: 16px;
+            color: #1F1F1F;
+            font-family: $regular;
+        }
+
+        .css-innj4t-MuiPickersYear-yearButton.Mui-selected {
+            background: $siteGreen;
+            color: $white;
+        }
+
+        .MuiDayCalendar-weekContainer {
+            margin: 0;
+            -webkit-justify-content: center;
+            justify-content: space-between;
+            margin-bottom: 4px;
+
+            button {
+                width: 41px;
+                height: 35px;
+                border-radius: 5px;
+                box-shadow: 0px 0.79798px 0.79798px 0px rgba(0, 14, 51, 0.05);
+                background: $white;
+                font-size: 13px;
+                color: #1F1F1F;
+                font-family: $semiBold;
+                transition: 0.3s;
+                margin: 0;
+
+                &.Mui-disabled {
+                    background: transparent;
+                    color: rgba(44, 44, 45, 0.25);
+                    box-shadow: none;
+                }
+
+                &.Mui-selected {
+                    background: $siteGreen;
+                    color: $white;
+                }
+            }
+
+        }
+    }
+
+    .MuiPickersArrowSwitcher-root {
+        button {
+            border-radius: 5px;
+            box-shadow: 0px 0.79798px 0.79798px 0px rgba(0, 14, 51, 0.05);
+            font-family: $regular;
+            transition: 0.3s;
+            background: rgba($white , 0.8);
+            color: $siteGreen;
+            margin-left: -5px;
+
+            &:hover {
+                background: $siteGreen;
+                color: $white;
+            }
+        }
+    }
+
+    .MuiDialogActions-root {
+        padding: 0;
+        margin-top: 15px;
+
+        button {
+            border-radius: 5px;
+            box-shadow: 0px 0.79798px 0.79798px 0px rgba(0, 14, 51, 0.05);
+            font-family: $regular;
+            transition: 0.3s;
+            background: rgba($white , 0.8);
+            color: $siteGreen;
+
+            &:hover {
+                background: $siteGreen;
+                color: $white;
+            }
+        }
+    }
+
+    .timepicker_btn {
+        .MuiPickersToolbar-root {
+            padding: 0 10px;
+
+        }
+
+        .MuiTypography-root {
+            font-family: $regular;
+            color: $siteGreen;
+        }
+
+        .MuiPickersArrowSwitcher-root {
+            right: 0px;
+            top: 0;
+
+            .Mui-disabled {
+                opacity: 0.5;
+            }
+        }
+
+        .MuiClock-root {
+            margin-top: 50px;
+            margin-bottom: 5px;
+        }
+
+        .css-umzx0k-MuiClock-pin,
+        .css-rdq5h4-MuiClockPointer-root {
+            background-color: $siteGreen;
+        }
+
+        .css-12t0dn4-MuiClockPointer-thumb {
+            border: 16px solid $siteGreen;
+        }
+
+        .css-eg3pzz-MuiClockPointer-thumb {
+            background-color: $siteGreen;
+            border: 16px solid $siteGreen;
+        }
+
+        .css-d0vs79-MuiClockPointer-root {
+            background-color: $siteGreen;
+        }
+    }
+
+    .guests_picker {
+        width: 322px;
+    }
+
+    .guests_inner {
+        padding: 28px;
+    }
+
+    .guests_list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        gap: 15px;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            box-shadow: 0px 0.79798px 0.79798px 0px rgba(0, 14, 51, 0.05);
+            background: $white;
+            font-size: 14px;
+            color: #1F1F1F;
+            font-family: $semiBold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                color: $white;
+                background: rgba($siteGreen , 0.7);
+            }
+        }
+
+        .selected button {
+            color: $white;
+            background: $siteGreen;
+        }
+    }
+
+    .more_dropdown {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .more_btn {
+        font-family: $regular;
+        color: $siteGreen;
+    }
+
+    .dropInput_block {
+        width: 100%;
+        margin-top: 15px;
+        height: 0;
+        overflow: hidden;
+        transition: 0.3s;
+
+        input {
+            width: -webkit-fill-available;
+            border: none;
+            height: 40px;
+            padding: 0 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #1F1F1F;
+            transition: 0.3s;
+            background: $white;
+            box-shadow: 0px 0.79798px 0.79798px 0px rgba(0, 14, 51, 0.05);
+            user-select: none;
+            border: 2px solid transparent;
+            outline: none !important;
+
+            &:focus {
+                border: 2px solid rgba($siteGreen , 0.7);
+            }
+        }
+    }
+
+    .input_opened .dropInput_block {
+        height: 50px;
+    }
+
+    .restaurants_picker {
+        width: 267px;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 220px;
+    }
+
+    .inner_title {
+        font-size: 16px;
+        line-height: 21px;
+        color: $siteGreen;
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: $regular;
+        margin-top: 10px;
+    }
+
+    .block_inner {
+        width: 100%;
+    }
+
+    .select_picker {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .reservation_picker{
+        width: 267px;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 220px;
+        right: 0;
+        left: auto;
+    }
+    .picker_title{
+        color: #E33441;
+        font-size: 25px;
+        line-height: 29px;
+        font-family: $semiBold;
+        text-align: center;
+    }
+    .picker_desc{
+        font-size: 14px;
+        line-height: 16px;
+        color: $siteGreen;
+        font-family: $regular;
+        text-align: center;
+        margin-top: 5px;
+    }
+    .inline_links{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 34px;
+            border-radius: 4px;
+            border: 1px solid $siteRed;
+            font-family: $semiBold;
+            color: $siteRed;
+            width: 100%;
+            transition: 0.3s;
+            font-size: 14px;
+            &:hover{
+                opacity: 1;
+                background: $siteRed;
+                color: $white;
+            }
+        }
+    }
+    .label_inner{
+        margin-top: 30px;
+        text-align: center;
+        color: $siteGreen;
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .reservation_submit{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 20px;
+        height: 45px;
+        background: $siteRed;
+        color: $white;
+        transition: 0.3s;   
+        font-size: 16px;
+        line-height: 18px;
+        font-family: $semiBold;
+        width: 160px;
+        border-radius: 4px;
+    }
 }
