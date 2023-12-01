@@ -200,7 +200,7 @@ const Reservation = ({ background, innerName, innerDescription }) => {
                         <div className={!optionDatePicker.isOpened ? `btn_block datepicker_btn` : `btn_block openedPicker datepicker_btn`}>
                             <button
                                 onClick={() => toggleDatePicker()}
-                                className={optionTimePicker.disabled ? `switcher_btn` : `switcher_btn selected`}
+                                className={optionTimePicker.disabled ? `switcher_btn` : `switcher_btn icon-calendar selected`}
                             >
                                 {reservationData.reserveDate}
                             </button >
@@ -231,7 +231,7 @@ const Reservation = ({ background, innerName, innerDescription }) => {
                         </div>
                         <div className={!optionTimePicker.isOpened ? `btn_block timepicker_btn` : `btn_block openedPicker timepicker_btn`}>
                             <button
-                                className={optionGuestsPicker.disabled ? `switcher_btn` : `switcher_btn selected`}
+                                className={optionGuestsPicker.disabled ? `switcher_btn` : `switcher_btn icon-time selected`}
                                 onClick={() => toggleTimePicker()}
                                 disabled={optionTimePicker.disabled}
                             >
@@ -261,7 +261,7 @@ const Reservation = ({ background, innerName, innerDescription }) => {
                         </div>
                         <div className={!optionGuestsPicker.isOpened ? `btn_block guestsCount_btn` : `btn_block openedPicker guestsCount_btn`}>
                             <button
-                                className={optionNamePicker.disabled ? `switcher_btn` : `switcher_btn selected`}
+                                className={optionNamePicker.disabled ? `switcher_btn` : `switcher_btn icon-user selected`}
                                 disabled={optionGuestsPicker.disabled}
                                 onClick={() => toggleGuestsPicker()}
                             >
@@ -293,7 +293,7 @@ const Reservation = ({ background, innerName, innerDescription }) => {
                         </div>
                         <div className={!optionNamePicker.isOpened ? `btn_block currResName_btn` : `btn_block openedPicker currResName_btn`}>
                             <button
-                                className={optionReservePicker.disabled ? `switcher_btn` : `switcher_btn selected`}
+                                className={optionReservePicker.disabled ? `switcher_btn name-picker-btn  ` : `switcher_btn  name-picker-btn selected`}
                                 disabled={optionNamePicker.disabled}
                                 onClick={() => toggleNamePicker()}
                             >

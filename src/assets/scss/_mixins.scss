@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src: url('../fonts/icomoon.eot?2b9i9c');
-    src: url('../fonts/icomoon.eot?2b9i9c#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?2b9i9c') format('truetype'),
-        url('../fonts/icomoon.woff?2b9i9c') format('woff'),
-        url('../fonts/icomoon.svg?2b9i9c#icomoon') format('svg');
+    src: url('../fonts/icomoon.eot?jamw71');
+    src: url('../fonts/icomoon.eot?jamw71#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?jamw71') format('truetype'),
+        url('../fonts/icomoon.woff?jamw71') format('woff'),
+        url('../fonts/icomoon.svg?jamw71#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -62,6 +62,18 @@
 }
 
 
+.icon-user:before {
+    content: "\e90a";
+}
+
+.icon-time:before {
+    content: "\e90b";
+}
+
+.icon-calendar:before {
+    content: "\e90c";
+}
+
 .icon-telegram:before {
     content: "\e900";
 }
@@ -109,6 +121,7 @@
 .icon-plus:before {
     content: "\e908";
 }
+
 
 
 @mixin standardList() {

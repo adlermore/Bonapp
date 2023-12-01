@@ -36,19 +36,32 @@
         background: rgba($white, 0.80);
         font-size: 16px;
         line-height: 24px;
-        font-family: $medium;
+        font-family: $medium !important;
         color: $siteGreen;
         cursor: pointer;
         width: 160px;
         height: 44px;
         transition: 0.3s;
-        margin-left: 3px;
+        margin-left: 1px;
         overflow: hidden;
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         white-space: nowrap;
         text-overflow: ellipsis;
         padding: 0 20px;
-
+        padding-top: 2px;
+        &.name-picker-btn{
+            display: block !important;
+        }
+        &:before{
+            font-family: 'icomoon';
+            font-size: 18px;
+            display: block;
+            margin-right: 10px;
+            position: relative;
+            bottom: 2px;
+        }
         &:hover {
             opacity: 0.7;
         }
