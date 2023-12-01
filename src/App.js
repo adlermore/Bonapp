@@ -28,10 +28,10 @@ function App() {
       setLoading(false)
     };
 
-    window.addEventListener('load', handleLoad);
+    document.addEventListener('load', handleLoad);
 
     return () => {
-      window.removeEventListener('load', handleLoad);
+      document.removeEventListener('load', handleLoad);
     };
     
   }, [location.pathname]);
