@@ -10,7 +10,6 @@ const SelectAsyncPaginate = (props) => {
   }, [props.regionName]);
 
   const loadOptions = async (searchQuery, loadedOptions, { page }) => {
-
     const response = await fetch(
       `https://www.anapioficeandfire.com/api/houses?region=${regionName}&page=${page}&pageSize=10`
     );

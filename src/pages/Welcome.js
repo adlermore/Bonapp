@@ -45,13 +45,12 @@ const foodDecors = [food1, food2, food3, food4, food5, food2, food6, food3];
 const barDecors = [bar1, bar2, bar3, bar4, bar5, bar2];
 
 const Welcome = () => {
-    
+
     const [isLoggedIn, setisLoggedIn] = useState('current1');
     const [currentPageName, setcurrentPageName] = useState('restaurant');
     const [rotate, setRotate] = useState(-60);
     const [SliderCurrent, setSliderCurrent] = useState(1);
     const [isHovered, setIsHovered] = useState(false);
-
     const navigate = useNavigate();
 
     const handleMouseEnter = () => {
@@ -90,9 +89,9 @@ const Welcome = () => {
             }, 100);
         }
     });
-    
+
     return (
-        <div className={isHovered ?  `welcome_page hovered` : 'welcome_page'}>
+        <div className={isHovered ? `welcome_page hovered` : 'welcome_page'}>
             <div className='slide_list'>
                 <div className={isLoggedIn === 'current1' ? 'each-slide current_slider' : 'each-slide'} style={{ background: `url(${bg1}) no-repeat center` }}>
                     <ul className="decor_list restaurant_list">
@@ -204,7 +203,7 @@ const Welcome = () => {
                     onMouseLeave={handleMouseLeave}
                     className='current_page_href'>
                 </a>
-            </div>   
+            </div>
             <div className="welcome_info">
                 <div className='slide_titile'>About Bonapp</div>
                 <div className="slide_description">
