@@ -323,7 +323,7 @@
   z-index: 2;
   border-radius: 50%;
   height: 39vw;
-  // width: 47vw;
+  width: 39vw;
   bottom: -19.5vw;
   left: 50%;
   transition: 0.5s ease;
@@ -915,25 +915,21 @@ $loader-color: #FDD835;
     font-size: 14px;
     line-height: 26px;
     margin-top: 15px;
+    max-width: 850px;
   }
 
   .decor_list {
-    li img {
-      width: 80%;
-    }
-
-
 
     &.restaurant_list li {
-      &:first-child {
-        bottom: 1rem;
-        left: 1rem;
-      }
+      // &:first-child {
+      //   bottom: 1rem;
+      //   left: 1rem;
+      // }
 
-      &:nth-child(2) {
-        left: 12rem;
-        bottom: 7rem;
-      }
+      // &:nth-child(2) {
+      //   left: 12rem;
+      //   bottom: 7rem;
+      // }
 
       &:nth-child(3) {
         top: 17rem;
@@ -945,15 +941,15 @@ $loader-color: #FDD835;
         left: 1rem;
       }
 
-      &:nth-child(5) {
-        bottom: 1rem;
-        right: 1rem;
-      }
+      // &:nth-child(5) {
+      //   bottom: 1rem;
+      //   right: 1rem;
+      // }
 
-      &:nth-child(6) {
-        bottom: 12rem;
-        right: 10rem;
-      }
+      // &:nth-child(6) {
+      //   bottom: 12rem;
+      //   right: 10rem;
+      // }
 
       &:nth-child(7) {
         top: 10rem;
@@ -967,25 +963,25 @@ $loader-color: #FDD835;
         left: 4rem;
       }
 
-      li:nth-child(2) {
-        bottom: 6rem;
-        left: 5rem;
-      }
+      // li:nth-child(2) {
+      //   bottom: 6rem;
+      //   left: 5rem;
+      // }
 
-      li:nth-child(3) {
-        bottom: 12rem;
-        left: 16rem;
-      }
+      // li:nth-child(3) {
+      //   bottom: 12rem;
+      //   left: 16rem;
+      // }
 
-      li:nth-child(4) {
-        bottom: 11rem;
-        left: 1rem;
-      }
+      // li:nth-child(4) {
+      //   bottom: 11rem;
+      //   left: 1rem;
+      // }
 
-      li:nth-child(5) {
-        bottom: 15rem;
-        left: 20rem;
-      }
+      // li:nth-child(5) {
+      //   bottom: 15rem;
+      //   left: 20rem;
+      // }
 
       li:nth-child(6) {
         top: 6rem;
@@ -994,22 +990,22 @@ $loader-color: #FDD835;
 
       li:nth-child(7) {
         right: 3rem;
-        bottom: 2rem;
+        bottom: 5rem;
       }
 
       li:nth-child(8) {
-        bottom: 4rem;
-        right: -1rem;
+        bottom: 15rem;
+        right: 2rem;
       }
 
       li:nth-child(9) {
         right: 4rem;
-        bottom: 1rem;
+        bottom: 6rem;
       }
 
       li:nth-child(10) {
-        right: 1rem;
-        top: 21rem;
+        right: 5rem;
+        top: 21rem; 
       }
 
       li:nth-child(11) {
@@ -1019,26 +1015,26 @@ $loader-color: #FDD835;
     }
 
     &.food_list {
-      li:first-child {
-        bottom: 2rem;
-        left: 4rem;
-      }
+      // li:first-child {
+      //   bottom: 2rem;
+      //   left: 4rem;
+      // }
 
-      li:nth-child(2) {
-        bottom: 14rem;
-        left: 2rem;
-      }
+      // li:nth-child(2) {
+      //   bottom: 14rem;
+      //   left: 2rem;
+      // }
 
-      li:nth-child(3) {
-        bottom: 16rem;
-        left: 16rem;
-      }
+      // li:nth-child(3) {
+      //   bottom: 16rem;
+      //   left: 16rem;
+      // }
 
-      li:nth-child(4) {
-        left: 0rem;
-        bottom: auto;
-        top: 5rem;
-      }
+      // li:nth-child(4) {
+      //   left: 0rem;
+      //   bottom: auto;
+      //   top: 5rem;
+      // }
 
       li:nth-child(5) {
         bottom: 1rem;
@@ -1050,10 +1046,10 @@ $loader-color: #FDD835;
         right: 15rem;
       }
 
-      li:nth-child(7) {
-        right: 4rem;
-        bottom: 21rem;
-      }
+      // li:nth-child(7) {
+      //   right: 4rem;
+      //   bottom: 21rem;
+      // }
 
       li:nth-child(8) {
         top: 6rem;
@@ -1067,10 +1063,10 @@ $loader-color: #FDD835;
         left: 2rem;
       }
 
-      li:nth-child(2) {
-        bottom: 13rem;
-        left: 13rem;
-      }
+      // li:nth-child(2) {
+      //   bottom: 13rem;
+      //   left: 13rem;
+      // }
 
       li:nth-child(3) {
         top: 9rem;
@@ -1082,10 +1078,10 @@ $loader-color: #FDD835;
         right: 1rem;
       }
 
-      li:nth-child(5) {
-        bottom: 12rem;
-        right: 12rem;
-      }
+      // li:nth-child(5) {
+      //   bottom: 12rem;
+      //   right: 12rem;
+      // }
 
       li:nth-child(6) {
         bottom: auto;
