@@ -24,15 +24,13 @@ function App() {
     }
 
     const handleLoad = () => {
-      console.log('True!');
+      // console.log('True!');
       setLoading(false)
     };
 
-    document.addEventListener('load', handleLoad);
-
-    return () => {
-      document.removeEventListener('load', handleLoad);
-    };
+    setTimeout(() => {
+      handleLoad();
+    }, 1500);
     
   }, [location.pathname]);
 
