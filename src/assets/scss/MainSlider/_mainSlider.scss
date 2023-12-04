@@ -254,9 +254,9 @@
   overflow: hidden;
 }
 
-.each-slide>div {
-  width: auto !important;
-}
+// .each-slide>div {
+//   width: auto !important;
+// }
 
 .hovered {
   .decor_line {
@@ -323,7 +323,7 @@
   z-index: 2;
   border-radius: 50%;
   height: 39vw;
-  width: 47vw;
+  // width: 47vw;
   bottom: -19.5vw;
   left: 50%;
   transition: 0.5s ease;
