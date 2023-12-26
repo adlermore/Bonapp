@@ -1,23 +1,41 @@
-import React from "react";
+import React , {useState} from "react";
 import { Link } from "react-router-dom";
-import logoImg from '../../assets/img/logo.png'
+import logoImg from '../../assets/img/logo.png';
+import { Spin as Hamburger } from 'hamburger-react'
 
-const Header = ({positionRelative}) => {
-    
+const Header = ({ positionRelative }) => {
+
+    const [isOpen, setOpen] = useState(false)
+    const ToggleMobile = () =>{
+        setOpen(!isOpen);
+        if(document.body.classList.contains('menu_opened')){
+            document.body.classList.remove('menu_opened')
+        }else{
+            document.body.classList.add('menu_opened')
+        }
+    }   
+
     return (
-        <header className={positionRelative ? 'page_header header_relative' :  'page_header '}>
+        <header className={positionRelative ? 'page_header header_relative' : 'page_header'}>
             <div className="header_inner">
-                <div className="header_container">
-                    <Link to="/" className="logo_block"><img src={logoImg} alt="logo-img"/></Link>
-                    <ul className="header_menu">
-                        <li><Link to="/">Categories</Link></li>
-                        <li><Link to="/">Popular</Link></li>
-                        <li><Link to="/">Top</Link></li>
-                        <li><Link to="/">Blog</Link></li>
-                        <li><Link to="/">Search</Link></li> 
-                        <li><Link to="/">Location</Link></li> 
-                        <li><Link to="/">Contact</Link></li> 
-                    </ul> 
+                <Link to="/" className="logo_block">
+                    <img src={logoImg} alt="logo-img" />
+                </Link>
+                <div className="hamburger_btn">
+                    <Hamburger className="burger_btn" toggled={isOpen} toggle={ToggleMobile} />
+                </div>
+                <div className='header_container'>
+                    <div className="container_inner">
+                        <ul className="header_menu">
+                            <li><Link to="/">Categories</Link></li>
+                            <li><Link to="/">Popular</Link></li>
+                            <li><Link to="/">Top</Link></li>
+                            <li><Link to="/">Blog</Link></li>
+                            <li><Link to="/">Search</Link></li>
+                            <li><Link to="/">Location</Link></li>
+                            <li><Link to="/">Contact</Link></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </header>

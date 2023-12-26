@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Route, Routes , useLocation} from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import HomePage from './pages/HomePage';
 import Restaurant from './pages/Restaurant';
@@ -8,9 +8,10 @@ import Footer from './components/Footer/Footer';
 import './App.scss';
 
 function App() {
+
   const [loading, setLoading] = useState(true);
   const [WelcomPageToggle, setWelcomPageToggle] = useState(true);
-  
+
   const location = useLocation();
 
   useEffect(() => {
@@ -24,14 +25,13 @@ function App() {
     }
 
     const handleLoad = () => {
-      // console.log('True!');
       setLoading(false)
     };
 
     setTimeout(() => {
       handleLoad();
     }, 1500);
-    
+
   }, [location.pathname]);
 
   return (
@@ -48,7 +48,7 @@ function App() {
           </div>
         </div>
       }
-      <Header positionRelative={WelcomPageToggle}/>
+      <Header positionRelative={WelcomPageToggle} />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/home" element={<HomePage />} />
