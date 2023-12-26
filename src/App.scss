@@ -51,10 +51,6 @@ a {
   }
 }
 
-// .each-slide>div {
-//   width: 100%;
-// }
-
 .each-slide>div img {
   width: 100%;
   height: 100%;
@@ -67,7 +63,7 @@ a {
 }
 
 .site_btn {
-  background: #E33441;
+  background: $siteRed;
   max-width: 177px;
   width: 100%;
   height: 42px;
