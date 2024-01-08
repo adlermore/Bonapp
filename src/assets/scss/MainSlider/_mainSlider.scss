@@ -49,6 +49,8 @@
   border-radius: 50%;
   height: 62vw;
   width: 62vw;
+  // max-width: 1200px;
+  // max-height: 1200px;
   bottom: -31vw;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -541,7 +543,7 @@
   width: 100%;
   height: 100vh;
   position: relative;
-
+  min-height: 590px;
   >.each-slide {
     position: absolute;
     top: 0;
@@ -915,6 +917,9 @@ $loader-color: #FDD835;
 
 
 @media (max-width: 1440px) {
+  .decor_list li img {
+    width: 70%;
+  }
   .slide_titile {
     font-size: 24px;
     line-height: 30px;
@@ -930,35 +935,21 @@ $loader-color: #FDD835;
   .decor_list {
 
     &.restaurant_list li {
-      // &:first-child {
-      //   bottom: 1rem;
-      //   left: 1rem;
-      // }
 
-      // &:nth-child(2) {
-      //   left: 12rem;
-      //   bottom: 7rem;
-      // }
-
+      li:nth-child(2) {
+        left: 16rem;
+        bottom: 10rem;
+      }
+      
       &:nth-child(3) {
-        top: 17rem;
-        left: 12rem;
+        top: 15rem;
+        left: 6rem;
       }
 
       &:nth-child(4) {
-        top: 9rem;
+        top: 7rem;
         left: 1rem;
       }
-
-      // &:nth-child(5) {
-      //   bottom: 1rem;
-      //   right: 1rem;
-      // }
-
-      // &:nth-child(6) {
-      //   bottom: 12rem;
-      //   right: 10rem;
-      // }
 
       &:nth-child(7) {
         top: 10rem;
@@ -971,26 +962,6 @@ $loader-color: #FDD835;
         bottom: 2rem;
         left: 4rem;
       }
-
-      // li:nth-child(2) {
-      //   bottom: 6rem;
-      //   left: 5rem;
-      // }
-
-      // li:nth-child(3) {
-      //   bottom: 12rem;
-      //   left: 16rem;
-      // }
-
-      // li:nth-child(4) {
-      //   bottom: 11rem;
-      //   left: 1rem;
-      // }
-
-      // li:nth-child(5) {
-      //   bottom: 15rem;
-      //   left: 20rem;
-      // }
 
       li:nth-child(6) {
         top: 6rem;
@@ -1024,26 +995,6 @@ $loader-color: #FDD835;
     }
 
     &.food_list {
-      // li:first-child {
-      //   bottom: 2rem;
-      //   left: 4rem;
-      // }
-
-      // li:nth-child(2) {
-      //   bottom: 14rem;
-      //   left: 2rem;
-      // }
-
-      // li:nth-child(3) {
-      //   bottom: 16rem;
-      //   left: 16rem;
-      // }
-
-      // li:nth-child(4) {
-      //   left: 0rem;
-      //   bottom: auto;
-      //   top: 5rem;
-      // }
 
       li:nth-child(5) {
         bottom: 1rem;
@@ -1054,11 +1005,6 @@ $loader-color: #FDD835;
         bottom: 16rem;
         right: 15rem;
       }
-
-      // li:nth-child(7) {
-      //   right: 4rem;
-      //   bottom: 21rem;
-      // }
 
       li:nth-child(8) {
         top: 6rem;
@@ -1072,11 +1018,6 @@ $loader-color: #FDD835;
         left: 2rem;
       }
 
-      // li:nth-child(2) {
-      //   bottom: 13rem;
-      //   left: 13rem;
-      // }
-
       li:nth-child(3) {
         top: 9rem;
         left: 2rem;
@@ -1087,16 +1028,366 @@ $loader-color: #FDD835;
         right: 1rem;
       }
 
-      // li:nth-child(5) {
-      //   bottom: 12rem;
-      //   right: 12rem;
-      // }
-
       li:nth-child(6) {
         bottom: auto;
         right: 1rem;
         top: 6rem;
       }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .slide_description {
+    max-width: 670px;
+  }
+  .decor_list.restaurant_list li:nth-child(7) {
+    top: 7rem;
+    right: -2rem;
+  }
+  .decor_list li img {
+    width: 60%;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 991px) {
+  .slide_description {
+    max-width: 510px;
+  }
+}
+
+
+@media (max-height: 730px) {
+  .welcome_page .welcome_info {
+    top: 90px;
+    max-width: 1000px;
+  }
+  .gsap_section {
+    margin-top: 20px;
+  }
+  .circle_images {
+    bottom: -22.5vw;
+  }
+  .navigation_circle {
+    bottom: -34vw;
+  }
+  .progress_nav {
+    bottom: -25vw;
+  }
+  .decor_line {
+    bottom: -23.5vw;
+  }
+}
+
+
+@media (max-width: 1199px) and (min-height: 1023px) {
+  .circle_images {
+    height: 70vw;
+    width: 70vw;
+    bottom: auto;
+    top:  35%;
+  }
+  .decor_line {
+    height: 75vw;
+    width: 75vw;
+    bottom: auto;
+    top: 33%;
+  }
+  .progress_nav {
+    height: 80vw;
+    width: 80vw;
+    bottom: auto;
+    top: 31%;
+  }
+  
+  .navigation_circle {
+    height: 115vw;
+    width: 115vw;
+    bottom: auto;
+    top: 18%;
+  }
+
+  .slide_list .decor_list li {
+
+    &:first-child {
+      bottom: 2rem;
+      left: 7rem;
+      right: auto;
+      top: auto;
+    }
+    &:nth-child(2) {
+      left: 2rem;
+      right: auto;
+      bottom: 12rem;
+      top: auto;
+    }
+    &:nth-child(3) {
+      top: 19rem;
+      left: 5rem;
+      right: auto;
+      bottom: auto;
+    }
+    &:nth-child(4) {
+      top: 6rem;
+      left: 1rem;
+      right: auto;
+      bottom: auto;
+    }
+    &:nth-child(5) {
+      bottom: 2rem;
+      top: auto;
+      right: 4rem;
+      left: auto;
+    }
+    &:nth-child(6) {
+      bottom: 11rem;
+      top: auto;
+      right: 0rem;
+      left: auto;
+    }
+    &:nth-child(7) {
+      top: 6rem;
+      right: -3rem;
+      left: auto;
+      bottom: auto;
+    }
+    &:nth-child(8) {
+      top: 20rem;
+      right: 5rem;
+      left: auto;
+      bottom: auto;
+    }
+  } 
+}
+
+@media (max-width: 991px) and (min-height: 1023px) {
+  .welcome_page .welcome_info {
+    top: 95px;
+  }
+  .slide_description {
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .gsap_section {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 911px) {
+  .circle_images {
+    height: 70vw;
+    width: 70vw;
+    bottom: auto;
+    top:  35%;
+  }
+  .decor_line {
+    height: 75vw;
+    width: 75vw;
+    bottom: auto;
+    top: 33%;
+  }
+  .progress_nav {
+    height: 80vw;
+    width: 80vw;
+    bottom: auto;
+    top: 31%;
+  }
+  
+  .navigation_circle {
+    height: 115vw;
+    width: 115vw;
+    bottom: auto;
+    top: 18%;
+  }
+
+  .slide_list .decor_list li {
+
+    &:first-child {
+      bottom: 2rem;
+      left: 7rem;
+      right: auto;
+      top: auto;
+    }
+    &:nth-child(2) {
+      left: 2rem;
+      right: auto;
+      bottom: 12rem;
+      top: auto;
+    }
+    &:nth-child(3) {
+      top: 19rem;
+      left: 5rem;
+      right: auto;
+      bottom: auto;
+    }
+    &:nth-child(4) {
+      top: 6rem;
+      left: 1rem;
+      right: auto;
+      bottom: auto;
+    }
+    &:nth-child(5) {
+      bottom: 2rem;
+      top: auto;
+      right: 4rem;
+      left: auto;
+    }
+    &:nth-child(6) {
+      bottom: 11rem;
+      top: auto;
+      right: 0rem;
+      left: auto;
+    }
+    &:nth-child(7) {
+      top: 6rem;
+      right: -3rem;
+      left: auto;
+      bottom: auto;
+    }
+    &:nth-child(8) {
+      top: 20rem;
+      right: 5rem;
+      left: auto;
+      bottom: auto;
+    }
+  } 
+  .welcome_page .welcome_info {
+    top: 95px;
+  }
+  .slide_description {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 0 20px;
+  }
+  .gsap_section {
+    margin-top: 20px;
+  }
+}
+ 
+@media (max-width: 575px) {
+  .decor_list li img {
+    width: 45%;
+  }
+  .slide_titile {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .slide_description {
+    font-size: 12px;
+    line-height: 21px;
+    padding: 0 20px;
+    margin-top: 15px;
+  }
+  .welcome_page .welcome_info {
+    top: 25px;
+  }
+  .gsap_section {
+    margin-top: 20px;
+  }
+  .gsap_section .button {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+  .circle_images {
+    top: 360px;
+    width: 300px;
+    height: 300px;
+  }
+  .decor_line {
+    top: 350px;
+    width: 320px;
+    height: 320px;
+  }
+  .progress_nav {
+    top: 335px;
+    width: 350px;
+    height: 350px;
+  }
+  .progress_nav span {
+    top: -9.5px;
+    width: 15px;
+    height: 15px;
+  }
+  .navigation_circle {
+    top: 250px;
+    width: 520px;
+    height: 520px;
+  }
+  .navigation_circle .nav_circle_line .text {
+    position: relative;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .slide_list .decor_list {
+    li {
+      &:first-child {
+        bottom: 4rem;
+        left: 3rem;
+        right: auto;
+        top: auto;
+      }
+      &:nth-child(2) {
+        left: 3rem;
+        right: auto;
+        bottom: 12rem;
+        top: auto;
+      }
+      &:nth-child(3) {
+        top: 12rem;
+        left: 2rem;
+        right: auto;
+        bottom: auto;
+      }
+      &:nth-child(4) {
+        top: 0rem;
+        left: 0rem;
+        right: auto;
+        bottom: auto;
+      }
+      &:nth-child(5) {
+        bottom: 5rem;
+        top: auto;
+        right: -5rem;
+        left: auto;
+      }
+      &:nth-child(6) {
+        bottom: auto;
+        top: 11rem;
+        right: -6rem;
+        left: auto;
+      }
+      &:nth-child(7) {
+        top: 0rem;
+        right: -6rem;
+        left: auto;
+        bottom: auto;
+      }
+      &:nth-child(8) {
+        top: auto;
+        right: -11rem;
+        left: auto;
+        bottom: 11rem;
+      }
+
+      &:nth-child(9) {
+        right: -12rem;
+        bottom: 4rem;
+        left: auto;
+        top: auto;
+      }
+      
+      &:nth-child(10) {
+        right: 1rem;
+        top: 19rem;
+      }
+      &:nth-child(11) {
+        top: -1rem;
+        right: -6rem;
+      }
+
+
+
     }
   }
 }
