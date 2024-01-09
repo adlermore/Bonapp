@@ -444,4 +444,88 @@
         width: 160px;
         border-radius: 4px;
     }
+
+    
+    @media (max-width: 1440px) {
+        background-size: cover;
+    }
+    @media (max-width: 991px) {
+        .switcher_btn {
+            width: 145px;
+            font-size: 14px;
+            line-height: 19px;
+            padding: 0 15px;
+        }
+        .restaurants_picker {
+            width: 240px;
+            padding: 20px;
+            min-height: 210px;
+        }
+    }
+    @media (max-width: 991px) {
+        &:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            bottom: 0;
+            background: rgba($white , 0.5);
+            display: block;
+        }
+        .reservation_list {
+            flex-direction: column;
+        }
+        .btn_block{
+            margin-bottom: 1px;
+        }
+        .picker_block {
+            width: 355px;
+            padding: 25px 0;
+            left: auto;
+            .block_inner{
+                padding: 0 20px;
+                width: -webkit-fill-available;
+            }
+        }
+        .switcher_btn {
+           width: 355px;
+        }
+    }
+    @media (max-width: 575px) {
+        .switcher_btn {
+            width: 100%;
+            max-width: 180px;
+        }
+        .btn_block {
+            width: 100%;
+        }
+        .reservation_container{
+            width: 100%;
+        }
+        .reservation_list{
+            width: 100%;
+        }
+        // .picker_block {
+        //     width: 100%;
+        // }
+        .MuiDialogActions-root {
+            padding:  0 20px;
+        }
+        // .css-1q04gal-MuiDateCalendar-root {
+        //     overflow: hidden;
+        //     width: -webkit-fill-available;
+        //     padding: 0 10px;
+        // }
+        // .datepicker_btn .MuiDayCalendar-weekContainer button {
+        //     width: 30px;
+        //     height: 32px;
+        //     font-size: 12px;
+        // }
+        // .datepicker_btn .MuiDayCalendar-weekContainer {
+        //     margin: 0;
+        //     justify-content: space-around;
+        //     margin-bottom: 4px;
+        // }
+    }
 }

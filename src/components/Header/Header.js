@@ -10,6 +10,7 @@ const Header = ({ positionRelative }) => {
         setOpen(!isOpen);
         if(document.body.classList.contains('menu_opened')){
             document.body.classList.remove('menu_opened')
+            document.body.classList.add('menu_changed')
         }else{
             document.body.classList.add('menu_opened')
         }
