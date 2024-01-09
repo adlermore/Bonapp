@@ -109,9 +109,6 @@ a {
   }
 }
 
-// @media (max-width: 1440px) {
-//   .welcome_info {
-//     top: 110px;
-//     max-width: 890px;
-//   }
-// }
+.page-wrapper{
+  overflow-y: hidden;
+}
