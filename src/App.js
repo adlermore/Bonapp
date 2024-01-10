@@ -48,7 +48,7 @@ function App() {
           </div>
         </div>
       }
-      <Header positionRelative={WelcomPageToggle} />
+      <Header />
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/home" element={<HomePage />} />

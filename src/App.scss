@@ -102,6 +102,23 @@ a {
   user-select: none; 
 }
 
+.block_title{
+  font-size: 32px;
+  line-height: 48px;
+  color: $black;
+  font-family: $bold;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.block_description{
+  font-size: 18px;
+  line-height: 36px;
+  color: $black;
+  font-family: $regular;
+  text-align: center;
+}
+
 @media (max-width: 1600px) {
   .welcome_info {
     top: 130px;
