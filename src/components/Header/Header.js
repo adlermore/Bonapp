@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logoImg from '../../assets/img/logo.png';
 import { Spin as Hamburger } from 'hamburger-react'
 
-const Header = ({ positionRelative }) => {
+const Header = () => {
 
     const [isOpen, setOpen] = useState(false)
     const ToggleMobile = () =>{
@@ -14,10 +14,10 @@ const Header = ({ positionRelative }) => {
         }else{
             document.body.classList.add('menu_opened')
         }
-    }   
+    }
 
     return (
-        <header className={positionRelative ? 'page_header header_relative' : 'page_header'}>
+        <header className='page_header'>
             <div className="header_inner">
                 <Link to="/" className="logo_block">
                     <img src={logoImg} alt="logo-img" />
