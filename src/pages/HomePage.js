@@ -10,6 +10,9 @@ import categoryImg4 from '../assets/img/categoryImg4.png';
 import bannerImg from '../assets/img/baner.png';
 import bannerImg2 from '../assets/img/baner2.png';
 import restaurantImg1 from '../assets/img/restaurantImg1.png';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 const popularRestaurants = [
@@ -38,6 +41,13 @@ const popularRestaurants = [
         Id: 3,
         Image: restaurantImg1,
         Name: 'Restaurant Name4',
+        Country: 'Sevan, Saryan str.',
+        Rate: 5
+    },
+    {
+        Id: 30,
+        Image: restaurantImg1,
+        Name: 'Restaurant Name55',
         Country: 'Sevan, Saryan str.',
         Rate: 5
     }
@@ -75,6 +85,39 @@ const NewRestaurants = [
 ]
 
 const HomePage = () => {
+
+    const settingsSlider = {
+        dots: false,
+        infinite: true,
+        centerPadding: "60px",
+        speed: 500,
+        autoplay: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    infinite: false,
+                    slidesToShow: 1.1,
+                    initialSlide: 1.1,
+                    slidesToScroll: 1.1,
+                }
+            }
+        ]
+    };
 
     return (
         <div className="home_page">
@@ -153,24 +196,29 @@ const HomePage = () => {
                 <div className='custom_container'>
                     <div className='block_title'>Popular</div>
                     <div className='restaurants_list'>
-                        {popularRestaurants.map((restaurant) => (
-                            <div key={restaurant.Id} className='restaurant_block'>
-                                <div className='block_image'>
-                                    <img src={restaurant.Image} alt="RestaurantImg" />
+                        <Slider {...settingsSlider}>
+                            {popularRestaurants.map((restaurant) => (
+                                <div key={restaurant.Id} className='restaurant_block'>
+                                    <div className="block_inner">
+                                        <div className='block_image'>
+                                            <img src={restaurant.Image} alt="RestaurantImg" />
+                                        </div>
+                                        <div className='rest_name'>{restaurant.Name}</div>
+                                        <div className='rest_description'>{restaurant.Country}</div>
+                                        <div className='rest_rate'>
+                                            {(() => {
+                                                const result = [];
+                                                for (let index = 0; index < restaurant.Rate; index++) {
+                                                    result.push(<span key={index} className='icon-star'></span>);
+                                                }
+                                                return result;
+                                            })()}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className='rest_name'>{restaurant.Name}</div>
-                                <div className='rest_description'>{restaurant.Country}</div>
-                                <div className='rest_rate'>
-                                    {(() => {
-                                        const result = [];
-                                        for (let index = 0; index < restaurant.Rate; index++) {
-                                            result.push(<span key={index} className='icon-star'></span>);
-                                        }
-                                        return result;
-                                    })()}
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </Slider>
+
                     </div>
                 </div>
             </div>
@@ -178,24 +226,28 @@ const HomePage = () => {
                 <div className='custom_container'>
                     <div className='block_title'>Popular</div>
                     <div className='restaurants_list'>
-                        {NewRestaurants.map((restaurant) => (
-                            <div key={restaurant.Id} className='restaurant_block'>
-                                <div className='block_image'>
-                                    <img src={restaurant.Image} alt="RestaurantImg" />
+                        <Slider {...settingsSlider}>
+                            {NewRestaurants.map((restaurant) => (
+                                <div key={restaurant.Id} className='restaurant_block'>
+                                    <div className="block_inner">
+                                        <div className='block_image'>
+                                            <img src={restaurant.Image} alt="RestaurantImg" />
+                                        </div>
+                                        <div className='rest_name'>{restaurant.Name}</div>
+                                        <div className='rest_description'>{restaurant.Country}</div>
+                                        <div className='rest_rate'>
+                                            {(() => {
+                                                const result = [];
+                                                for (let index = 0; index < restaurant.Rate; index++) {
+                                                    result.push(<span key={index} className='icon-star'></span>);
+                                                }
+                                                return result;
+                                            })()}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className='rest_name'>{restaurant.Name}</div>
-                                <div className='rest_description'>{restaurant.Country}</div>
-                                <div className='rest_rate'>
-                                    {(() => {
-                                        const result = [];
-                                        for (let index = 0; index < restaurant.Rate; index++) {
-                                            result.push(<span key={index} className='icon-star'></span>);
-                                        }
-                                        return result;
-                                    })()}
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </Slider>
                     </div>
                 </div>
             </div>
@@ -206,4 +258,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default HomePage;   
