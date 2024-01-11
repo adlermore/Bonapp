@@ -129,4 +129,17 @@
             object-fit: cover;
         }
     }
+    .popularRes_section{
+        margin-bottom: 55px;
+    }
+    .newRes_section{
+        margin-bottom: 100px;
+    }
+    .restaurants_list{
+        display: flex;
+        justify-content: space-between;
+    }
+    .banner_section2{
+        margin-bottom: 0;
+    }
 }

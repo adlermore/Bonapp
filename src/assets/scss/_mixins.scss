@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src: url('../fonts/icomoon.eot?jamw71');
-    src: url('../fonts/icomoon.eot?jamw71#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?jamw71') format('truetype'),
-        url('../fonts/icomoon.woff?jamw71') format('woff'),
-        url('../fonts/icomoon.svg?jamw71#icomoon') format('svg');
+    src: url('../fonts/icomoon.eot?hmd3p1');
+    src: url('../fonts/icomoon.eot?hmd3p1#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?hmd3p1') format('truetype'),
+        url('../fonts/icomoon.woff?hmd3p1') format('woff'),
+        url('../fonts/icomoon.svg?hmd3p1#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -56,6 +56,11 @@
         url("../fonts/Poppins/Poppins-Light.ttf") format("truetype");
     font-weight: 500;
 }
+
+.icon-star:before {
+    content: "\e90d";
+}
+
 
 .icon-user:before {
     content: "\e90a";
