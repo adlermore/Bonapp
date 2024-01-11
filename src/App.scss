@@ -94,15 +94,20 @@ a {
 }
 
 .welcome_page {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none; 
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
 }
 
-.block_title{
+.block_title {
   font-size: 32px;
   line-height: 48px;
   color: $black;
@@ -111,7 +116,7 @@ a {
   text-align: center;
 }
 
-.block_description{
+.block_description {
   font-size: 18px;
   line-height: 36px;
   color: $black;
@@ -126,6 +131,34 @@ a {
   }
 }
 
-.page-wrapper{
+
+@media (max-width: 1199px) {
+
+  .block_title {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 25px;
+  }
+
+  .block_description {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+}
+
+@media (max-width: 575px) {
+  .block_title {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 20px;
+  }
+
+  .block_description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+.page-wrapper {
   overflow-y: hidden;
 }
