@@ -1062,6 +1062,11 @@ $loader-color: #FDD835;
   }
 }
 
+@media (max-width: 767px) {
+  .welcome_page {
+    margin-top: 0;
+  }
+}
 
 @media (max-height: 730px) {
   .welcome_page .welcome_info {
