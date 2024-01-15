@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logoImg from '../../assets/img/logo.png';
 import { Spin as Hamburger } from 'hamburger-react'
 
-const Header = () => {
+const Header = ({WelcomPageToggle}) => {
 
     const [isOpen, setOpen] = useState(false)
     const ToggleMobile = () =>{
@@ -17,7 +17,7 @@ const Header = () => {
     }
 
     return (
-        <header className='page_header'>
+        <header className={WelcomPageToggle ? 'page_header ' : 'page_header welcome_header'} >
             <div className="header_inner">
                 <Link to="/" className="logo_block">
                     <img src={logoImg} alt="logo-img" />

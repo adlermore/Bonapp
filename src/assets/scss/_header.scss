@@ -12,10 +12,13 @@
         height: 100%;
         display: flex;
         align-items: center;
+        transition: 0.3s;
         padding: 0 40px;
         justify-content: space-between;
     }
-
+    &.welcome_header .header_inner{
+        padding: 0 56px 0 40px;
+    }
     .header_container {
         display: flex;
         align-items: center;
