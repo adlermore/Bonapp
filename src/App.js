@@ -48,7 +48,7 @@ function App() {
           </div>
         </div>
       }
-      <Header />
+      <Header WelcomPageToggle={WelcomPageToggle}/>
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/home" element={<HomePage />} />
