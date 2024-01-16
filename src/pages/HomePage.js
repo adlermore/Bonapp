@@ -10,6 +10,13 @@ import categoryImg4 from '../assets/img/categoryImg4.png';
 import bannerImg from '../assets/img/baner.png';
 import bannerImg2 from '../assets/img/baner2.png';
 import restaurantImg1 from '../assets/img/restaurantImg1.png';
+import restaurantImg2 from '../assets/img/restaurantImg2.png';
+import restaurantImg3 from '../assets/img/restaurantImg3.png';
+import restaurantImg4 from '../assets/img/restaurantImg4.png';
+import restaurantImg5 from '../assets/img/restaurantImg5.png';
+import restaurantImg6 from '../assets/img/restaurantImg6.png';
+import restaurantImg7 from '../assets/img/restaurantImg7.png';
+import restaurantImg8 from '../assets/img/restaurantImg8.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -25,28 +32,28 @@ const popularRestaurants = [
     },
     {
         Id: 1,
-        Image: restaurantImg1,
+        Image: restaurantImg2,
         Name: 'Restaurant Name2',
         Country: 'Sisian, Saryan str.',
         Rate: 3
     },
     {
         Id: 2,
-        Image: restaurantImg1,
+        Image: restaurantImg3,
         Name: 'Restaurant Name3',
         Country: 'Artimed, Saryan str.',
         Rate: 2
     },
     {
         Id: 3,
-        Image: restaurantImg1,
+        Image: restaurantImg4,
         Name: 'Restaurant Name4',
         Country: 'Sevan, Saryan str.',
         Rate: 5
     },
     {
         Id: 30,
-        Image: restaurantImg1,
+        Image: restaurantImg5,
         Name: 'Restaurant Name55',
         Country: 'Sevan, Saryan str.',
         Rate: 5
@@ -56,28 +63,28 @@ const popularRestaurants = [
 const NewRestaurants = [
     {
         Id: 4,
-        Image: restaurantImg1,
+        Image: restaurantImg6,
         Name: 'Restaurant Name5',
         Country: 'Yerevan, Saryan str.',
         Rate: 5
     },
     {
         Id: 5,
-        Image: restaurantImg1,
+        Image: restaurantImg8,
         Name: 'Restaurant Name6',
         Country: 'Sisian, Saryan str.',
         Rate: 4
     },
     {
         Id: 6,
-        Image: restaurantImg1,
+        Image: restaurantImg7,
         Name: 'Restaurant Name7',
         Country: 'Artimed, Saryan str.',
         Rate: 5
     },
     {
         Id: 7,
-        Image: restaurantImg1,
+        Image: restaurantImg5,
         Name: 'Restaurant Name8',
         Country: 'Sevan, Saryan str.',
         Rate: 5

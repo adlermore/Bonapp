@@ -33,7 +33,30 @@
         text-align: center;
     }
     .restaurants_section{
-        margin-top: 80px;
+        margin: 80px 0;
+    }
+    .filter_block{
+        border-radius: 4px;
+        border: 1px solid #2E8374;
+        height: 44px;
+    }
+    .fileter_btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        .hamburger-react{
+            position: relative;
+            top: -2px;
+        }
+        span{
+            margin-left: 5px;
+            font-size: 16px;
+            display: block;
+            line-height: 24px;
+            font-family: $medium;
+            color: #474747;
+        }
     }
     .page_title{
         color: $black;
@@ -42,5 +65,104 @@
         text-align: center;
         text-transform: capitalize;
         font-family: $medium;
+    }
+    .filter_container{
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        gap: 1px;
+        justify-content: space-between;
+    }
+    .search_block{
+        border-radius: 4px;
+        border: 1px solid #2E8374;
+        height: 44px;
+        width: 100%;
+        overflow: hidden;
+        input{
+            outline: none;
+            border: none;
+            font-family: $medium;
+            color: #8B8B8B;
+            padding: 0 20px;
+            height: 100%;
+            font-size: 16px;
+            line-height: 24px;
+            width: 100%;
+        }
+    }
+    .search_btn{
+        border-radius: 4px;
+        border: 1px solid #006855;
+        height: 44px;
+        overflow: hidden;
+        min-width: fit-content;
+        button{
+            width: 160px;
+            height: 100%;
+            background: #006855;
+            color: $white;
+            font-size: 16px;
+            line-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none;
+            cursor: pointer;
+            border: none;
+        }
+    }
+    .restaurants_list{
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+    }
+    .restaurant_block{
+        width: 100%;
+    }
+    .block_image{
+        width: 100%;
+        border-radius: 6px;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .rest_name{
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 26px;
+        font-family: $medium;
+        color: #202020;
+    }
+    .rest_description{
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 8px;
+        color: #202020;
+    }
+    .rest_rate{
+        margin-left: -2px;
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        >span{
+            display: block;
+            margin-left: 2px;
+            font-size: 20px;
+            color: #F0961C;
+        }
+    }
+}
+.infowindow{
+    .info_name{
+        font-family: $bold;
+        font-size: 16px;
+        line-height: 21px;
+        font-family: $medium;
+        color: #202020;
+        margin-bottom: 10px;
     }
 }
