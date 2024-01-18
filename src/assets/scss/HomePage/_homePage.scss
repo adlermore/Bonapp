@@ -140,42 +140,6 @@
         .block_inner{
             padding: 0 10px;
         }
-        .restaurant_block{
-            width: 100%;
-        }
-        .block_image{
-            width: 100%;
-            border-radius: 6px;
-            overflow: hidden;
-            img{
-                width: 100%;
-                height: auto;
-            }
-        }
-        .rest_name{
-            margin-top: 10px;
-            font-size: 18px;
-            line-height: 26px;
-            font-family: $medium;
-            color: #202020;
-        }
-        .rest_description{
-            font-size: 16px;
-            line-height: 22px;
-            margin-top: 8px;
-            color: #202020;
-        }
-        .rest_rate{
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            >span{
-                display: block;
-                margin-left: 2px;
-                font-size: 20px;
-                color: #F0961C;
-            }
-        }
     }
     
     .banner_section2{

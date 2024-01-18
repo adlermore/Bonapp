@@ -160,6 +160,142 @@ a {
     line-height: 22px;
   }
 }
+
 .page-wrapper {
   overflow-y: hidden;
+}
+
+.restaurant_block {
+  width: 100%;
+
+  .block_image {
+    width: 100%;
+    height: 260px;
+    opacity: 1 !important;
+    border-radius: 6px;
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 5;
+      bottom: 0;
+      width: 100%;
+      transition: 0.3s;
+      height: 100%;
+      background: rgba($black, 0.5);
+      opacity: 0;
+    }
+  }
+
+  .rest_name {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 26px;
+    font-family: $medium;
+    transition: 0.3s;
+    color: #202020;
+  }
+
+  .hovered {
+    .rest_name {
+      opacity: 0.3;
+    }
+
+    .block_image {
+      opacity: 1;
+
+      img {
+        transform: scale(1.2);
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .rest_description {
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 8px;
+    color: #202020;
+  }
+
+  .rest_rate {
+    margin-left: -2px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+    >span {
+      display: block;
+      margin-left: 2px;
+      font-size: 20px;
+      color: #F0961C;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .block_image {
+      width: 100%;
+      height: auto;
+    }
+
+    .rest_name {
+      margin-top: 10px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  @media (max-width: 575px) {
+
+    .rest_name {
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .rest_description {
+      font-size: 12px;
+      line-height: 17px;
+      margin-top: 5px;
+    }
+
+    .rest_rate>span {
+      font-size: 14px;
+    }
+  }
+}
+
+.infowindow {
+  padding-top: 15px;
+}
+
+.gm-style .gm-style-iw-c {
+  overflow: visible;
+}
+
+.gm-ui-hover-effect>span {
+  width: 30px !important;
+  height: 30px !important;
+  margin: 0 !important;
+  z-index: 9999;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { Link } from 'react-router-dom';
 
 const MapContainer = ({ array }) => {
 
@@ -223,7 +224,7 @@ const MapContainer = ({ array }) => {
                   />
                 )
               }) : null
-          }
+            }
           {
             selected.location ?
               (
@@ -231,9 +232,14 @@ const MapContainer = ({ array }) => {
                   position={selected.location}
                   onCloseClick={() => setSelected({})}
                 >
-                  <div className="infowindow">
-                    <p className='info_name'>{selected.Name}</p>
+                  <div className="infowindow restaurant_block">
                     <img src={selected.Image} className="small-image" alt="rental" />
+                    <Link 
+                    to="/"  
+                    className='rest_name'
+                  >
+                    {selected.Name}
+                  </Link>
                     <div className='rest_rate'>
                       {(() => {
                         const result = [];
@@ -246,7 +252,7 @@ const MapContainer = ({ array }) => {
                     <p className='rest_description'>Address: {selected.Country}</p>
                   </div>
                 </InfoWindow>
-              ) : null
+            ) : null
           }
         </GoogleMap>
       </LoadScript>
@@ -255,3 +261,4 @@ const MapContainer = ({ array }) => {
 }
 
 export default MapContainer;
+

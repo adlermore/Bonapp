@@ -15,6 +15,8 @@ import restaurant6 from '../assets/img/restaurantImg6.png';
 import restaurant7 from '../assets/img/restaurantImg7.png';
 import restaurant8 from '../assets/img/restaurantImg8.png';
 import MapContainer from '../components/MapContainer/MapContainer';
+import RestaurantBlock from '../components/RestaurantBlock/RestaurantBlock';
+// import '../assets/scss/RestaurantBlock/_restaurantBlock.scss';
 
 const Restaurant = () => {
 
@@ -172,33 +174,15 @@ const Restaurant = () => {
                         </div>
                     </div>
                     <div className="restaurants_list">
-                            {NewRestaurants.map((restaurant) => (
-                                <div key={restaurant.Id} className='restaurant_block'>
-                                    <div className="block_inner">
-                                        <div className='block_image'>
-                                            <img src={restaurant.Image} alt="RestaurantImg" />
-                                        </div>
-                                        <div className='rest_name'>{restaurant.Name}</div>
-                                        <div className='rest_description'>{restaurant.Country}</div>
-                                        <div className='rest_rate'>
-                                            {(() => {
-                                                const result = [];
-                                                for (let index = 0; index < restaurant.Rate; index++) {
-                                                    result.push(<span key={index} className='icon-star'></span>);
-                                                }
-                                                return result;
-                                            })()}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                        {NewRestaurants.map((restaurant) => (
+                            <RestaurantBlock  key={restaurant.Id} restaurant={restaurant} />
+                        ))}
                     </div>
                 </div>
             </div>
             <div className="map_section">
                 <MapContainer array={NewRestaurants} isAdding={true} error={false} />
             </div>                                 
-
         </div>
     )
 }
