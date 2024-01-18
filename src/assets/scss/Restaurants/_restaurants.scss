@@ -118,43 +118,8 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 20px;
     }
-    .restaurant_block{
-        width: 100%;
-    }
-    .block_image{
-        width: 100%;
-        border-radius: 6px;
-        overflow: hidden;
-        img{
-            width: 100%;
-            height: auto;
-        }
-    }
-    .rest_name{
-        margin-top: 10px;
-        font-size: 18px;
-        line-height: 26px;
-        font-family: $medium;
-        color: #202020;
-    }
-    .rest_description{
-        font-size: 16px;
-        line-height: 22px;
-        margin-top: 8px;
-        color: #202020;
-    }
-    .rest_rate{
-        margin-left: -2px;
-        margin-top: 10px;
-        display: flex;
-        align-items: center;
-        >span{
-            display: block;
-            margin-left: 2px;
-            font-size: 20px;
-            color: #F0961C;
-        }
-    }
+
+    
     .infowindow{
         .info_name{
             font-family: $bold;
@@ -216,11 +181,6 @@
             font-size: 14px;
             line-height: 24px;
         }
-        .rest_name {
-            margin-top: 10px;
-            font-size: 16px;
-            line-height: 20px;
-        }
     }
     @media (max-width: 575px) {
         .restaurants_description {
@@ -252,20 +212,6 @@
             margin-top: 30px;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
-        }
-        .rest_name {
-            margin-top: 5px;
-            font-size: 14px;
-            line-height: 18px;
-            // min-height: 36px;
-        }
-        .rest_description {
-            font-size: 12px;
-            line-height: 17px;
-            margin-top: 5px;
-        }
-        .rest_rate > span {
-            font-size: 14px;
         }
     }
 }

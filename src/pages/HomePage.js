@@ -1,6 +1,9 @@
 
 import React from 'react';
 import '../assets/scss/HomePage/_homePage.scss';
+// import '../assets/scss/RestaurantBlock/_restaurantBlock.scss';
+import RestaurantBlock from '../components/RestaurantBlock/RestaurantBlock';
+
 import Reservation from '../components/Reservation/Reservation';
 import HomeReservationImg from '../assets/img/homeReservation.png';
 import categoryImg1 from '../assets/img/categoryImg1.png';
@@ -205,27 +208,9 @@ const HomePage = () => {
                     <div className='restaurants_list'>
                         <Slider {...settingsSlider}>
                             {popularRestaurants.map((restaurant) => (
-                                <div key={restaurant.Id} className='restaurant_block'>
-                                    <div className="block_inner">
-                                        <div className='block_image'>
-                                            <img src={restaurant.Image} alt="RestaurantImg" />
-                                        </div>
-                                        <div className='rest_name'>{restaurant.Name}</div>
-                                        <div className='rest_description'>{restaurant.Country}</div>
-                                        <div className='rest_rate'>
-                                            {(() => {
-                                                const result = [];
-                                                for (let index = 0; index < restaurant.Rate; index++) {
-                                                    result.push(<span key={index} className='icon-star'></span>);
-                                                }
-                                                return result;
-                                            })()}
-                                        </div>
-                                    </div>
-                                </div>
+                                <RestaurantBlock key={restaurant.Id} restaurant={restaurant} />
                             ))}
                         </Slider>
-
                     </div>
                 </div>
             </div>
@@ -235,24 +220,7 @@ const HomePage = () => {
                     <div className='restaurants_list'>
                         <Slider {...settingsSlider}>
                             {NewRestaurants.map((restaurant) => (
-                                <div key={restaurant.Id} className='restaurant_block'>
-                                    <div className="block_inner">
-                                        <div className='block_image'>
-                                            <img src={restaurant.Image} alt="RestaurantImg" />
-                                        </div>
-                                        <div className='rest_name'>{restaurant.Name}</div>
-                                        <div className='rest_description'>{restaurant.Country}</div>
-                                        <div className='rest_rate'>
-                                            {(() => {
-                                                const result = [];
-                                                for (let index = 0; index < restaurant.Rate; index++) {
-                                                    result.push(<span key={index} className='icon-star'></span>);
-                                                }
-                                                return result;
-                                            })()}
-                                        </div>
-                                    </div>
-                                </div>
+                                <RestaurantBlock key={restaurant.Id} restaurant={restaurant} />
                             ))}
                         </Slider>
                     </div>
