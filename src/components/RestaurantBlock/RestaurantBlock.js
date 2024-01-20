@@ -17,7 +17,7 @@ const RestaurantBlock = ({ restaurant }) => {
     <div key={restaurant.Id} className='restaurant_block'>
       <div className={isHovered ? 'block_inner hovered' : 'block_inner'}>
         <Link 
-          to={`/restaurantInner/${restaurant.Id}`}
+          to={`/restaurantInner/${restaurant.Category}/${restaurant.Id}`}
           className='block_image'  
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -25,7 +25,7 @@ const RestaurantBlock = ({ restaurant }) => {
           <img src={restaurant.Image} alt="RestaurantImg" />
         </Link>
         <Link 
-          to={`/restaurantInner/${restaurant.Id}`}
+          to={`/restaurantInner/${restaurant.Category}/${restaurant.Id}`}
           className='rest_name'
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

@@ -27,7 +27,8 @@ const Restaurant = () => {
             Name: 'Restaurant Name5',
             Country: 'Yerevan, Saryan str.',
             Rate: 5,
-            location: { 
+            Category: 'Restaurant',
+            location: {
                 lat: 40.184953,
                 lng: 44.509741
             },
@@ -35,10 +36,11 @@ const Restaurant = () => {
         {
             Id: 5,
             Image: restaurant2,
-            Name: 'Restaurant Name6',
+            Name: 'Caffe Name6',
             Country: 'Sisian, Saryan str.',
             Rate: 4,
-            location: { 
+            Category: 'Caffe',
+            location: {
                 lat: 40.182529,
                 lng: 44.513487
             },
@@ -46,10 +48,11 @@ const Restaurant = () => {
         {
             Id: 6,
             Image: restaurant3,
-            Name: 'Restaurant Name7',
+            Name: 'Bar Name7',
             Country: 'Artimed, Saryan str.',
             Rate: 5,
-            location: { 
+            Category: 'Bar',
+            location: {
                 lat: 40.184764,
                 lng: 40.184764
             },
@@ -57,10 +60,11 @@ const Restaurant = () => {
         {
             Id: 7,
             Image: restaurant4,
-            Name: 'Restaurant Name8',
+            Name: 'Caffe Name8',
             Country: 'Sevan, Saryan str.',
             Rate: 5,
-            location: { 
+            Category: 'Caffe',
+            location: {
                 lat: 40.178551,
                 lng: 44.507709
             },
@@ -68,10 +72,11 @@ const Restaurant = () => {
         {
             Id: 8,
             Image: restaurant5,
-            Name: 'Restaurant Name8',
+            Name: 'Food Name8',
             Country: 'Sevan, Saryan str.',
             Rate: 4,
-            location: { 
+            Category: 'Food',
+            location: {
                 lat: 40.186901,
                 lng: 44.532378
             },
@@ -82,7 +87,8 @@ const Restaurant = () => {
             Name: 'Restaurant Name8',
             Country: 'Sevan, Saryan str.',
             Rate: 5,
-            location: { 
+            Category: 'Caffe',
+            location: {
                 lat: 40.176576,
                 lng: 44.519819
             },
@@ -90,19 +96,21 @@ const Restaurant = () => {
         {
             Id: 9,
             Image: restaurant7,
-            Name: 'Restaurant Name8',
+            Name: 'Food Name8',
             Country: 'Sevan, Saryan str.',
-            Rate: 5
+            Rate: 5,
+            Category: 'Food',
         },
         {
             Id: 10,
             Image: restaurant8,
-            Name: 'Restaurant Name8',
+            Name: 'Bar Name8',
             Country: 'Sevan, Saryan str.',
-            Rate: 5
+            Rate: 5,
+            Category: 'Bar',
         }
     ];
-    
+
     const [CurrPageData, setCurrPageData] = useState({
         pageBg: RestaurantsCoverImg,
         pageTitle: 'Restaurants',
@@ -113,7 +121,7 @@ const Restaurant = () => {
         const path = window.location.href;
         const parts = path.split("/");
         let desiredPart = parts.slice(parts.indexOf("Restaurant") + 1).join("/");
-        let newPageData = {}; 
+        let newPageData = {};
 
         if (desiredPart === 'restaurant') {
             newPageData = {
@@ -158,11 +166,11 @@ const Restaurant = () => {
             </div>
             <div className="restaurants_section">
                 <div className="custom_container">
-                    <h1 className='page_title'>{CurrPageData.pageTitle+'s'}</h1>
+                    <h1 className='page_title'>{CurrPageData.pageTitle + 's'}</h1>
                     <div className="filter_container">
                         <div className="filter_block">
                             <div className="fileter_btn">
-                                <Hamburger size={32}  color="#3C3C3C"  distance="md"/>
+                                <Hamburger size={32} color="#3C3C3C" distance="md" />
                                 <span>Filter</span>
                             </div>
                         </div>
@@ -175,14 +183,14 @@ const Restaurant = () => {
                     </div>
                     <div className="restaurants_list">
                         {NewRestaurants.map((restaurant) => (
-                            <RestaurantBlock  key={restaurant.Id} restaurant={restaurant} />
+                            <RestaurantBlock key={restaurant.Id} restaurant={restaurant} />
                         ))}
                     </div>
                 </div>
             </div>
             <div className="map_section">
                 <MapContainer array={NewRestaurants} isAdding={true} error={false} />
-            </div>                                 
+            </div>
         </div>
     )
 }

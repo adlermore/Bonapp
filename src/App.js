@@ -93,7 +93,7 @@ function App() {
               <Route path="/" element={<Welcome />} />
               <Route path="/home" element={<HomePage />} />
               <Route path="/restaurant/:id" element={<Restaurant />} />
-              <Route path="/restaurantInner/:id" element={<RestaurantInner />} />
+              <Route path="/restaurantInner/:category/:id" element={<RestaurantInner />} />
             </Routes>
             {WelcomPageToggle && <Footer />}
           </div>
