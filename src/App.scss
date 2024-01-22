@@ -108,6 +108,36 @@ a {
   user-select: none;
 }
 
+.error-info {
+  opacity: 0;
+  transition: 0.3s;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  right: 0px;
+  font-size: 14px;
+  color: #FB4242;
+  bottom: -22px;
+}
+
+
+.has-error input,
+.has-error .textarea_input,
+.has-error .css-13cymwt-control,
+.has-error .css-t3ipsp-control {
+  border: 1px solid #FB4242 !important;
+}
+
+.has-error .input-group-text {
+  border: 1px solid #FB4242 !important;
+  border-right: none !important;
+}
+
+.has-error .error-info {
+  opacity: 1;
+}
+
+
 .block_title {
   font-size: 32px;
   line-height: 48px;
