@@ -918,6 +918,13 @@ $loader-color: #FDD835;
 
 
 @media (max-width: 1440px) {
+  .welcome_page {
+    margin-top: -60px;
+  }
+  .welcome_info {
+    top: 105px;
+    max-width: 1000px;
+  }
   .decor_list li img {
     width: 70%;
   }
@@ -1067,7 +1074,7 @@ $loader-color: #FDD835;
   }
 }
 
-@media (max-height: 730px) {
+@media (max-height: 630px) {
   .welcome_page .welcome_info {
     top: 90px;
     max-width: 1000px;

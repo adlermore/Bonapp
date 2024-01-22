@@ -19,7 +19,7 @@ const regionData = [
     { value: "The Stormlands" }
 ];
 
-const Reservation = ({ background, innerName, innerDescription }) => {
+const Reservation = ({ background, innerName, innerDescription , isInnerPage}) => {
 
     const guestsRef = useRef(null);
     const [currentRestaurant, setCurrentRestaurant] = useState(null);
@@ -134,6 +134,12 @@ const Reservation = ({ background, innerName, innerDescription }) => {
         setOptionNamePicker({ ...optionNamePicker, disabled: false });
         if (optionNamePicker.disabled) {
             setOptionNamePicker({ isOpened: true, disabled: false });
+        }
+        if(isInnerPage){
+            setOptionReservePicker({ ...optionReservePicker, disabled: false });
+            if (optionReservePicker.disabled) {
+                setOptionReservePicker({ isOpened: true, disabled: false });
+            }
         }
     }
 

@@ -31,35 +31,43 @@ const popularRestaurants = [
         Image: restaurantImg1,
         Name: 'Restaurant Name1',
         Country: 'Yerevan, Saryan str.',
-        Rate: 5
+        Rate: 5,
+        Category : 'Restaurant'
     },
     {
         Id: 1,
         Image: restaurantImg2,
-        Name: 'Restaurant Name2',
+        Name: 'Caffe Name1',
         Country: 'Sisian, Saryan str.',
-        Rate: 3
+        Rate: 3,
+        Category : 'Caffe'
+
     },
     {
         Id: 2,
         Image: restaurantImg3,
-        Name: 'Restaurant Name3',
+        Name: 'Food Name',
         Country: 'Artimed, Saryan str.',
-        Rate: 2
+        Rate: 2,
+        Category : 'Food'
+
     },
     {
         Id: 3,
         Image: restaurantImg4,
-        Name: 'Restaurant Name4',
+        Name: 'Bar Name',
         Country: 'Sevan, Saryan str.',
-        Rate: 5
+        Rate: 5,
+        Category : 'Bar'
+
     },
     {
         Id: 30,
         Image: restaurantImg5,
         Name: 'Restaurant Name55',
         Country: 'Sevan, Saryan str.',
-        Rate: 5
+        Rate: 5,
+        Category : 'Restaurant'
     }
 ]
 
@@ -69,28 +77,32 @@ const NewRestaurants = [
         Image: restaurantImg6,
         Name: 'Restaurant Name5',
         Country: 'Yerevan, Saryan str.',
-        Rate: 5
+        Rate: 5,
+        Category : 'Restaurant'
     },
     {
         Id: 5,
         Image: restaurantImg8,
-        Name: 'Restaurant Name6',
+        Name: 'Caffe Name6',
         Country: 'Sisian, Saryan str.',
-        Rate: 4
+        Rate: 4,
+        Category : 'Caffe'
     },
     {
         Id: 6,
         Image: restaurantImg7,
-        Name: 'Restaurant Name7',
+        Name: 'Food Name7',
         Country: 'Artimed, Saryan str.',
-        Rate: 5
+        Rate: 5,
+        Category : 'Food'
     },
     {
         Id: 7,
         Image: restaurantImg5,
-        Name: 'Restaurant Name8',
+        Name: 'Bar Name8',
         Country: 'Sevan, Saryan str.',
-        Rate: 5
+        Rate: 5,
+        Category : 'Bar'
     }
 ]
 
