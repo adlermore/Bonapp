@@ -13,7 +13,6 @@ const RestaurantBlock = ({ restaurant }) => {
   };
 
   return (
-
     <div key={restaurant.Id} className='restaurant_block'>
       <div className={isHovered ? 'block_inner hovered' : 'block_inner'}>
         <Link 
