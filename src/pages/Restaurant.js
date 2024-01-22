@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import '../assets/scss/Restaurants/_restaurants.scss';
 import RestaurantsCoverImg from '../assets/img/restaurantCoverBg.png';
 import CaffesCoverImg from '../assets/img/caffeCoverBg.png';
 import FoodsCoverImg from '../assets/img/foodCoverBg.png';
@@ -14,8 +13,10 @@ import restaurant5 from '../assets/img/restaurantImg5.png';
 import restaurant6 from '../assets/img/restaurantImg6.png';
 import restaurant7 from '../assets/img/restaurantImg7.png';
 import restaurant8 from '../assets/img/restaurantImg8.png';
-import MapContainer from '../components/MapContainer/MapContainer';
 import RestaurantBlock from '../components/RestaurantBlock/RestaurantBlock';
+import '../assets/scss/Restaurants/_restaurants.scss';
+import MapContainer from '../components/MapContainer/MapContainer';
+
 // import '../assets/scss/RestaurantBlock/_restaurantBlock.scss';
 
 const Restaurant = () => {
@@ -30,6 +31,7 @@ const Restaurant = () => {
             Category: 'Restaurant',
             location: {
                 lat: 40.184953,
+                
                 lng: 44.509741
             },
         },
@@ -123,7 +125,7 @@ const Restaurant = () => {
         let desiredPart = parts.slice(parts.indexOf("Restaurant") + 1).join("/");
         let newPageData = {};
 
-        if (desiredPart === 'restaurant') {
+        if (desiredPart === 'restaurant') { 
             newPageData = {
                 ...CurrPageData,
                 pageBg: RestaurantsCoverImg,

@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import '../assets/scss/RestaurantInner/_restaurantsInner.scss';
 import bg1 from '../assets/img/bg1.png';
 import bg2 from '../assets/img/bg2.png';
 import bg3 from '../assets/img/bg3.png';
@@ -14,11 +13,12 @@ import menuImg3 from '../assets/img/menu3.png';
 import Reservation from '../components/Reservation/Reservation';
 import restaurantInnerImg1 from '../assets/img/restaurantInner1.png'
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { setupSdk } from "@matterport/sdk";
 import Hamburger from 'hamburger-react';
 import MapContainer from '../components/MapContainer/MapContainer';
+import '../assets/scss/RestaurantInner/_restaurantsInner.scss';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 const RestaurantInner = () => {
