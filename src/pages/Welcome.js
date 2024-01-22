@@ -2,7 +2,6 @@
 import React, { useState, useCallback, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from 'react-spring';
-import '../assets/scss/MainSlider/_mainSlider.scss'
 import HoverAnimation from '../components/HoverAnimation/HoverAnimation';
 import bg1 from '../assets/img/bg1.png';
 import bg2 from '../assets/img/bg2.png';
@@ -38,6 +37,7 @@ import cafe5 from '../assets/img/decor/cafe5.png';
 import cafe6 from '../assets/img/decor/cafe6.png';
 import cafe7 from '../assets/img/decor/cafe7.png';
 import cafe8 from '../assets/img/decor/cafe8.png';
+import '../assets/scss/MainSlider/_mainSlider.scss'
 
 const restDecors = [rest1, rest2, rest3, rest4, rest5, rest6, rest7];
 const cafeDecors = [cafe1, cafe2, cafe1, cafe3, cafe4, cafe5, cafe1, cafe6, cafe7, cafe1, cafe8];

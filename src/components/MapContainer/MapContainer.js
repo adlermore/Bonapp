@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import { Link } from 'react-router-dom';
 
+
 const MapContainer = ({ array }) => {
+
+const  googleMapsApiKey='AIzaSyB1gaI096ADqTOstjRjOWt2Xx21zH29v5Y';
+
 
   const [selected, setSelected] = useState({});
   const [currentPosition, setCurrentPosition] = useState({});
@@ -197,15 +201,18 @@ const MapContainer = ({ array }) => {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
-  })
+  },[])
+
+  const { isLoaded } = useJsApiLoader({ googleMapsApiKey });
+  if (!isLoaded) {
+
+    return null;
+  }
 
   return (
     <>
-      <LoadScript
-        id="script-loader"
-        googleMapsApiKey='AIzaSyB1gaI096ADqTOstjRjOWt2Xx21zH29v5Y'
-      >
-        <GoogleMap
+      <GoogleMap
+          // key={array.Id}
           id='example-map'
           mapContainerStyle={mapStyles()}
           draggable={true}
@@ -255,7 +262,6 @@ const MapContainer = ({ array }) => {
             ) : null
           }
         </GoogleMap>
-      </LoadScript>
     </>
   )
 }

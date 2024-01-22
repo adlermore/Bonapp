@@ -75,28 +75,28 @@ function App() {
           </div>
         </animated.div>
       ))} */}
-       <div className='page-wrapper'>
-            {loading &&
-              <div className='loader_section'>
-                <div className="pan-loader">
-                  <div className="loader"></div>
-                  <div className="pan-container">
-                    <div className="pan"></div>
-                    <div className="handle"></div>
-                  </div>
-                  <div className="shadow"></div>
-                </div>
+      <div className='page-wrapper'>
+        {loading &&
+          <div className='loader_section'>
+            <div className="pan-loader">
+              <div className="loader"></div>
+              <div className="pan-container">
+                <div className="pan"></div>
+                <div className="handle"></div>
               </div>
-            }
-            <Header WelcomPageToggle={WelcomPageToggle} />
-            <Routes>
-              <Route path="/" element={<Welcome />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/restaurant/:id" element={<Restaurant />} />
-              <Route path="/restaurantInner/:category/:id" element={<RestaurantInner />} />
-            </Routes>
-            {WelcomPageToggle && <Footer />}
+              <div className="shadow"></div>
+            </div>
           </div>
+        }
+        <Header WelcomPageToggle={WelcomPageToggle} />
+          <Routes>
+            <Route path="/" element={<Welcome />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/restaurant/:id" element={<Restaurant />} />
+            <Route path="/restaurantInner/:category/:id" element={<RestaurantInner />} />
+          </Routes>
+        {WelcomPageToggle && <Footer />}
+      </div>
     </>
   );
 }
