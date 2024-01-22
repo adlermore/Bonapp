@@ -19,7 +19,9 @@ import MapContainer from '../components/MapContainer/MapContainer';
 import '../assets/scss/RestaurantInner/_restaurantsInner.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import { Fancybox as NativeFancybox } from "@fancyapps/ui";
+import { useForm } from "react-hook-form";
 
 const RestaurantInner = () => {
 
@@ -34,13 +36,58 @@ const RestaurantInner = () => {
         Country: 'Street',
         Rate: 5,
         Category: 'Restaurant',
-        location: {
-            lat: 40.184953,
-            lng: 44.509741
-        },
     })
 
+    const currentLocation = [
+        {
+            Id: 1,
+            Image: menuImg3,
+            Name: 'Restaurant Example Name',
+            Country: 'Street',
+            Rate: 5,
+            Category: 'Restaurant',
+            location: {
+                lat: 40.184953,
+                lng: 44.509741
+            },
+        }
+    ]
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        shouldFocusError: false,
+    });
+
+
+
+    function Fancybox(props) {
+        const containerRef = useRef(null);
+
+        useEffect(() => {
+            const container = containerRef.current;
+            const delegate = props.delegate || "[data-fancybox]";
+            const options = props.options || {};
+            NativeFancybox.bind(container, delegate, options);
+            return () => {
+                NativeFancybox.unbind(container);
+                NativeFancybox.close();
+            };
+        });
+
+        return <div ref={containerRef}>{props.children}</div>;
+    }
+
+    const onSubmit = () => {
+        console.log('success !');
+    };
+
     useEffect(() => {
+        const element = document.getElementById('header');
+
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+
         const path = window.location.href;
         const parts = path.split("/");
         let olddesiredPart = parts.slice(parts.indexOf("restaurantInner") + 1).join("/");
@@ -78,14 +125,13 @@ const RestaurantInner = () => {
                 iframeQueryParams: { qs: 1 }
             })
         }
-
     }, [restaurantData, started])
 
     const settingsSlider = {
         dots: true,
         infinite: true,
         speed: 500,
-        autoplay: true,
+        // autoplay: true,
         slidesToShow: 3,
         slidesToScroll: 3,
         responsive: [
@@ -93,6 +139,7 @@ const RestaurantInner = () => {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
+                    slidesToScroll: 2,
                 }
             },
             {
@@ -116,8 +163,29 @@ const RestaurantInner = () => {
                 isInnerPage={true}
             />
             <div className='inner_cover'>
-                <img src={restaurantInnerImg1} alt='coverInner' />
-                <button className="gallery_btn">See All</button>
+                <Fancybox
+                    options={{
+                        Carousel: {
+                            infinite: false,
+                        },
+                    }}
+                >
+                    <ul className="gallery_list">
+                        <li href={restaurantInnerImg1} data-fancybox="gallery">
+                            <img src={restaurantInnerImg1} alt="gallery-img" />
+                            <button className="gallery_btn">See All</button>
+                        </li>
+                        <li href={menuImg1} data-fancybox="gallery">
+                            <img src={menuImg1} alt="gallery-img" />
+                        </li>
+                        <li href={menuImg2} data-fancybox="gallery">
+                            <img src={menuImg2} alt="gallery-img" />
+                        </li>
+                        <li href={menuImg3} data-fancybox="gallery">
+                            <img src={menuImg3} alt="gallery-img" />
+                        </li>
+                    </ul>
+                </Fancybox>
             </div>
             <div className="custom_container">
                 <div className="inner_section">
@@ -376,8 +444,39 @@ const RestaurantInner = () => {
                 </div>
             </div>
             <div className="mapInner_section">
-                <MapContainer location={restaurantData} isAdding={true} error={false} />
+                <MapContainer array={currentLocation} isAdding={true} error={false} />
             </div>
+            <div className='contacts_section'>
+                <div className='custom_container'>
+                    <div className="contacts_form">
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className={errors?.user_name?.type === "required" ? "form-block  has-error" : "form-block"}  >
+                                <div className='block_label'>Name</div>
+                                <input placeholder="First Name*" className="form-control" name="user_name" {...register("user_name", { required: true })} />
+                                <p className="error-info" >This field is required</p>
+                            </div>
+                            <div className={errors?.user_surname?.type === "required" ? "form-block has-error" : "form-block"}  >
+                                <div className='block_label'>Surname</div>
+                                <input placeholder="Last Name*" className="form-control" name="user_surname" {...register("user_surname", { required: true })} />
+                                <p className="error-info" >This field is required</p>
+                            </div>
+                            <div className={errors?.user_email?.type === "required" || errors?.user_email?.type === "pattern" ? "mail_inline form-block has-error" : "mail_inline form-block"}  >
+                                <div className='block_label'>Mail</div>
+                                <input placeholder="Email" className="form-control" name="user_email" {...register("user_email", { required: true, pattern: /^\S+@\S+$/i })} />
+                                {errors?.user_email?.type === "pattern" ? <p className="error-info email-info" >invalid Email</p> :
+                                    <p className="error-info" >This field is required</p>}
+                            </div>
+                            <div className={errors?.phone_number?.type === "required" ? "form-block has-error" : "form-block"}  >
+                                <div className='block_label'>Phone Number</div>
+                                <input type="number" placeholder="Phone Number" className="form-control" name="phone_number" {...register("phone_number", { required: true })} />
+                                <p className="error-info" >This field is required</p>
+                            </div>
+                            <button type='submit' className="site_btn send-btn">Find your table</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }

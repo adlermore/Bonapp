@@ -17,7 +17,7 @@ const Header = ({WelcomPageToggle}) => {
     }
 
     return (
-        <header className={WelcomPageToggle ? 'page_header ' : 'page_header welcome_header'} >
+        <header className={WelcomPageToggle ? 'page_header ' : 'page_header welcome_header'}  id="header">
             <div className="header_inner">
                 <Link to="/" className="logo_block">
                     <img src={logoImg} alt="logo-img" />
