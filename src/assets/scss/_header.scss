@@ -2,7 +2,7 @@
 @import "./mixins";
 .page_header {
     position: relative;
-    z-index: 40;
+    z-index: 999;
     width: 100%;
     height: 80px;
     background: $white;
@@ -57,6 +57,16 @@
 
         a {
             color: $black;
+            font-family: $semiBold !important;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            &:before{
+                font-family: 'icomoon' !important;
+                display: block;
+                font-size: 18px;
+                margin-left: 5px;
+            }
 
             &:hover {
                 color: $siteRed;
