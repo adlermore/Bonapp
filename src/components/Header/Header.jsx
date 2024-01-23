@@ -86,7 +86,7 @@ const Header = ({ WelcomPageToggle }) => {
                                 </div>
                             </div>
                             <div className={signToggle ? 'sign_container  toggled': 'sign_container'}>
-
+                                
                             </div>
                         </div>
                     </div>
