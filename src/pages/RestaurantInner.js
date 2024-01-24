@@ -22,6 +22,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { Fancybox as NativeFancybox } from "@fancyapps/ui";
 import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
 
 const RestaurantInner = () => {
 
@@ -131,7 +132,7 @@ const RestaurantInner = () => {
         dots: true,
         infinite: true,
         speed: 500,
-        // autoplay: true,
+        autoplay: true,
         slidesToShow: 3,
         slidesToScroll: 3,
         responsive: [
@@ -155,7 +156,12 @@ const RestaurantInner = () => {
 
 
     return (
-        <div className='restaurantInner'>
+        <motion.div className="restaurantInner"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
+
             <Reservation
                 background={restaurantData.CoverImage}
                 innerName={restaurantData.Name}
@@ -476,8 +482,7 @@ const RestaurantInner = () => {
                     </div>
                 </div>
             </div>
-
-        </div>
+        </motion.div >
     )
 }
 

@@ -16,7 +16,7 @@ import restaurant8 from '../assets/img/restaurantImg8.png';
 import RestaurantBlock from '../components/RestaurantBlock/RestaurantBlock';
 import '../assets/scss/Restaurants/_restaurants.scss';
 import MapContainer from '../components/MapContainer/MapContainer';
-
+import { motion } from "framer-motion";
 // import '../assets/scss/RestaurantBlock/_restaurantBlock.scss';
 
 const Restaurant = () => {
@@ -158,7 +158,11 @@ const Restaurant = () => {
     }, [CurrPageData])
 
     return (
-        <div className="restaurants_page">
+        <motion.div className="restaurants_page" 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        >
             <div className="cover_background" style={{ backgroundImage: `url(${CurrPageData.pageBg})` }}>
                 <div className="custom_container">
                     <div className="restaurants_description">
@@ -193,7 +197,7 @@ const Restaurant = () => {
             <div className="map_section">
                 <MapContainer array={NewRestaurants} isAdding={true} error={false} />
             </div>
-        </div>
+        </motion.div>
     )
 }
 

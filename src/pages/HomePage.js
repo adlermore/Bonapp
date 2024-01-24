@@ -3,7 +3,7 @@ import React from 'react';
 import '../assets/scss/HomePage/_homePage.scss';
 // import '../assets/scss/RestaurantBlock/_restaurantBlock.scss';
 import RestaurantBlock from '../components/RestaurantBlock/RestaurantBlock';
-
+import { motion } from "framer-motion";
 import Reservation from '../components/Reservation/Reservation';
 import HomeReservationImg from '../assets/img/homeReservation.png';
 import categoryImg1 from '../assets/img/categoryImg1.png';
@@ -142,7 +142,11 @@ const HomePage = () => {
     };
 
     return (
-        <div className="home_page">
+        <motion.div className="home_page" 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        >
             <Reservation background={HomeReservationImg} />
             <div className='about_section'>
                 <div className='custom_container'>
@@ -241,7 +245,7 @@ const HomePage = () => {
             <div className='banner_section banner_section2'>
                 <img src={bannerImg2} alt="banerImg" />
             </div>
-        </div>
+            </motion.div>
     )
 }
 
