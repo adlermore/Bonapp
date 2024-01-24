@@ -1,11 +1,13 @@
 @import "./variables";
 @import "./mixins";
+
 .page_header {
     position: relative;
-    z-index: 40;
+    z-index: 99;
     width: 100%;
     height: 80px;
     background: $white;
+
     .header_inner {
         height: 100%;
         display: flex;
@@ -14,9 +16,11 @@
         padding: 0 40px;
         justify-content: space-between;
     }
-    &.welcome_header .header_inner{
+
+    &.welcome_header .header_inner {
         padding: 0 56px 0 40px;
     }
+
     .header_container {
         display: flex;
         align-items: center;
@@ -57,6 +61,17 @@
 
         a {
             color: $black;
+            font-family: $semiBold !important;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+
+            &:before {
+                font-family: 'icomoon' !important;
+                display: block;
+                font-size: 18px;
+                margin-left: 5px;
+            }
 
             &:hover {
                 color: $siteRed;
@@ -69,6 +84,164 @@
         display: none;
         color: #333333;
     }
+
+    .sign_title {
+        font-size: 28px;
+        font-family: $bold;
+        line-height: 35px;
+        text-align: center;
+        color: $siteRed;
+    }
+
+    .social_list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+
+        a {
+            display: flex;
+            align-items: center;
+            font-size: 20px;
+            justify-content: center;
+            transition: 0.3s;
+            border: 1px solid #006855;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: #006855;
+
+            &:before {
+                color: #006855;
+                transition: 0.3s;
+            }
+
+            &:hover {
+                background: #006855;
+                color: $white;
+
+                &:before {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .inner_description {
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: #006855;
+    }
+
+    .sign_form {
+        max-width: 330px;
+        margin: 25px auto;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .sign_inner {
+        width: 100%;
+    }
+
+    .form-block {
+        width: 100%;
+        position: relative;
+        margin-bottom: 20px;
+
+        input {
+            width: -webkit-fill-available;
+            transition: 0.3s;
+            padding: 0 35px;
+            height: 40px;
+            border: 1px solid #91BEB6;
+            background: #E6F0EE;
+            padding-right: 10px;
+            outline: none;
+            font-family: $light;
+            color: #8B8B8B;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        .error-info {
+            transition: 0.3s;
+            position: absolute;
+            font-size: 12px;
+            color: #FB4242;
+            bottom: -18px;
+        }
+        
+        
+        .block_label {
+            position: absolute;
+            color: #8B8B8B;
+            left: 10px;
+            top: 50%;
+            font-size: 16px;
+            transform: translate(0, -50%);
+        }
+    }
+    .checkbox_line label{
+        display: flex;
+        cursor: pointer;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: #006855;
+        input{
+            display: none;
+            &:checked ~ .fake_check{
+                &:before{
+                    opacity: 1;
+                }
+            }
+        }
+        .fake_check{
+            width: 17px;
+            height: 17px;
+            display: flex;
+            border-radius: 4px;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #91BEB6;
+            background: #E6F0EE;
+            margin-right: 10px;
+            &:before{
+                font-size: 12px;
+                opacity: 0;
+                transition: 0.3s;
+            }
+        }   
+    }
+    .sign-btn{
+        font-size: 16px;
+        line-height: 24px;
+        color: $white;
+        width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        box-shadow: none;
+        background: #E33441;
+        border: none;
+        cursor: pointer;
+        height: 42px;
+        font-family: $medium;
+        transition: 0.3s;
+        outline: none;
+        margin: 30px auto;
+        &:hover{
+            background: #af1c25;
+        }
+    }
+
 
     @media (max-width: 1440px) {
         height: 65px;

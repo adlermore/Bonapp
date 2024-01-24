@@ -7,98 +7,134 @@ import RestaurantInner from './pages/RestaurantInner';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import './App.scss';
-// import { useTransition, animated } from 'react-spring';
+import { AnimatePresence , motion} from "framer-motion";
 
 function App() {
 
-  const [loading, setLoading] = useState(true);
-  const [WelcomPageToggle, setWelcomPageToggle] = useState(true);
+    const [isFirstMount, setIsFirstMount] = React.useState(true);
+    const [WelcomPageToggle, setWelcomPageToggle] = useState(true);
+    const location = useLocation();
 
-  const location = useLocation();
 
-  useEffect(() => {
-    const currentPath = location.pathname;
-    if (currentPath === '/') {
-      document.body.style.overflow = 'hidden';
-      setWelcomPageToggle(false)
-    } else {
-      document.body.style.overflow = 'auto';
-      setWelcomPageToggle(true)
-    }
+    useEffect(() => {
+        const currentPath = location.pathname;
+        if (currentPath === '/') {
+            document.body.style.overflow = 'hidden';
+            setWelcomPageToggle(false)
+        } else {
+            document.body.style.overflow = 'auto';
+            setWelcomPageToggle(true)
+        }
+        setTimeout(() => {
+            setIsFirstMount(false);
+        }, 3300);
 
-    const handleLoad = () => {
-      setLoading(false)
+    }, [location.pathname]);
+
+
+
+    const blackBox = {
+        initial: {
+            height: "100%",
+            bottom: 0,
+        },
+        animate: {
+            height: 0,
+            transition: {
+                when: "afterChildren",
+                duration: 1.5,
+                ease: [0.87, 0, 0.13, 1],
+            },
+        },
     };
 
-    setTimeout(() => {
-      handleLoad();
-    }, 1500);
-
-  }, [location.pathname]);
-
-
-
-  // const transitions = useTransition(location, {
-  //   from: { opacity: 0  },
-  //   enter: { opacity: 1 },
-  //   leave: { opacity: 0 },
-  //   config: {
-  //     duration : 300
-  //   }
-  // });
+    const textContainer = {
+        initial: {
+            opacity: 1,
+        },
+        animate: {
+            opacity: 0,
+            transition: {
+                duration: 0.3,
+                when: "afterChildren",
+            },
+        },
+    };
 
 
-  return (
-    <>
-      {/* {transitions((props, item) => (
-        <animated.div style={props}>
-          <div className='page-wrapper'>
-            {loading &&
-              <div className='loader_section'>
-                <div className="pan-loader">
-                  <div className="loader"></div>
-                  <div className="pan-container">
-                    <div className="pan"></div>
-                    <div className="handle"></div>
-                  </div>
-                  <div className="shadow"></div>
+    const text = {
+        initial: {
+            y: 40,
+        },
+        animate: {
+            y: 90,
+            transition: {
+                duration: 1.5,
+                ease: [0.87, 0, 0.13, 1],
+            },
+        },
+    };
+    const InitialTransition = () => {
+        React.useState(() => {
+            typeof windows !== "undefined" && window.scrollTo(0, 0);
+        }, []);
+
+        return (
+            <motion.div
+                className="initial"
+                initial="initial"
+                animate="animate"
+                variants={blackBox}
+                onAnimationStart={() => document.body.classList.add("overflow-hidden")}
+                onAnimationComplete={() =>
+                    document.body.classList.remove("overflow-hidden")
+                }
+            >
+                <motion.svg variants={textContainer} className="initial_svg">
+                    <pattern
+                        id="pattern"
+                        patternUnits="userSpaceOnUse"
+                        width={750}
+                        height={850}
+                        className="text-white"
+                    >
+                        <rect className="pathSvgInit" />
+                        <motion.rect
+                            variants={text}
+                            className="pathSvgRect"
+                        />
+                    </pattern>
+                    <text
+                        className="textSvg"
+                        textAnchor="middle"
+                        x="50%"
+                        y="50%"
+                        style={{ fill: "url(#pattern)" }}
+                    >
+                        Bonapp
+                    </text>
+                </motion.svg>
+            </motion.div>
+        );
+    };
+
+    return (
+        <>
+            <AnimatePresence mode="wait" >
+                <div className='page-wrapper'>
+                    <Header WelcomPageToggle={WelcomPageToggle} />
+                    {isFirstMount && <InitialTransition />}
+                    <Routes location={location}>
+                        <Route path="/" element={<Welcome isFirstMount={isFirstMount} />} />
+                        <Route path="/home" element={<HomePage />} />
+                        <Route path="/restaurant/:id" element={<Restaurant />} />
+                        <Route path="/restaurantInner/:category/:id" element={<RestaurantInner />} />
+                    </Routes>
+                    {WelcomPageToggle && <Footer />}
                 </div>
-              </div>
-            }
-            <Header WelcomPageToggle={WelcomPageToggle} />
-            <Routes location={item}>
-              <Route path="/" element={<Welcome />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/restaurant/:id" element={<Restaurant />} />
-            </Routes>
-            {WelcomPageToggle && <Footer />}
-          </div>
-        </animated.div>
-      ))} */}
-      <div className='page-wrapper'>
-        {loading &&
-          <div className='loader_section'>
-            <div className="pan-loader">
-              <div className="loader"></div>
-              <div className="pan-container">
-                <div className="pan"></div>
-                <div className="handle"></div>
-              </div>
-              <div className="shadow"></div>
-            </div>
-          </div>
-        }
-        <Header WelcomPageToggle={WelcomPageToggle} />
-          <Routes>
-            <Route path="/" element={<Welcome />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/restaurant/:id" element={<Restaurant />} />
-            <Route path="/restaurantInner/:category/:id" element={<RestaurantInner />} />
-          </Routes>
-        {WelcomPageToggle && <Footer />}
-      </div>
-    </>
-  );
+            </AnimatePresence>
+        </>
+    );
 }
 
 export default App;
