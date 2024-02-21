@@ -32,7 +32,7 @@ const popularRestaurants = [
         Name: 'Restaurant Name1',
         Country: 'Yerevan, Saryan str.',
         Rate: 5,
-        Category : 'Restaurant'
+        Category: 'Restaurant'
     },
     {
         Id: 1,
@@ -40,7 +40,7 @@ const popularRestaurants = [
         Name: 'Caffe Name1',
         Country: 'Sisian, Saryan str.',
         Rate: 3,
-        Category : 'Caffe'
+        Category: 'Caffe'
 
     },
     {
@@ -49,7 +49,7 @@ const popularRestaurants = [
         Name: 'Food Name',
         Country: 'Artimed, Saryan str.',
         Rate: 2,
-        Category : 'Food'
+        Category: 'Food'
 
     },
     {
@@ -58,7 +58,7 @@ const popularRestaurants = [
         Name: 'Bar Name',
         Country: 'Sevan, Saryan str.',
         Rate: 5,
-        Category : 'Bar'
+        Category: 'Bar'
 
     },
     {
@@ -67,7 +67,7 @@ const popularRestaurants = [
         Name: 'Restaurant Name55',
         Country: 'Sevan, Saryan str.',
         Rate: 5,
-        Category : 'Restaurant'
+        Category: 'Restaurant'
     }
 ]
 
@@ -78,7 +78,7 @@ const NewRestaurants = [
         Name: 'Restaurant Name5',
         Country: 'Yerevan, Saryan str.',
         Rate: 5,
-        Category : 'Restaurant'
+        Category: 'Restaurant'
     },
     {
         Id: 5,
@@ -86,7 +86,7 @@ const NewRestaurants = [
         Name: 'Caffe Name6',
         Country: 'Sisian, Saryan str.',
         Rate: 4,
-        Category : 'Caffe'
+        Category: 'Caffe'
     },
     {
         Id: 6,
@@ -94,7 +94,7 @@ const NewRestaurants = [
         Name: 'Food Name7',
         Country: 'Artimed, Saryan str.',
         Rate: 5,
-        Category : 'Food'
+        Category: 'Food'
     },
     {
         Id: 7,
@@ -102,7 +102,7 @@ const NewRestaurants = [
         Name: 'Bar Name8',
         Country: 'Sevan, Saryan str.',
         Rate: 5,
-        Category : 'Bar'
+        Category: 'Bar'
     }
 ]
 
@@ -142,10 +142,10 @@ const HomePage = () => {
     };
 
     return (
-        <motion.div className="home_page" 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        <motion.div className="home_page"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
         >
             <Reservation background={HomeReservationImg} />
             <div className='about_section'>
@@ -245,7 +245,7 @@ const HomePage = () => {
             <div className='banner_section banner_section2'>
                 <img src={bannerImg2} alt="banerImg" />
             </div>
-            </motion.div>
+        </motion.div>
     )
 }
 

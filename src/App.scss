@@ -4,7 +4,7 @@
 @import "./assets/scss/mixins";
 
 
-body{
+body {
     overflow: hidden;
 }
 
@@ -16,36 +16,39 @@ body{
     justify-content: center;
     width: 100%;
     background: $siteGreen;
-    .initial_svg{
+
+    .initial_svg {
         position: absolute;
         z-index: 50;
         display: flex;
     }
-    .text-white{
+
+    .text-white {
         color: $white;
         background: $white;
     }
-    .pathSvgInit{
+
+    .pathSvgInit {
         width: 100%;
         height: 100%;
         fill: $white;
     }
-    
-    .pathSvgRect{
+
+    .pathSvgRect {
         width: 100%;
         height: 100%;
         color: #F0961C;
         fill: $siteRed;
-    
+
     }
-    
-    .textSvg{
+
+    .textSvg {
         font-family: $bold;
         font-size: 52px;
     }
 }
 
-.info_inner{
+.info_inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,6 +188,15 @@ a {
     opacity: 1;
 }
 
+.scrollbarWidth {
+    width: 100%;
+    // height: 100%;
+    overflow-y: scroll !important;
+    padding-right: 17px;
+    box-sizing: content-box;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
 
 .block_title {
     font-size: 32px;
@@ -446,7 +458,7 @@ a {
         justify-content: center;
         position: relative;
     }
-    
+
     .popup_close {
         position: absolute;
         right: -25px;
@@ -455,7 +467,7 @@ a {
         font-size: 22px;
         top: -25px;
     }
-    
+
     .popup_container {
         max-width: 900px;
         position: relative;
@@ -465,7 +477,7 @@ a {
         width: 100%;
     }
 
-    .back_inline{
+    .back_inline {
         height: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -478,7 +490,7 @@ a {
         width: 100%;
         height: 100%;
     }
-    
+
     .static_inline {
         display: flex;
         align-items: center;
@@ -488,20 +500,21 @@ a {
         flex-direction: column;
     }
 
-    .sign_container{
+    .sign_container {
         position: relative;
-        padding: 60px  0;
+        padding: 60px 0;
         background: $white;
         height: 100%;
         width: 50%;
         top: 0;
         left: 50%;
         transition: 0.5s;
-        border-radius: 0 5px  5px 0;
+        border-radius: 0 5px 5px 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        .sign_inner{
+
+        .sign_inner {
             transition: opacity 1s;
             overflow: hidden;
             min-height: 500px;
@@ -511,17 +524,20 @@ a {
             justify-content: center;
             width: 100%;
         }
-        &.toggled{
+
+        &.toggled {
             left: 0;
             border-radius: 5px 0 0 5px;
-            .login_container{
+
+            .login_container {
                 width: 100%;
                 height: 100%;
                 z-index: 2;
                 opacity: 1;
                 visibility: unset;
             }
-            .registration_container{
+
+            .registration_container {
                 width: 0;
                 z-index: -1;
                 height: 0;
@@ -529,11 +545,13 @@ a {
                 opacity: 0;
             }
         }
-        .registration_container{
+
+        .registration_container {
             z-index: 2;
             opacity: 1;
         }
-        .login_container{
+
+        .login_container {
             width: 0;
             z-index: -1;
             height: 0;
@@ -549,7 +567,7 @@ a {
         text-align: center;
     }
 
-    .login_btn{
+    .login_btn {
         width: 160px;
         background: #F0961C;
         height: 42px;
@@ -562,7 +580,5 @@ a {
         color: $white;
         margin-top: 20px;
     }
-    
+
 }
-
-
