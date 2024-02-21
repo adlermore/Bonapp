@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useRef } from "react";
 import { Link } from "react-router-dom";
 import logoImg from '../../assets/img/logo.png';
 import { Spin as Hamburger } from 'hamburger-react'
@@ -10,6 +10,7 @@ const Header = ({ WelcomPageToggle }) => {
     const [isOpen, setOpen] = useState(false);
     const [popupopened, setPopupopened] = useState(false);
     const [signToggle, setSignToggle] = useState(false);
+    const headerRef= useRef(null);
 
     const ToggleMobile = () => {
         setOpen(!isOpen);
@@ -38,16 +39,24 @@ const Header = ({ WelcomPageToggle }) => {
         console.log('success !');
     };
 
-
-
     const LoginPopupOpen = (e) => {
         e.preventDefault();
-        setPopupopened(true)
-        document.body.style.overflow = 'hidden';
+        setPopupopened(true);
+        if(WelcomPageToggle){
+            document.getElementById('wrapper').classList.add('scrollbarWidth');
+            headerRef.current.classList.add('scrollbarWidth');
+            document.body.style.overflow = 'hidden';
+        }
     }
+    
     const LoginPopupClose = (e) => {
         e.preventDefault();
-        document.body.style.overflow = 'auto';
+        if(WelcomPageToggle){
+            WelcomPageToggle = true;
+            document.getElementById('wrapper').classList.remove('scrollbarWidth');
+            headerRef.current.classList.remove('scrollbarWidth');
+            document.body.style.overflow = 'auto';
+        }
         setPopupopened(false)
     }
 
@@ -57,11 +66,13 @@ const Header = ({ WelcomPageToggle }) => {
     }
 
     return (
+        <>
         <motion.header
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className={WelcomPageToggle ? 'page_header ' : 'page_header welcome_header'} id="header">
+            ref={headerRef}
+            className={WelcomPageToggle ? 'page_header ' : 'page_header welcome_header'} id="header" >
             <div className="header_inner">
                 <Link to="/" className="logo_block">
                     <img src={logoImg} alt="logo-img" />
@@ -74,19 +85,20 @@ const Header = ({ WelcomPageToggle }) => {
                         <ul className="header_menu">
                             <li><Link to="/">Categories</Link></li>
                             <li><Link to="/">Popular</Link></li>
+                            <li><Link to="/">New</Link></li>
+                            <li><Link to="/">For cooperation</Link></li>
                             <li><Link to="/">Blog</Link></li>
-                            <li><Link to="/">Search</Link></li>
-                            <li><Link to="/">Location</Link></li>
                             <li><Link to="/">Contact</Link></li>
                             <li>
                                 <a
                                     href="/#"
-                                    className="icon-user"
+                                    // className="icon-user"
                                     onClick={(e) => { LoginPopupOpen(e) }}
                                 >
                                     login
                                 </a>
                             </li>
+                            <li><a href="/#" className="icon-search"> </a></li>
                         </ul>
                     </div>
                 </div>
@@ -180,6 +192,7 @@ const Header = ({ WelcomPageToggle }) => {
                 </div>
             </div>
         </motion.header>
+        </>
     )
 }
 

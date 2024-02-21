@@ -2,23 +2,35 @@
 @import "./mixins";
 
 .page_header {
-    position: relative;
-    z-index: 99;
+    z-index: 999;
+    position: fixed;
     width: 100%;
+    user-select: none;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, .1);
     height: 80px;
-    background: $white;
-    box-shadow: 0 10px 20px 0 rgba(0,0,0,.1);
+
+    &.welcome_header {
+        width: 100%;
+        overflow-y: scroll;
+        padding-right: 17px;
+        box-sizing: content-box;
+        background: $white;
+        .header_inner {
+            background: rgba(255, 255, 255, 1);
+        }
+
+    }
+
     .header_inner {
         height: 100%;
         display: flex;
         align-items: center;
-        // transition: 0.3s;
         padding: 0 40px;
         justify-content: space-between;
-    }
-
-    &.welcome_header .header_inner {
-        padding: 0 56px 0 40px;
+        background: rgba(255, 255, 255, 0.73);
+        backdrop-filter: blur(7.3px);
+        transition: all 0.5s;
+        -webkit-backdrop-filter: blur(7.3px);
     }
 
     .header_container {
@@ -32,7 +44,7 @@
 
     .logo_block {
         height: 42px;
-        width: 145px;
+        width: 158px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -166,6 +178,7 @@
             font-size: 12px;
             border-radius: 4px;
         }
+
         .error-info {
             transition: 0.3s;
             position: absolute;
@@ -173,8 +186,8 @@
             color: #FB4242;
             bottom: -18px;
         }
-        
-        
+
+
         .block_label {
             position: absolute;
             color: #8B8B8B;
@@ -184,7 +197,8 @@
             transform: translate(0, -50%);
         }
     }
-    .checkbox_line label{
+
+    .checkbox_line label {
         display: flex;
         cursor: pointer;
         width: 100%;
@@ -194,15 +208,18 @@
         line-height: 20px;
         text-align: center;
         color: #006855;
-        input{
+
+        input {
             display: none;
-            &:checked ~ .fake_check{
-                &:before{
+
+            &:checked~.fake_check {
+                &:before {
                     opacity: 1;
                 }
             }
         }
-        .fake_check{
+
+        .fake_check {
             width: 17px;
             height: 17px;
             display: flex;
@@ -212,14 +229,16 @@
             border: 1px solid #91BEB6;
             background: #E6F0EE;
             margin-right: 10px;
-            &:before{
+
+            &:before {
                 font-size: 12px;
                 opacity: 0;
                 transition: 0.3s;
             }
-        }   
+        }
     }
-    .sign-btn{
+
+    .sign-btn {
         font-size: 16px;
         line-height: 24px;
         color: $white;
@@ -237,7 +256,8 @@
         transition: 0.3s;
         outline: none;
         margin: 30px auto;
-        &:hover{
+
+        &:hover {
             background: #af1c25;
         }
     }

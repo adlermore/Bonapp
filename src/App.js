@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import HomePage from './pages/HomePage';
@@ -15,7 +15,7 @@ function App() {
     const [WelcomPageToggle, setWelcomPageToggle] = useState(true);
     const location = useLocation();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const currentPath = location.pathname;
         if (currentPath === '/') {
             document.body.style.overflow = 'hidden';
@@ -119,7 +119,7 @@ function App() {
     return (
         <>
             <AnimatePresence mode="wait" >
-                <div className='page-wrapper'>
+                <div className='page-wrapper' id="wrapper">
                     <Header WelcomPageToggle={WelcomPageToggle} />
                     {isFirstMount && <InitialTransition />}
                     <Routes location={location}>
