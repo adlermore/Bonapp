@@ -15,7 +15,6 @@ function App() {
     const [WelcomPageToggle, setWelcomPageToggle] = useState(true);
     const location = useLocation();
 
-
     useEffect(() => {
         const currentPath = location.pathname;
         if (currentPath === '/') {
@@ -31,8 +30,7 @@ function App() {
 
     }, [location.pathname]);
 
-
-
+    
     const blackBox = {
         initial: {
             height: "100%",
