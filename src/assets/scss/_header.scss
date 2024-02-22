@@ -60,6 +60,9 @@
             overflow: hidden;
             padding: 0 7px;
             z-index: 6;
+            &:hover{
+                color: $black;
+            }
         }
         .dropdown_list{
             height: 0;
@@ -70,6 +73,7 @@
             width: 129px;
             overflow: hidden;
             border-radius: 0 0 4px 4px;
+            transition: 0.3s;
             overflow: hidden;
             a{
                 color: $black !important;
@@ -81,6 +85,14 @@
                 font-size: 16px;
                 text-align: center;
                 justify-content: center;
+                // background: red;
+                transition: 0.3s;
+                &:hover{
+                    background: $white;
+                }
+                &:first-child{
+                    margin-top: 6px;
+                }
             }
         }
         &.opened {
