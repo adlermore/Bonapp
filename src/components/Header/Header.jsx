@@ -109,7 +109,7 @@ const Header = ({ WelcomPageToggle }) => {
                                 </li>
                                 <li><a href="/#" className="icon-search"> </a></li>
                                 <li onClick={()=> handleLgToggle()} className={lgopened ? 'lg_container opened' : 'lg_container'}>
-                                    <a href="/#" className="icon-language lg_block"> English </a>
+                                    <a href="/#" onClick={(e)=> e.preventDefault()}  className="icon-language lg_block"> English </a>
                                     <div className="dropdown_list">
                                         <a href="/#" className="drop_li"> Russian </a>
                                         <a href="/#" className="drop_li"> Armenian </a>

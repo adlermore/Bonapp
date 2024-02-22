@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import Restaurant from './pages/Restaurant';
 import RestaurantInner from './pages/RestaurantInner';
 import Header from './components/Header/Header';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import Footer from './components/Footer/Footer';
 import './App.scss';
 import { AnimatePresence , motion} from "framer-motion";
@@ -118,6 +119,7 @@ function App() {
 
     return (
         <>
+            <ScrollToTop />
             <AnimatePresence mode="wait" >
                 <div className='page-wrapper' id="wrapper">
                     <Header WelcomPageToggle={WelcomPageToggle} />

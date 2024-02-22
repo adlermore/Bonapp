@@ -10,6 +10,8 @@ import userimg3 from '../assets/img/user3.png';
 import menuImg1 from '../assets/img/menu1.png';
 import menuImg2 from '../assets/img/menu2.png';
 import menuImg3 from '../assets/img/menu3.png';
+import tableImg from '../assets/img/tableImg.png';
+
 import Reservation from '../components/Reservation/Reservation';
 import restaurantInnerImg1 from '../assets/img/restaurantInner1.png'
 import Slider from 'react-slick';
@@ -28,6 +30,7 @@ const RestaurantInner = () => {
 
     const container = useRef(null)
     const [started, setStarted] = useState(false);
+    const [reservePopup, setreservePopup] = useState(false);
 
     const [restaurantData, setRestaurantData] = useState({
         Id: 1,
@@ -154,6 +157,17 @@ const RestaurantInner = () => {
         ]
     };
 
+    const reserveOpened = ()=>{
+        setreservePopup(true);
+        document.body.style.overflow= 'hidden';
+    }
+
+    const reserveClose = (e)=>{
+        e.preventDefault();
+        setreservePopup(false);
+        document.body.style.overflow= 'auto';
+
+    }
 
     return (
         <motion.div className="restaurantInner"
@@ -449,6 +463,7 @@ const RestaurantInner = () => {
                     </div>
                 </div>
             </div>
+            <button type='button' className="site_btn reservepopup" onClick={()=>reserveOpened()}>Reserve</button>
             <div className="mapInner_section">
                 <MapContainer array={currentLocation} isAdding={true} error={false} />
             </div>
@@ -482,6 +497,26 @@ const RestaurantInner = () => {
                     </div>
                 </div>
             </div>
+
+            <div className={reservePopup ? ' login_opened popup_container' : 'popup_container'}>
+                    <div className="login_popup popup">
+                        <div className="popup_inner">
+                            <div className="popup_container">
+                                <a href="/#" className="popup_close icon_close" onClick={(e) => reserveClose(e)}>X</a>
+                                <div className='table_block'>
+                                    <div className='table_title'>Choose your tables</div>
+                                    <div className='table_desc'>Active /Passive tables</div>
+                                    <img src={tableImg} alt="tableImg" />
+                                    <div className='buttons_line'>
+                                        <a href="/#" className='table_btn'>Skip</a>
+                                        <a href="/#" className='table_btn save'>Save</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         </motion.div >
     )
 }
