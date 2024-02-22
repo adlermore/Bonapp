@@ -3,6 +3,7 @@
 
 .restaurants_page{
     position: relative;
+    padding-top: 80px;
     .cover_background{
         height: 354px;
         display: flex;
@@ -134,6 +135,7 @@
         height: 600px;
     }
     @media (max-width: 1440px) {
+        padding-top: 60px;
         .map_section{
             height: 400px;
         }

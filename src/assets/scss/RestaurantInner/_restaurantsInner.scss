@@ -3,6 +3,7 @@
 
 
 .restaurantInner{
+    padding-top: 80px;
     .reservation_section .currResName_btn{
         display: none;
     }
@@ -371,6 +372,7 @@
     }
 
     @media (max-width: 1440px) {
+        padding-top: 60px;
         .reservation_name {
             font-size: 28px;
             line-height: 40px;
