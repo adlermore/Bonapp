@@ -2,46 +2,55 @@
 @import "../mixins";
 
 
-.restaurantInner{
+.restaurantInner {
     padding-top: 80px;
-    .reservation_section .currResName_btn{
+
+    .reservation_section .currResName_btn {
         display: none;
     }
-    .inner_cover{
+
+    .inner_cover {
         position: relative;
         width: 100%;
         height: 390px;
         display: flex;
         align-items: center;
         justify-content: center;
-        >div{
+
+        >div {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            ul{
+
+            ul {
                 width: 100%;
                 height: 100%;
             }
-            li{
+
+            li {
                 width: 100%;
                 height: 100%;
             }
         }
-        img{
+
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
     }
-    .gallery_list{
-        li{
+
+    .gallery_list {
+        li {
             display: none;
-            &:first-child{
+
+            &:first-child {
                 display: block !important;
             }
         }
     }
-    .gallery_btn{
+
+    .gallery_btn {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -60,11 +69,13 @@
         font-family: $medium;
         justify-content: center;
         cursor: pointer;
-        &:hover{
+
+        &:hover {
             opacity: 0.7;
         }
     }
-    .section_title{
+
+    .section_title {
         font-size: 32px;
         line-height: 48px;
         color: #3B3B3B;
@@ -72,40 +83,61 @@
         margin-bottom: 45px;
         text-align: center;
     }
-    .inner_section{
+
+    .inner_section {
         margin-top: 60px;
     }
 
-    .commets_slider{
+    .reservepopup {
+        margin: 50px auto;
+        margin-bottom: 90px;
+        border: none;
+        height: 52px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: 0.3s;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    .commets_slider {
         margin-top: 20px;
+
         .slick-slide {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .commets_block{
+
+        .commets_block {
             margin: 0 auto !important;
             width: 220px !important;
         }
     }
-    .userNamer{
+
+    .userNamer {
         font-size: 16px;
         line-height: 21px;
         font-family: $bold;
         margin-top: 10px;
         color: $black;
     }
-    .user_comment{
+
+    .user_comment {
         font-size: 12px;
         line-height: 18px;
         color: $black;
         margin-top: 10px;
     }
-    .rest_rate{
+
+    .rest_rate {
         display: flex;
         margin-top: 10px;
         align-items: center;
-        >span{
+
+        >span {
             color: #F0961C;
             font-size: 20px;
             margin-right: 2px;
@@ -115,18 +147,21 @@
     .slick-dots {
         margin-top: 25px;
         position: relative;
+
         li {
             margin: 0 2px;
             opacity: 0.7;
+
             button:before {
                 font-family: 'slick';
                 font-size: 12px;
                 line-height: 12px;
                 transition: 0.3s;
             }
-        } 
-    } 
-    .section_description{
+        }
+    }
+
+    .section_description {
         font-size: 18px;
         line-height: 36px;
         font-family: $medium;
@@ -134,26 +169,31 @@
         opacity: 0.8;
         text-align: center;
     }
-    .Map_container{
+
+    .Map_container {
         display: flex;
         align-items: center;
         justify-content: center;
-        .container{
+
+        .container {
             width: 100%;
             max-width: 900px;
             height: 410px;
         }
     }
-    .section_menu{
+
+    .section_menu {
         max-width: 900px;
         width: 100%;
         margin: 50px auto;
     }
-    .section_list{
+
+    .section_list {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        a{
+
+        a {
             display: block;
             color: #3B3B3B;
             font-size: 30px;
@@ -161,21 +201,25 @@
             line-height: 41px;
         }
     }
-    .filter_block{
+
+    .filter_block {
         border-radius: 4px;
         border: 1px solid #2E8374;
         height: 44px;
     }
-    .fileter_btn{
+
+    .fileter_btn {
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 0 20px;
-        .hamburger-react{
+
+        .hamburger-react {
             position: relative;
             top: -2px;
         }
-        span{
+
+        span {
             margin-left: 5px;
             font-size: 16px;
             display: block;
@@ -184,20 +228,23 @@
             color: #474747;
         }
     }
-    .filter_container{
+
+    .filter_container {
         margin-top: 25px;
         display: flex;
         align-items: center;
         gap: 1px;
         justify-content: space-between;
     }
-    .search_block{
+
+    .search_block {
         border-radius: 4px;
         border: 1px solid #2E8374;
         height: 44px;
         width: 100%;
         overflow: hidden;
-        input{
+
+        input {
             outline: none;
             border: none;
             font-family: $medium;
@@ -209,13 +256,15 @@
             width: 100%;
         }
     }
-    .search_btn{
+
+    .search_btn {
         border-radius: 4px;
         border: 1px solid #006855;
         height: 44px;
         overflow: hidden;
         min-width: fit-content;
-        button{
+
+        button {
             width: 160px;
             height: 100%;
             background: #006855;
@@ -230,18 +279,21 @@
             border: none;
         }
     }
-    .menu_list{
+
+    .menu_list {
         margin-top: 45px;
         display: grid;
-        grid-template-columns: 1fr 1fr ;
+        grid-template-columns: 1fr 1fr;
         gap: 25px;
     }
-    .menu_block{
+
+    .menu_block {
         display: grid;
-        grid-template-columns: 1fr 1fr ;
+        grid-template-columns: 1fr 1fr;
         gap: 35px;
     }
-    .image_block{
+
+    .image_block {
         position: relative;
         border-radius: 6px;
         overflow: hidden;
@@ -249,18 +301,21 @@
         align-items: center;
         justify-content: center;
         opacity: 1 !important;
-        img{
+
+        img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
-        &:hover{
-            .image_btn{
+
+        &:hover {
+            .image_btn {
                 opacity: 1;
             }
         }
     }
-    .image_btn{
+
+    .image_btn {
         position: absolute;
         width: 55px;
         height: 55px;
@@ -274,11 +329,13 @@
         border-radius: 50%;
         justify-content: center;
     }
-    .menu_inner{
+
+    .menu_inner {
         position: relative;
         padding-top: 25px;
     }
-    .card_btn{
+
+    .card_btn {
         position: absolute;
         right: 0;
         top: 0;
@@ -291,54 +348,65 @@
         align-items: center;
         justify-content: center;
         color: rgba($siteGreen , 0.8);
-        &:before{
+
+        &:before {
             font-size: 24px !important;
         }
     }
-    .menu_price{
+
+    .menu_price {
         font-size: 18px;
         line-height: 23px;
         color: #323232;
     }
-    .menu_name{
+
+    .menu_name {
         margin-top: 20px;
         font-family: $bold;
         color: $black;
     }
-    .menu_desc{
+
+    .menu_desc {
         margin-top: 30px;
         font-size: 16px;
         line-height: 21px;
         color: #323232;
         max-width: 150px;
     }
-    .mapInner_section{
+
+    .mapInner_section {
         height: 400px;
     }
-    .contacts_section{
+
+    .contacts_section {
         margin: 50px 0;
     }
-    .contacts_form{
+
+    .contacts_form {
         width: 100%;
         position: relative;
-        form{
+
+        form {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
         }
     }
-    .block_label{
+
+    .block_label {
         font-size: 18px;
         line-height: 24px;
         color: #686868;
         margin-bottom: 5px;
         font-family: $medium;
     }
-    .form-block{
+
+    .form-block {
         width: 100%;
         padding-bottom: 20px;
         position: relative;
-        input{
+
+        input {
             width: -webkit-fill-available;
             height: 44px;
             border-radius: 4px;
@@ -352,11 +420,82 @@
             font-size: 14px;
             font-family: $light;
         }
+
         .error-info {
             bottom: -5px;
         }
     }
-    .send-btn{
+
+    .popup_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .popup .popup_close {
+        font-size: 32px;
+        right: -45px;
+        top: -8px;
+    }
+
+
+    .table_block {
+        width: 100%;
+        padding: 40px;
+        background: #E6F0EE;
+        border-radius: 7px;
+        position: relative;
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .table_title{
+            font-size: 18px;
+            font-family: $bold;
+            text-align: center;
+            color: $black;
+        }
+        .table_desc{
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+            color: $black;
+        }
+        .buttons_line{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top: 20px;
+            .table_btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                max-width: 160px;
+                width: 100%;
+                height: 44px;
+                border: 1px solid $siteGreen;
+                border-radius: 5px;
+                margin-left: 15px;
+                transition: 0.5s;
+                color: $siteGreen;
+                &:hover{
+                    color: $white;
+                    background: $siteGreen;
+                    opacity: 1;
+                }
+            }
+            .save{
+                color: $siteRed;
+                border: 1px solid $siteRed;
+                &:hover{
+                    background: $siteRed;
+                }
+            }
+        }
+    }
+
+    .send-btn {
         background: #E33441;
         margin-left: auto;
         grid-column-start: 1;
@@ -366,17 +505,20 @@
         transition: 0.3s;
         font-family: $medium;
         cursor: pointer;
-        &:hover{
+
+        &:hover {
             opacity: 0.7;
         }
     }
 
     @media (max-width: 1440px) {
         padding-top: 60px;
+
         .reservation_name {
             font-size: 28px;
             line-height: 40px;
         }
+
         .reservation_description {
             margin-top: 10px;
             font-size: 16px;
@@ -390,70 +532,88 @@
             padding: 30px;
             height: auto;
         }
+
         .reservation_name {
             font-size: 22px;
             line-height: 34px;
         }
+
         .reservation_description {
             font-size: 14px;
             line-height: 24px;
         }
+
         .reservation_info {
             margin-bottom: 30px;
         }
+
         .inner_cover {
             height: 300px;
         }
+
         .inner_section {
             margin-top: 30px;
         }
+
         .section_title {
             font-size: 26px;
             line-height: 37px;
             margin-bottom: 30px;
         }
+
         .slick-dots {
             margin-top: 15px;
         }
+
         .commets_slider {
             margin-top: 30px;
             margin-bottom: 50px;
         }
+
         .commets_slider .commets_block {
             margin: 0 auto !important;
             max-width: 300px !important;
             width: 90% !important;
         }
+
         .section_description {
             font-size: 16px;
             line-height: 29px;
         }
+
         .section_list a {
             font-size: 22px;
             line-height: 25px;
         }
+
         .menu_block {
             gap: 15px;
         }
+
         .menu_name {
             margin-top: 10px;
         }
+
         .menu_price {
             font-size: 16px;
             line-height: 21px;
         }
+
         .menu_desc {
             margin-top: 10px;
             font-size: 14px;
             line-height: 18px;
         }
+
         .menu_inner {
             padding-right: 30px;
         }
+
         .menu_list {
             margin-top: 30px;
             gap: 15px;
         }
+
         .card_btn {
             right: -5px;
             top: 30px;
@@ -462,28 +622,34 @@
             font-size: 14px;
         }
     }
+
     @media (max-width: 575px) {
         .reservation_section {
             padding: 20px 0;
         }
+
         .filter_container {
             margin-top: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0;
-            > div{
+
+            >div {
                 width: 100%;
                 margin-bottom: 10px;
-                button{
+
+                button {
                     width: 100%;
                 }
             }
         }
+
         .section_list {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 10px;
+
             a {
                 width: -webkit-fill-available;
                 font-size: 14px;
@@ -499,6 +665,7 @@
                 background: #006855;
             }
         }
+
         .commets_slider .commets_block {
             margin: 0 auto !important;
             max-width: 300px !important;
@@ -508,17 +675,21 @@
             align-items: center;
             text-align: center;
         }
+
         .menu_list {
             grid-template-columns: 1fr;
         }
+
         .contacts_form form {
             display: block;
         }
+
         .send-btn {
             width: 100%;
             max-width: none;
             margin-top: 25px;
         }
+
         .block_label {
             font-size: 14px;
             line-height: 19px;
