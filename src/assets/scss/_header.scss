@@ -11,14 +11,20 @@
 
     &.welcome_header {
         width: 100%;
-        overflow-y: scroll;
+
+        .header_menu {
+            position: relative;
+            right: 17px;
+        }
+
+        // overflow-y: scroll;
         padding-right: 17px;
         box-sizing: content-box;
         background: $white;
+
         .header_inner {
             background: rgba(255, 255, 255, 1);
         }
-
     }
 
     .header_inner {
@@ -42,6 +48,58 @@
         width: 100%;
     }
 
+
+    .lg_container {
+        position: relative;
+        width: 90px;
+        margin-left: 20px !important;
+        margin-right: 15px;
+        .lg_block{
+            border-radius: 4px  !important;
+            height: 36px;
+            overflow: hidden;
+            padding: 0 7px;
+            z-index: 6;
+        }
+        .dropdown_list{
+            height: 0;
+            top: 34px;
+            position: absolute;
+            background: #C2DBD6;
+            color: $black;
+            width: 129px;
+            overflow: hidden;
+            border-radius: 0 0 4px 4px;
+            overflow: hidden;
+            a{
+                color: $black !important;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 5 12px;
+                height: 30px;
+                font-size: 16px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+        &.opened {
+            color: $white !important;
+            .lg_block {
+                background: #009a68;
+                &:hover {
+                    color: $white;
+                }
+            }
+            .dropdown_list{
+                height: 70px;
+            }
+            a {
+                color: $white;
+            }
+        }
+    }
+
     .logo_block {
         height: 42px;
         width: 158px;
@@ -56,6 +114,28 @@
         }
     }
 
+    .lg_block {
+        display: flex;
+        align-items: center;
+        width: 115px;
+        position: relative;
+        flex-direction: row  !important;
+        justify-content: space-between !important;
+        padding: 0 3px;
+        &:after {
+            position: relative;
+            margin: 0;
+            content: "\e918";
+            display: block;
+            font-family: 'icomoon' !important;
+        }
+
+        &::before {
+            position: relative;
+            font-size: 18px !important;
+        }
+    }
+
     .header_menu {
         margin-left: auto;
         display: flex;
@@ -65,7 +145,7 @@
         align-items: center;
 
         li {
-            margin-left: 50px;
+            margin-left: 35px;
             font-family: $semiBold;
             font-size: 18px;
             line-height: 24px;
@@ -73,7 +153,7 @@
 
         a {
             color: $black;
-            font-family: $semiBold !important;
+            font-family: $regular !important;
             display: flex;
             align-items: center;
             flex-direction: row-reverse;
