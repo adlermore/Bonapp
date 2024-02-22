@@ -57,6 +57,40 @@
     font-weight: 500;
 }
 
+.icon-close:before {
+    content: "\e916";
+}
+
+.icon-language:before {
+    content: "\e917";
+}
+
+.icon-sellect:before {
+    content: "\e918";
+}
+
+.icon-store:before {
+    content: "\e919";
+}
+
+.icon-search:before {
+    content: "\e91a";
+}
+
+.icon-favorite:before {
+    content: "\e91b";
+}
+
+.icon-rest-location:before {
+    content: "\e91c";
+    color: #f0961c;
+}
+
+.icon-my-location:before {
+    content: "\e91d";
+    color: #e33441;
+}
+
 .icon-apple:before {
     content: "\e911";
     color: #006855;
@@ -151,6 +185,7 @@
 .icon-plus:before {
     content: "\e908";
 }
+
 
 
 
