@@ -1,7 +1,6 @@
 
 import React from 'react';
 import '../assets/scss/HomePage/_homePage.scss';
-// import '../assets/scss/RestaurantBlock/_restaurantBlock.scss';
 import RestaurantBlock from '../components/RestaurantBlock/RestaurantBlock';
 import { motion } from "framer-motion";
 import Reservation from '../components/Reservation/Reservation';
@@ -10,7 +9,8 @@ import categoryImg1 from '../assets/img/categoryImg1.png';
 import categoryImg2 from '../assets/img/categoryImg2.png';
 import categoryImg3 from '../assets/img/categoryImg3.png';
 import categoryImg4 from '../assets/img/categoryImg4.png';
-import bannerImg from '../assets/img/baner.png';
+import banerSvg from '../assets/img/banerSvg.png';
+import bannermobile from '../assets/img/bannermobile.png';
 import bannerImg2 from '../assets/img/baner2.png';
 import restaurantImg1 from '../assets/img/restaurantImg1.png';
 import restaurantImg2 from '../assets/img/restaurantImg2.png';
@@ -23,7 +23,6 @@ import restaurantImg8 from '../assets/img/restaurantImg8.png';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 
 const popularRestaurants = [
     {
@@ -215,8 +214,25 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <div className='banner_section'>
-                <img src={bannerImg} alt="banerImg" />
+            <div className='banner_section app_baner' >
+                <div className='banner_inner'>
+                    <span className='banner_decor'>Mobile Application</span>
+                    <div className='banner_svg'> <img src={banerSvg} alt="banerImg" /></div>
+                    <div className='banner_info'>
+                        <div className='banner_title'>Download our application</div>
+                        <div className='banner_description'>
+                            "With our app, you may discover the perfect dining partner that
+                            offers easy reservations and other benefits. Take advantage of your
+                            device to effortlessly and effectively enhance your culinary adventure."
+                        </div>
+                        <div className='banner_buttons'>
+                            <a href="/#" className='icon-apple store_btn'>App Store</a>
+                            <a href="/#" className='icon-android store_btn'>Play Market</a>
+                        </div>
+                    </div>
+                    <div className='banner_svg'> <img src={bannermobile} alt="banerImg" /></div>
+                </div>
+
             </div>
             <div className='popularRes_section'>
                 <div className='custom_container'>
@@ -232,7 +248,7 @@ const HomePage = () => {
             </div>
             <div className='newRes_section'>
                 <div className='custom_container'>
-                    <div className='block_title'>Popular</div>
+                    <div className='block_title'>New</div>
                     <div className='restaurants_list'>
                         <Slider {...settingsSlider}>
                             {NewRestaurants.map((restaurant) => (

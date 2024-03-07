@@ -49,6 +49,8 @@ const Header = ({ WelcomPageToggle }) => {
     const SearchRef = useRef(null);
 
     const ToggleMobile = () => {
+        setsearchOpened(true);
+        setlgopened(false);
         setOpen(!isOpen);
         if (document.body.classList.contains('menu_opened')) {
             document.body.classList.remove('menu_opened')
@@ -86,6 +88,12 @@ const Header = ({ WelcomPageToggle }) => {
     };
 
     const LoginPopupOpen = (e) => {
+        if (document.body.classList.contains('menu_opened')) {
+            setTimeout(() => {
+                setOpen(false);
+                document.body.classList.remove('menu_opened')
+            }, 500);
+        }
         e.preventDefault();
         setPopupopened(true);
         if (WelcomPageToggle) {
@@ -116,16 +124,33 @@ const Header = ({ WelcomPageToggle }) => {
 
     const handleLgToggle = () => {
         setlgopened(!lgopened)
-        setsearchOpened(false)
+        if (!document.body.classList.contains('menu_opened')) {
+            setsearchOpened(false)
+        }
     }
 
     const inputToggleSubmit = (e) => {
         e.preventDefault();
         if (SearchRef.current) {
-            setsearchOpened(!searchOpened)
+            if (!document.body.classList.contains('menu_opened')) {
+                setsearchOpened(!searchOpened)
+            }
             setlgopened(false);
         }
     }
+
+    const customStyles = {
+        option: (provided, state) => {
+            return {
+                ...provided,
+                boxShadow: '0 !important',
+                color: state.data === state.selectProps.value ? "white" : "#005848cc",
+                backgroundColor: state.data === state.selectProps.value ? "#005848cc" : "white"
+            };
+        },
+        menuPortal: base => ({ ...base, zIndex: 9999 }),
+
+    };
 
     return (
         <>
@@ -179,7 +204,7 @@ const Header = ({ WelcomPageToggle }) => {
                     <div className="login_popup popup">
                         <div className="popup_inner">
                             <div className={registerNext ? 'popup_container register_next' : 'popup_container '}>
-                                <a href="/#" className="popup_close icon_close" onClick={(e) => LoginPopupClose(e)}>X</a>
+                                <a href="/#" className={signToggle ? 'popup_close icon-close reverse' : 'popup_close icon-close '} onClick={(e) => LoginPopupClose(e)}> </a>
                                 <div className="back_inline">
                                     <div className="static_inline">
                                         <div className="static_description">
@@ -229,6 +254,10 @@ const Header = ({ WelcomPageToggle }) => {
                                                     </label>
                                                 </div>
                                                 <button type='submit' className="site_btn sign-btn">Sign Up</button>
+                                                <div className="mobile_sign">
+                                                    <div className="sign_description"> Do you Have an Acoount ?</div>
+                                                    <a href="/#" className="login_btn " onClick={(e) => signToggleSwitch(e)}> Sign In</a>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -248,16 +277,18 @@ const Header = ({ WelcomPageToggle }) => {
                                                                 options={optionsGender}
                                                                 placeholder="Gender*"
                                                                 onChange={(e) => field.onChange(e.value)}
-                                                                menuPortalTarget={document.body} 
-                                                                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                                                                menuPortalTarget={document.body}
+                                                                styles={customStyles}
                                                             />
                                                         )}
                                                     />
                                                     <p className="error-info" >This field is required</p>
                                                 </div>
-                                                <div className={errorsRegisterLast?.age?.type === "required" ? "form-block has-error" : "form-block"}  >
-                                                    <input type="number" placeholder="Age" className="form-control" name="age" {...registerLast("age", { required: true })} />
-                                                    <p className="error-info" >This field is required</p>
+                                                <div className={errorsRegisterLast?.age?.type === "required" || errorsRegisterLast?.age?.type === "min" || errorsRegisterLast?.age?.type === "max" ? "form-block has-error" : "form-block"}  >
+                                                    <input type="number" placeholder="Age" className="form-control" name="age" {...registerLast("age", { required: true, min: 18, max: 99 })} />
+                                                    {errorsRegisterLast?.age?.type === "min" && <p className="error-info">Age must be at least 18</p>}
+                                                    {errorsRegisterLast?.age?.type === "max" && <p className="error-info">Age must be at most 99</p>}
+                                                    {errorsRegisterLast?.age?.type === "required" && <p className="error-info">This field is required</p>}
                                                 </div>
                                                 <div className={errorsRegisterLast?.Employment?.type === "required" ? "form-block sellect_section has-error" : "form-block"}  >
                                                     <Controller
@@ -270,8 +301,8 @@ const Header = ({ WelcomPageToggle }) => {
                                                                 options={optionsEmployment}
                                                                 placeholder="Employment sectors*"
                                                                 onChange={(e) => field.onChange(e.value)}
-                                                                menuPortalTarget={document.body} 
-                                                                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                                                                menuPortalTarget={document.body}
+                                                                styles={customStyles}
                                                             />
                                                         )}
                                                     />
@@ -288,8 +319,8 @@ const Header = ({ WelcomPageToggle }) => {
                                                                 options={optionsPreferredClothing}
                                                                 placeholder="Preferred clothing*"
                                                                 onChange={(e) => field.onChange(e.value)}
-                                                                menuPortalTarget={document.body} 
-                                                                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                                                                menuPortalTarget={document.body}
+                                                                styles={customStyles}
                                                             />
                                                         )}
                                                     />
@@ -306,20 +337,20 @@ const Header = ({ WelcomPageToggle }) => {
                                                                 options={optionsRegions}
                                                                 placeholder="Region*"
                                                                 onChange={(e) => field.onChange(e.value)}
-                                                                menuPortalTarget={document.body} 
-                                                                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
+                                                                menuPortalTarget={document.body}
+                                                                styles={customStyles}
                                                             />
                                                         )}
                                                     />
                                                     <p className="error-info" >This field is required</p>
                                                 </div>
-                                                <button type='submit' className="site_btn sign-btn">Sign UPP</button>
+                                                <button type='submit' className="site_btn sign-btn">Sign UP</button>
                                             </form>
                                         </div>
                                     </div>
 
                                     <div className="sign_inner login_container">
-                                        <div className="sign_title">Create Account</div>
+                                        <div className="sign_title">Login</div>
                                         <div className="social_list">
                                             <a href="/#" className="social_link icon-google"> </a>
                                             <a href="/#" className="social_link icon-fb"> </a>
@@ -341,6 +372,10 @@ const Header = ({ WelcomPageToggle }) => {
                                                 </div>
                                                 <div className="inner_description">Forget your password?</div>
                                                 <button type='submit' className="site_btn sign-btn">Sign In</button>
+                                                <div className="mobile_sign">
+                                                    <div className="sign_description"> New to Bonapp ? </div>
+                                                    <a href="/#" className="login_btn" onClick={(e) => signToggleSwitch(e)}> Sign Up</a>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src: url('../fonts/icomoon.eot?36nvao');
-    src: url('../fonts/icomoon.eot?36nvao#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?36nvao') format('truetype'),
-        url('../fonts/icomoon.woff?36nvao') format('woff'),
-        url('../fonts/icomoon.svg?36nvao#icomoon') format('svg');
+    src: url('../fonts/icomoon.eot?dwng00');
+    src: url('../fonts/icomoon.eot?dwng00#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?dwng00') format('truetype'),
+        url('../fonts/icomoon.woff?dwng00') format('woff'),
+        url('../fonts/icomoon.svg?dwng00#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -55,6 +55,35 @@
     src: local("PoppinsLight"),
         url("../fonts/Poppins/Poppins-Light.ttf") format("truetype");
     font-weight: 500;
+}
+
+.icon-error:before {
+    content: "\e91f";
+}
+
+.icon-success:before {
+    content: "\e920";
+}
+
+.icon-call:before {
+    content: "\e921";
+}
+
+.icon-remove:before {
+    content: "\e922";
+}
+
+.icon-share:before {
+    content: "\e924";
+}
+
+.icon-play:before {
+    content: "\e925";
+    color: #006855;
+}
+
+.icon-android:before {
+    content: "\e91e";
 }
 
 .icon-close:before {
@@ -185,9 +214,6 @@
 .icon-plus:before {
     content: "\e908";
 }
-
-
-
 
 @mixin standardList() {
     padding: 0;
