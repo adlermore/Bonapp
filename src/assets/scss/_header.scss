@@ -16,8 +16,6 @@
             position: relative;
             right: 17px;
         }
-
-        // overflow-y: scroll;
         padding-right: 17px;
         box-sizing: content-box;
         background: $white;
@@ -396,9 +394,6 @@
         }
     }
 
-
-
-
     @media (max-width: 1440px) {
         height: 65px;
 
@@ -432,6 +427,17 @@
     }
 
     @media (max-width: 767px) {
+        &.welcome_header{
+            padding-right: 0;
+        }
+        .search_li {
+            order: -1;
+            margin-bottom: 10px;
+            a{
+                position: absolute !important;
+                right: 0;
+            }
+        }
         .hamburger_btn {
             display: flex;
             align-items: center;
@@ -522,14 +528,20 @@
             height: 100%;
             transition-delay: 0.1s;
         }
-
-        position: static !important;
     }
 }
 
 
 @media (max-width: 767px) {
-
+    .page_header {
+        position: fixed;
+    }
+    .welcome_header{
+        position: relative !important;
+    }
+    .header_container {
+        height: 100svh;
+    }
     .menu_opened {
         overflow: hidden !important;
 

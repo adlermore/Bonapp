@@ -3,7 +3,6 @@
 @import "./assets/scss/variables";
 @import "./assets/scss/mixins";
 
-
 body {
     overflow: hidden;
 }
@@ -171,7 +170,6 @@ a {
     bottom: -22px;
 }
 
-
 .has-error input,
 .has-error .textarea_input,
 .has-error .css-13cymwt-control,
@@ -190,12 +188,16 @@ a {
 
 .scrollbarWidth {
     width: 100%;
-    // height: 100%;
     overflow-y: scroll !important;
     padding-right: 17px;
     box-sizing: content-box;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    
+    @media (max-width: 767px) {
+        overflow: hidden !important;
+        padding: 0 !important;
+    }
 }
 
 .block_title {
@@ -215,7 +217,6 @@ a {
     text-align: center;
 }
 
-
 @media (max-width: 1600px) {
     .welcome_info {
         top: 130px;
@@ -223,9 +224,7 @@ a {
     }
 }
 
-
 @media (max-width: 1199px) {
-
     .block_title {
         font-size: 28px;
         line-height: 36px;
@@ -236,7 +235,6 @@ a {
         font-size: 16px;
         line-height: 32px;
     }
-
 }
 
 @media (max-width: 575px) {
@@ -257,15 +255,13 @@ a {
     z-index: 5;
 }
 
-
 .restaurant_block {
     width: 100%;
-
     .block_image {
         width: 100%;
         height: 260px;
         opacity: 1 !important;
-        border-radius: 6px;
+        border-radius: 10px;
         display: block;
         overflow: hidden;
         position: relative;
@@ -305,7 +301,8 @@ a {
 
     .hovered {
         .rest_name {
-            opacity: 0.3;
+            opacity: 1;
+            color: $siteRed;
         }
 
         .block_image {
@@ -342,7 +339,6 @@ a {
         }
     }
 
-
     @media (max-width: 767px) {
         .block_image {
             width: 100%;
@@ -375,7 +371,6 @@ a {
         }
     }
 }
-
 
 
 .infowindow {
@@ -429,52 +424,55 @@ a {
     box-sizing: content-box;
 }
 
-// .login_opened .popup {
-//     padding: 0;
-// }
-.register_next{
-    .inner_description{
+.register_next {
+    .inner_description {
         height: 30px;
     }
-    .form-block input{
+
+    .form-block input {
         padding: 0 20px;
         font-size: 14px;
         font-family: $regular;
         color: #9c9f9f !important;
     }
 }
-.form_sellect{
+
+.form_sellect {
     position: relative;
     margin-bottom: 20px;
-    input{
+
+    input {
         padding: 0 10px;
         font-size: 14px;
     }
 }
+
 .css-13cymwt-control,
-  .css-t3ipsp-control {
-      height: 45px;
-      position: relative;
-      z-index: 99;
-      width: 100%;
-      border: 1px solid #91BEB6 !important; 
-      border-radius: 10px;
-      padding: 0 10px;
-      font-size: 14px;
-      transition: 0.3s;
-      background: #E6F0EE !important;
-      line-height: 20px;
-      color: #B3B3B3;
-      >div {
-          height: 100% !important;
-          display: flex;
-          align-items: center;
-          flex-wrap: unset !important;
-      }
-      .css-qbdosj-Input input {
-        border: none  !important;
-      }    
-  }
+.css-t3ipsp-control {
+    height: 45px;
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    border: 1px solid #91BEB6 !important;
+    border-radius: 10px;
+    padding: 0 10px;
+    font-size: 14px;
+    transition: 0.3s;
+    background: #E6F0EE !important;
+    line-height: 20px;
+    color: #B3B3B3;
+
+    >div {
+        height: 100% !important;
+        display: flex;
+        align-items: center;
+        flex-wrap: unset !important;
+    }
+
+    .css-qbdosj-Input input {
+        border: none !important;
+    }
+}
 
 .popup {
     position: fixed;
@@ -504,11 +502,16 @@ a {
 
     .popup_close {
         position: absolute;
-        right: -25px;
-        color: $white;
+        right: 20px;
+        color: $siteGreen;
         font-family: $bold;
-        font-size: 22px;
-        top: -25px;
+        font-size: 18px;
+        z-index: 99;
+        top: 20px;
+        transition: 0.5s;
+        &.reverse{
+            color: $white !important;
+        }
     }
 
     .popup_container {
@@ -601,7 +604,8 @@ a {
             opacity: 0;
             visibility: hidden;
         }
-        .registerNext_container{
+
+        .registerNext_container {
             width: 0;
             z-index: -1;
             height: 0;
@@ -611,20 +615,22 @@ a {
     }
 
     .register_next {
-        .sign_container{
+        .sign_container {
             width: 100%;
             left: 0;
             border-radius: 5px !important;
 
         }
-        .registration_container{
+
+        .registration_container {
             width: 0;
             z-index: -1;
             height: 0;
             opacity: 0;
             visibility: hidden;
         }
-        .registerNext_container{
+
+        .registerNext_container {
             width: 100%;
             height: 100%;
             z-index: 2;
@@ -633,7 +639,7 @@ a {
             overflow: hidden;
         }
 
-    } 
+    }
 
     .static_description {
         font-size: 18px;
@@ -655,5 +661,47 @@ a {
         color: $white;
         margin-top: 20px;
     }
-
+    .mobile_sign{
+        display: none;
+    }
+    @media (max-width: 991px) {
+        padding: 0 20px !important;
+        width: -webkit-fill-available;
+        padding: 0;
+        .back_inline {
+            display: none;
+        }
+        .sign_container{
+            left: 0;
+            width: 100%;
+            border-radius: 5px;
+        }
+        .sign_description{
+            color: $siteGreen;
+            margin-bottom: -15px;
+        }
+        .mobile_sign{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+    @media (max-width: 575px) {
+        .sign_title {
+            font-size: 20px;
+            font-family: "PoppinsBold";
+            line-height: 28px;
+        }       
+        .sign_container {
+            position: relative;
+            padding: 30px 15px;
+            width: -webkit-fill-available;
+        } 
+        .checkbox_description , .sign_description{
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
 }
