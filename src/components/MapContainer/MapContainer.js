@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import { Link } from 'react-router-dom';
-
+import customIconImg from '../../assets/img/customLocation.png';
 
 const MapContainer = ({ array }) => {
 
@@ -13,6 +13,11 @@ const  googleMapsApiKey='AIzaSyB1gaI096ADqTOstjRjOWt2Xx21zH29v5Y';
   const defaultCenter = {
     lat: 40.180590, lng: 44.513228
   }
+
+  const customIcon = {
+    url: customIconImg, // Replace with the path to your custom icon
+    // scaledSize: new window.google.maps.Size(30, 45) 
+  };
 
   const onSelect = item => {
     setSelected(item);
@@ -226,6 +231,7 @@ const  googleMapsApiKey='AIzaSyB1gaI096ADqTOstjRjOWt2Xx21zH29v5Y';
                 return (
                   <Marker
                     key={item.Id}
+                    icon={customIcon}
                     position={item.location}
                     onClick={() => onSelect(item)}
                   />

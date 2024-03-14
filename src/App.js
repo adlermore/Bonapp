@@ -3,12 +3,14 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Welcome from './pages/Welcome';
 import HomePage from './pages/HomePage';
 import Restaurant from './pages/Restaurant';
+import Blog from "./pages/Blog";
 import RestaurantInner from './pages/RestaurantInner';
 import Header from './components/Header/Header';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import Footer from './components/Footer/Footer';
 import './App.scss';
 import { AnimatePresence , motion} from "framer-motion";
+import BlogInner from "./pages/BlogInner";
 
 function App() {
 
@@ -127,6 +129,8 @@ function App() {
                     <Routes location={location}>
                         <Route path="/" element={<Welcome isFirstMount={isFirstMount} />} />
                         <Route path="/home" element={<HomePage />} />
+                        <Route path="/blog" element={<Blog />} />
+                        <Route path="/blogInner" element={<BlogInner />} />
                         <Route path="/restaurant/:id" element={<Restaurant />} />
                         <Route path="/restaurantInner/:category/:id" element={<RestaurantInner />} />
                     </Routes>

@@ -1,10 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logoImg from '../../assets/img/logo.png';
 import { Spin as Hamburger } from 'hamburger-react'
 import { Controller, useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import Select from "react-select";
+import Select from 'react-select';
+import NotificationMessage from "../NotificationMessage/NotificationMessage";
 
 const optionsGender = [
     { value: 'Manle', label: 'Manle' },
@@ -45,8 +46,30 @@ const Header = ({ WelcomPageToggle }) => {
     const [lgopened, setlgopened] = useState(false);
     const [searchOpened, setsearchOpened] = useState(false);
     const [registerNext, setregisterNext] = useState(false);
+    const [isSuccessMessage, setisSuccessMessage] = useState(null);
+
     const headerRef = useRef(null);
     const SearchRef = useRef(null);
+    const menuPortalTargetRef = useRef(null);
+
+    useEffect(() => {
+        const handleBodyClick = () => {
+            setsearchOpened(false)
+            setlgopened(false);
+            if (registerNext === false && isSuccessMessage === null) {
+                setPopupopened(false);
+                setTimeout(() => {
+                    setregisterNext(false)
+                }, 500);
+            }
+        };
+
+        document.body.addEventListener('click', handleBodyClick);
+
+        return () => {
+            document.body.removeEventListener('click', handleBodyClick);
+        };
+    }, [registerNext ,isSuccessMessage]);
 
     const ToggleMobile = () => {
         setsearchOpened(true);
@@ -72,22 +95,32 @@ const Header = ({ WelcomPageToggle }) => {
         shouldFocusError: false,
     });
 
-
-
     const onSubmit = (data) => {
-        console.log('success !', data);
-        setregisterNext(true)
+        // console.log('success !', data);
+        setregisterNext(true);
     };
 
     const onLoginSubmit = () => {
         console.log('success !');
+        setisSuccessMessage(false);
+        setTimeout(() => {
+            setisSuccessMessage(null);
+        }, 2500);
     };
 
     const onRegisterLastSubmit = () => {
         console.log('success !');
+        setisSuccessMessage(true);
+        setTimeout(() => {
+            setregisterNext(false)
+            setSignToggle(!signToggle)
+        }, 2500);
+        setregisterNext(true);
     };
 
     const LoginPopupOpen = (e) => {
+        e.stopPropagation();
+        setlgopened(false);
         if (document.body.classList.contains('menu_opened')) {
             setTimeout(() => {
                 setOpen(false);
@@ -122,7 +155,8 @@ const Header = ({ WelcomPageToggle }) => {
         setSignToggle(!signToggle)
     }
 
-    const handleLgToggle = () => {
+    const handleLgToggle = (e) => {
+        e.stopPropagation();
         setlgopened(!lgopened)
         if (!document.body.classList.contains('menu_opened')) {
             setsearchOpened(false)
@@ -130,6 +164,7 @@ const Header = ({ WelcomPageToggle }) => {
     }
 
     const inputToggleSubmit = (e) => {
+        e.stopPropagation();
         e.preventDefault();
         if (SearchRef.current) {
             if (!document.body.classList.contains('menu_opened')) {
@@ -148,7 +183,7 @@ const Header = ({ WelcomPageToggle }) => {
                 backgroundColor: state.data === state.selectProps.value ? "#005848cc" : "white"
             };
         },
-        menuPortal: base => ({ ...base, zIndex: 9999 }),
+        menuPortal: base => ({ ...base, zIndex: 9999, position: 'absolute' }),
 
     };
 
@@ -174,22 +209,21 @@ const Header = ({ WelcomPageToggle }) => {
                                 <li><Link to="/">Popular</Link></li>
                                 <li><Link to="/">New</Link></li>
                                 <li><Link to="/">For cooperation</Link></li>
-                                <li><Link to="/">Blog</Link></li>
+                                <li><Link to="/blog">Blog</Link></li>
                                 <li>
-                                    <a
-                                        href="/#"
-                                        onClick={(e) => { LoginPopupOpen(e) }}
-                                    >
+                                    <a href="/#" onClick={(e) => { LoginPopupOpen(e) }}>
                                         login
                                     </a>
                                 </li>
-                                <li className={searchOpened ? 'search_li opened' : 'search_li'}>
+                                <li className={searchOpened ? 'search_li opened' : 'search_li'}
+                                    onClick={(e) => e.stopPropagation()}
+                                >
                                     <input type="text" ref={SearchRef} placeholder="Search Restaurant" />
                                     <a href="/#" className="icon-search"
                                         onClick={(e) => { inputToggleSubmit(e) }}
                                     > </a>
                                 </li>
-                                <li onClick={() => handleLgToggle()} className={lgopened ? 'lg_container opened' : 'lg_container'}>
+                                <li onClick={(e) => handleLgToggle(e)} className={lgopened ? 'lg_container opened' : 'lg_container'}>
                                     <a href="/#" onClick={(e) => e.preventDefault()} className="icon-language lg_block"> English </a>
                                     <div className="dropdown_list">
                                         <a href="/#" className="drop_li"> Russian </a>
@@ -203,7 +237,9 @@ const Header = ({ WelcomPageToggle }) => {
                 <div className={popupopened ? ' login_opened popup_container' : 'popup_container'}>
                     <div className="login_popup popup">
                         <div className="popup_inner">
-                            <div className={registerNext ? 'popup_container register_next' : 'popup_container '}>
+                            <div className={registerNext ? 'popup_container register_next' : 'popup_container '}
+                                onClick={(e) => e.stopPropagation()}
+                            >
                                 <a href="/#" className={signToggle ? 'popup_close icon-close reverse' : 'popup_close icon-close '} onClick={(e) => LoginPopupClose(e)}> </a>
                                 <div className="back_inline">
                                     <div className="static_inline">
@@ -266,7 +302,9 @@ const Header = ({ WelcomPageToggle }) => {
                                         <div className="inner_description">Please fill in the required fields to find the most comfortable table for you.</div>
                                         <div className="sign_form">
                                             <form onSubmit={handleSubmitForm3(onRegisterLastSubmit)}>
-                                                <div className={errorsRegisterLast?.gender?.type === "required" ? "form-block sellect_section has-error" : "form-block"}  >
+                                                <div className={errorsRegisterLast?.gender?.type === "required" ? "form-block sellect_section has-error" : "form-block"}
+                                                    ref={menuPortalTargetRef}
+                                                >
                                                     <Controller
                                                         name="gender"
                                                         control={control}
@@ -385,6 +423,7 @@ const Header = ({ WelcomPageToggle }) => {
                     </div>
                 </div>
             </motion.header>
+            <NotificationMessage isSuccess={isSuccessMessage} />
         </>
     )
 }

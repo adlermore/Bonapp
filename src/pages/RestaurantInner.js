@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from 'react';
 import bg1 from '../assets/img/bg1.png';
 import bg2 from '../assets/img/bg2.png';
@@ -11,12 +10,17 @@ import menuImg1 from '../assets/img/menu1.png';
 import menuImg2 from '../assets/img/menu2.png';
 import menuImg3 from '../assets/img/menu3.png';
 import tableImg from '../assets/img/tableImg.png';
-
 import Reservation from '../components/Reservation/Reservation';
-import restaurantInnerImg1 from '../assets/img/restaurantInner1.png'
+import CoverImage1 from '../assets/img/RestaurantInnerbaner1.png';
+import CoverImage2 from '../assets/img/RestaurantInnerbaner2.png';
+import restaurantSlider1 from '../assets/img/restaurantSlider1.png';
+import restaurantSlider2 from '../assets/img/restaurantSlider2.png';
+import restaurantSlider3 from '../assets/img/restaurantSlider3.png';
+import restaurantSlider4 from '../assets/img/restaurantSlider4.png';
+import restaurantSlider5 from '../assets/img/restaurantSlider5.png';
 import Slider from 'react-slick';
 import { setupSdk } from "@matterport/sdk";
-import Hamburger from 'hamburger-react';
+// import Hamburger from 'hamburger-react';
 import MapContainer from '../components/MapContainer/MapContainer';
 import '../assets/scss/RestaurantInner/_restaurantsInner.scss';
 import "slick-carousel/slick/slick.css";
@@ -25,12 +29,15 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import { Fancybox as NativeFancybox } from "@fancyapps/ui";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import { Scrollbar } from 'react-scrollbars-custom';
 
 const RestaurantInner = () => {
 
     const container = useRef(null)
     const [started, setStarted] = useState(false);
+    const [playStart, setPlayStart] = useState(false);
     const [reservePopup, setreservePopup] = useState(false);
+    const [galleryPopup, setGalleryPopup] = useState(false);
 
     const [restaurantData, setRestaurantData] = useState({
         Id: 1,
@@ -61,8 +68,6 @@ const RestaurantInner = () => {
         shouldFocusError: false,
     });
 
-
-
     function Fancybox(props) {
         const containerRef = useRef(null);
 
@@ -90,7 +95,6 @@ const RestaurantInner = () => {
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
-
 
         const path = window.location.href;
         const parts = path.split("/");
@@ -157,16 +161,60 @@ const RestaurantInner = () => {
         ]
     };
 
-    const reserveOpened = ()=>{
-        setreservePopup(true);
-        document.body.style.overflow= 'hidden';
+    const settingsMainSlider = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    };
+
+    const settingsGallerySlider = {
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            }
+        ]
     }
 
-    const reserveClose = (e)=>{
+    const reserveOpened = () => {
+        setreservePopup(true);
+        document.body.style.overflow = 'hidden';
+    }
+
+    const reserveClose = (e) => {
         e.preventDefault();
         setreservePopup(false);
-        document.body.style.overflow= 'auto';
+        document.body.style.overflow = 'auto';
 
+    }
+
+    const mapinitPlay = (e) => {
+        e.preventDefault();
+        setPlayStart(true)
+    }
+    const galleryPopupOpen = ()=>{
+        setGalleryPopup(true);
+        document.getElementById('wrapper').classList.add('scrollbarWidth');
+        document.getElementById('header').classList.add('scrollbarWidth');
+        document.body.style.overflow = 'hidden';
+    }
+    const galleryPopupClose = (e)=>{
+        e.preventDefault();
+        setGalleryPopup(false);
+        document.getElementById('wrapper').classList.remove('scrollbarWidth');
+        document.getElementById('header').classList.remove('scrollbarWidth');
+        document.body.style.overflow = 'auto';
     }
 
     return (
@@ -183,31 +231,121 @@ const RestaurantInner = () => {
                 isInnerPage={true}
             />
             <div className='inner_cover'>
-                <Fancybox
-                    options={{
-                        Carousel: {
-                            infinite: false,
-                        },
-                    }}
-                >
-                    <ul className="gallery_list">
-                        <li href={restaurantInnerImg1} data-fancybox="gallery">
-                            <img src={restaurantInnerImg1} alt="gallery-img" />
-                            <button className="gallery_btn">See All</button>
-                        </li>
-                        <li href={menuImg1} data-fancybox="gallery">
-                            <img src={menuImg1} alt="gallery-img" />
-                        </li>
-                        <li href={menuImg2} data-fancybox="gallery">
-                            <img src={menuImg2} alt="gallery-img" />
-                        </li>
-                        <li href={menuImg3} data-fancybox="gallery">
-                            <img src={menuImg3} alt="gallery-img" />
-                        </li>
-                    </ul>
-                </Fancybox>
+                <Slider {...settingsMainSlider}>
+                    <div className='slider_container'>
+                        <img src={CoverImage1} alt='CoverImg' />
+                    </div>
+                    <div className='slider_container'>
+                        <img src={CoverImage2} alt='CoverImg' />
+                    </div>
+                </Slider>
             </div>
             <div className="custom_container">
+                <div className="inner_section">
+                    <div className="section_description">
+                        "Welcome to our 'Find Your Table' page! Experience the convenience of selecting
+                        your perfect dining spot with Bonapp's innovative 3D map feature. Explore our
+                        restaurant layout, visualize each table's location, and choose your favorite
+                        spot with ease. Whether you prefer a cozy corner or a table with a view, Bonapp
+                        empowers you to customize your dining experience like never before. Let's find
+                        your perfect table and make your reservation today!"
+                    </div>
+                </div>
+                <div className="inner_section">
+                    <div className='section_title'>
+                        3D Map
+                    </div>
+                    <div className="Map_container">
+                        <div className="container" ref={container}> </div>
+                        <div className={playStart ? 'preload_wrapper ' : 'active preload_wrapper'}>
+                            <a href="/#" className='icon-play play_btn'
+                                onClick={e => mapinitPlay(e)}
+                            > </a>
+                        </div>
+                    </div>
+                    <button onClick={galleryPopupOpen} className='site_btn transparent_btn'>Photo Gallery</button>
+                    <div className={galleryPopup ? 'gallery_popup opened' : 'gallery_popup'}>
+                        <div className='gallery_header'>
+                            <div className='custom_container'>
+                                <div className='rest_name'>Restaurant Name</div>
+                                <a href='/#' onClick={e=>galleryPopupClose(e)} className='gallery_close icon-close'> </a>
+                            </div>
+                        </div>
+                        <div className='gallery_container'>
+                            <Scrollbar style={{ width: 'auto', height: 'auto' }}>
+                            <Fancybox>
+                                <div className='custom_container'>
+                                    <div className='gallery_label'>Restaurant photos</div>
+                                    <ul className="gallery_list">
+                                        <li href={restaurantSlider1} data-fancybox="gallery">
+                                            <img src={restaurantSlider1} alt="gallery-img" />
+                                        </li>
+                                        <li href={restaurantSlider2} data-fancybox="gallery">
+                                            <img src={restaurantSlider2} alt="gallery-img" />
+                                        </li>
+                                        <li href={restaurantSlider3} data-fancybox="gallery">
+                                            <img src={restaurantSlider3} alt="gallery-img" />
+                                        </li>
+                                        <li href={restaurantSlider4} data-fancybox="gallery">
+                                            <img src={restaurantSlider4} alt="gallery-img" />
+                                        </li>
+                                        <li href={restaurantSlider5} data-fancybox="gallery">
+                                            <img src={restaurantSlider5} alt="gallery-img" />
+                                        </li>
+                                        <li href={restaurantSlider1} data-fancybox="gallery">
+                                            <img src={restaurantSlider1} alt="gallery-img" />
+                                        </li>
+                                        <li href={CoverImage1} data-fancybox="gallery">
+                                            <img src={CoverImage1} alt="gallery-img" />
+                                        </li>
+                                        <li href={CoverImage2} data-fancybox="gallery">
+                                            <img src={CoverImage2} alt="gallery-img" />
+                                        </li>
+                                        <li href={restaurantSlider5} data-fancybox="gallery">
+                                            <img src={restaurantSlider5} alt="gallery-img" />
+                                        </li>
+                                        <li href={restaurantSlider1} data-fancybox="gallery">
+                                            <img src={restaurantSlider1} alt="gallery-img" />
+                                        </li>
+                                        <li href={restaurantSlider4} data-fancybox="gallery">
+                                            <img src={restaurantSlider4} alt="gallery-img" />
+                                        </li>
+                                        <li href={menuImg1} data-fancybox="gallery">
+                                            <img src={menuImg1} alt="gallery-img" />
+                                        </li>
+                                        <li href={menuImg2} data-fancybox="gallery">
+                                            <img src={menuImg2} alt="gallery-img" />
+                                        </li>
+                                        <li href={menuImg3} data-fancybox="gallery">
+                                            <img src={menuImg3} alt="gallery-img" />
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </Fancybox>
+                            </Scrollbar>
+                        </div>
+                    </div>
+                    <div className='gallery_slider'>
+                        <Slider {...settingsGallerySlider}>
+                            <div className='slider_image'>
+                                <img src={restaurantSlider1} alt='CoverImg' />
+                            </div>
+                            <div className='slider_image'>
+                                <img src={restaurantSlider2} alt='CoverImg' />
+                            </div>
+                            <div className='slider_image'>
+                                <img src={restaurantSlider3} alt='CoverImg' />
+                            </div>
+                            <div className='slider_image'>
+                                <img src={restaurantSlider4} alt='CoverImg' />
+                            </div>
+                            <div className='slider_image'>
+                                <img src={restaurantSlider5} alt='CoverImg' />
+                            </div>
+                        </Slider>
+                    </div>
+                </div>
                 <div className="inner_section">
                     <div className="section_title">What clients say</div>
                     <div className="commets_slider">
@@ -228,8 +366,6 @@ const RestaurantInner = () => {
                                     <span className='icon-star'></span>
                                     <span className='icon-star'></span>
                                     <span className='icon-star'></span>
-                                    <span className='icon-star'></span>
-                                    <span className='icon-star'></span>
                                 </div>
                             </div>
                             <div className="commets_block">
@@ -247,9 +383,6 @@ const RestaurantInner = () => {
                                 <div className='rest_rate'>
                                     <span className='icon-star'></span>
                                     <span className='icon-star'></span>
-                                    <span className='icon-star'></span>
-                                    <span className='icon-star'></span>
-                                    <span className='icon-star'></span>
                                 </div>
                             </div>
                             <div className="commets_block">
@@ -265,7 +398,6 @@ const RestaurantInner = () => {
                                     dessert. It's a little slice of culinary heaven."
                                 </div>
                                 <div className='rest_rate'>
-                                    <span className='icon-star'></span>
                                     <span className='icon-star'></span>
                                     <span className='icon-star'></span>
                                     <span className='icon-star'></span>
@@ -334,38 +466,18 @@ const RestaurantInner = () => {
                             </div>
                         </Slider>
                     </div>
+
                 </div>
+
                 <div className="inner_section">
-                    <div className='section_title'>
-                        Find your table
-                    </div>
+                    <div className="section_title">Choose your menu</div>
                     <div className="section_description">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                        lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
-                        iriure dolor in hendrerit in vulputate
+                        "Discover Delicious! Dive into our menu filled with irresistible dishes, from starters to desserts, each made with love and the freshest ingredients. Let your taste buds guide you through a culinary adventure at Delicious!"
                     </div>
-                </div>
-                <div className="inner_section">
-                    <div className='section_title'>
-                        3D Map
-                    </div>
-                    <div className="Map_container">
-                        <div className="container" ref={container}></div>
-                    </div>
-                </div>
-                <div className="inner_section">
-                    <div className="section_title">What clients say</div>
-                    <div className="section_description">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                        nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-                        lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
-                        iriure dolor in hendrerit in vulputate
-                    </div>
+                    <div className='site_btn transparent_btn'>See full maneu</div>
+
                     <div className="section_menu">
-                        <div className="section_list">
+                        {/* <div className="section_list">
                             <a href="/#" className="menu_block">All</a>
                             <a href="/#" className="menu_block">Lunch</a>
                             <a href="/#" className="menu_block">Salad</a>
@@ -385,7 +497,7 @@ const RestaurantInner = () => {
                             <div className='search_btn'>
                                 <button>Search</button>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="menu_list">
                             <div className="menu_block">
                                 <a href="/#" className="image_block">
@@ -463,7 +575,7 @@ const RestaurantInner = () => {
                     </div>
                 </div>
             </div>
-            <button type='button' className="site_btn reservepopup" onClick={()=>reserveOpened()}>Reserve</button>
+            <button type='button' className="site_btn reservepopup" onClick={() => reserveOpened()}>Reserve</button>
             <div className="mapInner_section">
                 <MapContainer array={currentLocation} isAdding={true} error={false} />
             </div>
@@ -492,30 +604,51 @@ const RestaurantInner = () => {
                                 <input type="number" placeholder="Phone Number" className="form-control" name="phone_number" {...register("phone_number", { required: true })} />
                                 <p className="error-info" >This field is required</p>
                             </div>
-                            <button type='submit' className="site_btn send-btn">Find your table</button>
+                            <div className={errors?.comment?.type === "required" ? "form-block commet_block has-error" : " commet_block form-block"}  >
+                                <div className='block_label'>Leave Your Opinion Here</div>
+                                <textarea placeholder="Leave Your Opinion Here" className="form-control" name="comment" {...register("comment", { required: true })} />
+                                <p className="error-info" >This field is required</p>
+                            </div>
+                            <div className={errors.rate ? 'rating_line has-error' : 'rating_line'}>
+                                <div className="rate">
+                                    <input type="radio" id="star5" name="rate" value="5" {...register("rate", { required: true })} />
+                                    <label htmlFor="star5" title="text">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4" {...register("rate", { required: true })} />
+                                    <label htmlFor="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" {...register("rate", { required: true })} />
+                                    <label htmlFor="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" {...register("rate", { required: true })} />
+                                    <label htmlFor="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1" {...register("rate", { required: true })} />
+                                    <label htmlFor="star1" title="text">1 star</label>
+                                </div>
+                                <p className="error-info">Please select a rating</p>
+                                <button type='submit' className="site_btn send-btn">Save</button>
+                            </div>
+
                         </form>
                     </div>
                 </div>
             </div>
 
             <div className={reservePopup ? ' login_opened popup_container' : 'popup_container'}>
-                    <div className="login_popup popup">
-                        <div className="popup_inner">
-                            <div className="popup_container">
-                                <a href="/#" className="popup_close icon_close" onClick={(e) => reserveClose(e)}>X</a>
-                                <div className='table_block'>
-                                    <div className='table_title'>Choose your tables</div>
-                                    <div className='table_desc'>Active /Passive tables</div>
-                                    <img src={tableImg} alt="tableImg" />
-                                    <div className='buttons_line'>
-                                        <a href="/#" className='table_btn'>Skip</a>
-                                        <a href="/#" className='table_btn save'>Save</a>
-                                    </div>
+                <div className="login_popup popup">
+                    <div className="popup_inner">
+                        <div className="popup_container">
+                            <a href="/#" className="popup_close icon_close" onClick={(e) => reserveClose(e)}>X</a>
+                            <div className='table_block'>
+                                <div className='table_title'>Choose your tables</div>
+                                <div className='table_desc'>Active /Passive tables</div>
+                                <img src={tableImg} alt="tableImg" />
+                                <div className='buttons_line'>
+                                    <a href="/#" className='table_btn'>Skip</a>
+                                    <a href="/#" className='table_btn save'>Save</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
         </motion.div >
     )
