@@ -40,7 +40,6 @@ import cafe7 from '../assets/img/decor/cafe7.png';
 import cafe8 from '../assets/img/decor/cafe8.png';
 import '../assets/scss/MainSlider/_mainSlider.scss';
 
-
 const restDecors = [rest1, rest2, rest3, rest4, rest5, rest6, rest7];
 const cafeDecors = [cafe1, cafe2, cafe1, cafe3, cafe4, cafe5, cafe1, cafe6, cafe7, cafe1, cafe8];
 const foodDecors = [food1, food2, food3, food4, food5, food2, food6, food3];
@@ -91,6 +90,9 @@ const Welcome = ({ isFirstMount }) => {
             }, 100);
         }
     });
+
+    const handleCurrentUserDetect = props => props?.user?.info?.id;
+    
 
     const content = (isFirstMount) => ({
         animate: {
