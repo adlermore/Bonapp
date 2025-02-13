@@ -7,7 +7,6 @@ const MapContainer = ({ array }) => {
 
 const  googleMapsApiKey='AIzaSyB1gaI096ADqTOstjRjOWt2Xx21zH29v5Y';
 
-
   const [selected, setSelected] = useState({});
   const [currentPosition, setCurrentPosition] = useState({});
   const defaultCenter = {
@@ -16,7 +15,6 @@ const  googleMapsApiKey='AIzaSyB1gaI096ADqTOstjRjOWt2Xx21zH29v5Y';
 
   const customIcon = {
     url: customIconImg, // Replace with the path to your custom icon
-    // scaledSize: new window.google.maps.Size(30, 45) 
   };
 
   const onSelect = item => {
@@ -209,8 +207,8 @@ const  googleMapsApiKey='AIzaSyB1gaI096ADqTOstjRjOWt2Xx21zH29v5Y';
   },[])
 
   const { isLoaded } = useJsApiLoader({ googleMapsApiKey });
+  
   if (!isLoaded) {
-
     return null;
   }
 

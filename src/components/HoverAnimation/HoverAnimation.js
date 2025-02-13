@@ -9,6 +9,7 @@ const HoverAnimation = ({currentColor}) => {
         e.preventDefault();
         navigate(`/home`)
     }
+    
     return (
         <div className={`gsap_section welcome_btn ${currentColor}`}>
             <div>

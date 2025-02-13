@@ -96,7 +96,6 @@ const Header = ({ WelcomPageToggle }) => {
     });
 
     const onSubmit = (data) => {
-        // console.log('success !', data);
         setregisterNext(true);
     };
 
@@ -184,7 +183,6 @@ const Header = ({ WelcomPageToggle }) => {
             };
         },
         menuPortal: base => ({ ...base, zIndex: 9999, position: 'absolute' }),
-
     };
 
     return (

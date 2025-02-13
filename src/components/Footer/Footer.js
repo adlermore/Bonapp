@@ -54,7 +54,6 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="footer_copytoght">
-
                     Copyright 2024 / Website by  <a target='blank' href="https://lightdesignstudio.am/" >Light Design Studio</a>
                 </div>
             </div>

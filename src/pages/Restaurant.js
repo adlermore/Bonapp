@@ -17,7 +17,6 @@ import RestaurantBlock from '../components/RestaurantBlock/RestaurantBlock';
 import '../assets/scss/Restaurants/_restaurants.scss';
 import MapContainer from '../components/MapContainer/MapContainer';
 import { motion } from "framer-motion";
-// import '../assets/scss/RestaurantBlock/_restaurantBlock.scss';
 
 const Restaurant = () => {
 

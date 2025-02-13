@@ -20,7 +20,6 @@ import restaurantSlider4 from '../assets/img/restaurantSlider4.png';
 import restaurantSlider5 from '../assets/img/restaurantSlider5.png';
 import Slider from 'react-slick';
 import { setupSdk } from "@matterport/sdk";
-// import Hamburger from 'hamburger-react';
 import MapContainer from '../components/MapContainer/MapContainer';
 import '../assets/scss/RestaurantInner/_restaurantsInner.scss';
 import "slick-carousel/slick/slick.css";
@@ -80,7 +79,7 @@ const RestaurantInner = () => {
                 NativeFancybox.unbind(container);
                 NativeFancybox.close();
             };
-        });
+        },[]);
 
         return <div ref={containerRef}>{props.children}</div>;
     }
@@ -125,6 +124,7 @@ const RestaurantInner = () => {
         if (restaurantData.Category !== desiredPart) {
             setRestaurantData(newPageData);
         }
+
         if (!started && container.current) {
             setStarted(true);
             setupSdk("fn59adz68mq4gibz8c3at3fsc", {
@@ -321,7 +321,6 @@ const RestaurantInner = () => {
                                         </li>
                                     </ul>
                                 </div>
-
                             </Fancybox>
                             </Scrollbar>
                         </div>
@@ -477,27 +476,6 @@ const RestaurantInner = () => {
                     <div className='site_btn transparent_btn'>See full maneu</div>
 
                     <div className="section_menu">
-                        {/* <div className="section_list">
-                            <a href="/#" className="menu_block">All</a>
-                            <a href="/#" className="menu_block">Lunch</a>
-                            <a href="/#" className="menu_block">Salad</a>
-                            <a href="/#" className="menu_block">Soup</a>
-                            <a href="/#" className="menu_block">Fast Food</a>
-                        </div>
-                        <div className="filter_container">
-                            <div className="filter_block">
-                                <div className="fileter_btn">
-                                    <Hamburger size={32} color="#3C3C3C" distance="md" />
-                                    <span>Filter</span>
-                                </div>
-                            </div>
-                            <div className="search_block">
-                                <input type="text" placeholder='Restaurant name, Food name' />
-                            </div>
-                            <div className='search_btn'>
-                                <button>Search</button>
-                            </div>
-                        </div> */}
                         <div className="menu_list">
                             <div className="menu_block">
                                 <a href="/#" className="image_block">
@@ -596,8 +574,6 @@ const RestaurantInner = () => {
                             <div className={errors?.user_email?.type === "required" || errors?.user_email?.type === "pattern" ? "mail_inline form-block has-error" : "mail_inline form-block"}  >
                                 <div className='block_label'>Mail</div>
                                 <input placeholder="Email" className="form-control" name="user_email" {...register("user_email", { required: true, pattern: /^\S+@\S+$/i })} />
-                                {errors?.user_email?.type === "pattern" ? <p className="error-info email-info" >invalid Email</p> :
-                                    <p className="error-info" >This field is required</p>}
                             </div>
                             <div className={errors?.phone_number?.type === "required" ? "form-block has-error" : "form-block"}  >
                                 <div className='block_label'>Phone Number</div>
@@ -630,7 +606,6 @@ const RestaurantInner = () => {
                     </div>
                 </div>
             </div>
-
             <div className={reservePopup ? ' login_opened popup_container' : 'popup_container'}>
                 <div className="login_popup popup">
                     <div className="popup_inner">
@@ -649,7 +624,6 @@ const RestaurantInner = () => {
                     </div>
                 </div>
             </div>
-
         </motion.div >
     )
 }
